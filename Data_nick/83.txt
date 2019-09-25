@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Horror Pelt
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+17% increased Armour
++3 to maximum Life
++10% to Cold Resistance
++11% to Lightning Resistance
+Reflects 4 Physical Damage to Melee Attackers

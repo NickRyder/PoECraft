@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Ghoul Curtain
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++7 to Armour
+1.1 Life Regenerated per second
++8% to Cold Resistance
++6% to Lightning Resistance

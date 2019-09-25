@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Glyph Shroud
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+12% increased Armour
++5 to maximum Life
++11% to Cold Resistance
++7% to Lightning Resistance
+19% increased Stun and Block Recovery

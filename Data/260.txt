@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Blight Shelter
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+15% increased Armour
+1.5 Life Regenerated per second
++6% to Cold Resistance
+11% increased Stun and Block Recovery

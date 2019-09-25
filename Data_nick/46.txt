@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Corpse Carapace
+Plate Vest
+--------
+Armour: 34 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to Armour
+21% increased Armour
++8% to Fire Resistance
++7% to Lightning Resistance

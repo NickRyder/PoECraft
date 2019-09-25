@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Dragon Mantle
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++6 to Armour
+13% increased Armour
++5 to maximum Life
+17% increased Stun and Block Recovery

@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Gloom Keep
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++12 to Strength
++4 to Armour
+6% increased Armour
+7% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

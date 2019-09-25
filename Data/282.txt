@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Hate Suit
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+17% increased Armour
++4 to maximum Life
++9% to Fire Resistance
++7% to Cold Resistance

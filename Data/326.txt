@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Plague Shelter
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++4 to Armour
+1.2 Life Regenerated per second
++10% to Lightning Resistance
+13% increased Stun and Block Recovery

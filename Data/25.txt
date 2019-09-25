@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Havoc Ward
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++9 to Strength
++4 to Armour
+28% increased Armour
++6% to Cold Resistance
+6% increased Stun and Block Recovery

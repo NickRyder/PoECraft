@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Maelström Shell
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++12 to Strength
+12% increased Armour
++10% to Fire Resistance
+20% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

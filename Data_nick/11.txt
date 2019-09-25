@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Cataclysm Wrap
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++10 to Strength
++8 to Armour
++5 to maximum Life
+1.2 Life Regenerated per second
++10% to Lightning Resistance
+Reflects 3 Physical Damage to Melee Attackers

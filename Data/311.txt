@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Foe Curtain
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+24% increased Armour
+1.2 Life Regenerated per second
++6% to Cold Resistance
++7% to Lightning Resistance

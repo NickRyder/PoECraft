@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Glyph Shelter
+Plate Vest
+--------
+Armour: 32 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
++10 to Armour
+12% increased Armour
++7 to maximum Life
+7% increased Stun and Block Recovery

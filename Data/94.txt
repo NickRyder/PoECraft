@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Vengeance Skin
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
+35% increased Armour
++8 to maximum Life
++10% to Cold Resistance
+19% increased Stun and Block Recovery

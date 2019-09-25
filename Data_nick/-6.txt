@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Mind Shroud
+Plate Vest
+--------
+Armour: 20 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to Strength
+7% increased Armour
++9 to maximum Life
++6% to Fire Resistance
+7% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

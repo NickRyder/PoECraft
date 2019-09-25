@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Pain Keep
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
+30% increased Armour
++7 to maximum Life
+1.7 Life Regenerated per second
+7% increased Stun and Block Recovery

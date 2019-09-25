@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Brimstone Jack
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+34% increased Armour
++6% to Fire Resistance
+7% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

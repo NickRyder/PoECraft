@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Damnation Skin
+Plate Vest
+--------
+Armour: 35 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++10 to Armour
+19% increased Armour
+12% increased Stun and Block Recovery

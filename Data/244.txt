@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Eagle Veil
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
+18% increased Armour
++10% to Fire Resistance
+13% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

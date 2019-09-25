@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Storm Skin
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
+9% increased Armour
+1.5 Life Regenerated per second
+7% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

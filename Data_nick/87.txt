@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Phoenix Suit
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
+15% increased Armour
++8% to Cold Resistance
+13% increased Stun and Block Recovery

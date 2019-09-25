@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Woe Sanctuary
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++4 to Armour
+1.7 Life Regenerated per second
++11% to Fire Resistance
+13% increased Stun and Block Recovery

@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Doom Cloak
+Plate Vest
+--------
+Armour: 32 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++5 to Armour
+34% increased Armour
+18% increased Stun and Block Recovery

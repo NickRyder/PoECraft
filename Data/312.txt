@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Sorrow Ward
+Plate Vest
+--------
+Armour: 33 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++7 to Armour
+25% increased Armour
++10% to Fire Resistance
+7% increased Stun and Block Recovery

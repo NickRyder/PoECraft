@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Doom Skin
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+10% increased Armour
++5 to maximum Life
+1.7 Life Regenerated per second
+6% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

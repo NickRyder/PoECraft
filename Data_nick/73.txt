@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Rapture Keep
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+26% increased Armour
+1.2 Life Regenerated per second
++11% to Cold Resistance
+13% increased Stun and Block Recovery

@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Brood Mantle
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Armour
++8 to maximum Life
++9% to Fire Resistance
++7% to Cold Resistance
+Reflects 4 Physical Damage to Melee Attackers

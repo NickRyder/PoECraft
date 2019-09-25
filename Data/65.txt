@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Torment Veil
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++6 to Armour
++6 to maximum Life
++8% to Cold Resistance
++10% to Lightning Resistance

@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Soul Shelter
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+26% increased Armour
+1.8 Life Regenerated per second
+11% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

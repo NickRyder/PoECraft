@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Foe Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+10% increased Armour
++5 to maximum Life
+1.5 Life Regenerated per second
++7% to Fire Resistance
+6% increased Stun and Block Recovery

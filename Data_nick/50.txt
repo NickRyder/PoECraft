@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Apocalypse Shelter
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++10 to Strength
+16% increased Armour
++9 to maximum Life
+Reflects 4 Physical Damage to Melee Attackers

@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Foe Guardian
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+19% increased Armour
+1.3 Life Regenerated per second
++8% to Cold Resistance
+Reflects 4 Physical Damage to Melee Attackers
