@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Morbid Cloak
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+25% increased Armour
+1.4 Life Regenerated per second
++7% to Fire Resistance
++8% to Lightning Resistance

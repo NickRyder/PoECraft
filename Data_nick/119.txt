@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Woe Coat
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to maximum Life
+1.8 Life Regenerated per second
++8% to Fire Resistance
++8% to Lightning Resistance

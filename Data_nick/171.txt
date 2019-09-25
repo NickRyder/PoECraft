@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Loath Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
+9% increased Armour
++7% to Lightning Resistance
+19% increased Stun and Block Recovery

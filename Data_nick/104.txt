@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Chimeric Mantle
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+21% increased Armour
++3 to maximum Life
++10% to Lightning Resistance
+Reflects 1 Physical Damage to Melee Attackers

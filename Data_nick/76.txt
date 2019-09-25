@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Phoenix Pelt
+Plate Vest
+--------
+Armour: 31 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++10 to Strength
++4 to Armour
+33% increased Armour
+6% increased Stun and Block Recovery

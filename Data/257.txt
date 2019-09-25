@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Victory Wrap
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++4 to Armour
+9% increased Armour
++8 to maximum Life
++10% to Fire Resistance
+7% increased Stun and Block Recovery

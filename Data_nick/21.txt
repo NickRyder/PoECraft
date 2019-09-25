@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Rift Hide
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to Armour
+12% increased Armour
++6% to Fire Resistance
+7% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

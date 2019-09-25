@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Brimstone Skin
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++6 to Armour
+6% increased Armour
++6 to maximum Life
+19% increased Stun and Block Recovery

@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Foe Sanctuary
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+29% increased Armour
++7 to maximum Life
+1.9 Life Regenerated per second
++10% to Fire Resistance
+7% increased Stun and Block Recovery

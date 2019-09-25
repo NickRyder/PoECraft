@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Kraken Pelt
+Plate Vest
+--------
+Armour: 31 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
++6 to Armour
+23% increased Armour
++8% to Cold Resistance

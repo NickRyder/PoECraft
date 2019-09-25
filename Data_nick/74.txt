@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Tempest Keep
+Plate Vest
+--------
+Armour: 31 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to Armour
+10% increased Armour
++8% to Lightning Resistance
+18% increased Stun and Block Recovery

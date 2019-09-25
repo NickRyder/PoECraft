@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Entropy Wrap
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+1.5 Life Regenerated per second
++10% to Cold Resistance
++8% to Lightning Resistance
+Reflects 1 Physical Damage to Melee Attackers

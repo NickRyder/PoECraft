@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Foe Carapace
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Strength
++6 to Armour
++8 to maximum Life
++10% to Fire Resistance

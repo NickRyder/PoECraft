@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Cataclysm Curtain
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
+16% increased Armour
++7% to Cold Resistance
+11% increased Stun and Block Recovery

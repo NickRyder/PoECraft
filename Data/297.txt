@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Vortex Carapace
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
++6 to maximum Life
++6% to Lightning Resistance
+Reflects 1 Physical Damage to Melee Attackers

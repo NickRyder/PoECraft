@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Torment Sanctuary
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+12% increased Armour
++6 to maximum Life
+1.8 Life Regenerated per second
++9% to Lightning Resistance
+6% increased Stun and Block Recovery

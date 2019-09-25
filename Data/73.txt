@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Fate Veil
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
+23% increased Armour
++5 to maximum Life
++7% to Fire Resistance

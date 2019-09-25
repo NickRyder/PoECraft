@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Dragon Coat
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++4 to Armour
++4 to maximum Life
++10% to Cold Resistance
++11% to Lightning Resistance
+Reflects 3 Physical Damage to Melee Attackers

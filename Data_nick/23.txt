@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Phoenix Shell
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to Armour
++6 to maximum Life
+1.5 Life Regenerated per second
++7% to Lightning Resistance

@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Rage Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+9% increased Armour
++5 to maximum Life
++11% to Fire Resistance
++11% to Cold Resistance
+7% increased Stun and Block Recovery

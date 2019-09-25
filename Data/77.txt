@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Miracle Keep
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
+11% increased Armour
++6% to Fire Resistance
+20% increased Stun and Block Recovery

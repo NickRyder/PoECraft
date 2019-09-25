@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Havoc Curtain
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+11% increased Armour
++5 to maximum Life
+1.6 Life Regenerated per second
++11% to Fire Resistance
+6% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

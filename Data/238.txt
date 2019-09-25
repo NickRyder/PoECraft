@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Sorrow Pelt
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
++7 to Armour
+13% increased Armour
+2.0 Life Regenerated per second
+6% increased Stun and Block Recovery

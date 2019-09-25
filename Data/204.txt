@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Miracle Veil
+Plate Vest
+--------
+Armour: 32 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++9 to Armour
+15% increased Armour
++7% to Fire Resistance

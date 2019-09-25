@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Behemoth Shroud
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++6 to Armour
++7 to maximum Life
++7% to Fire Resistance
+13% increased Stun and Block Recovery

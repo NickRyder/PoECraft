@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Armageddon Coat
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to Armour
+1.2 Life Regenerated per second
++10% to Cold Resistance
+Reflects 3 Physical Damage to Melee Attackers

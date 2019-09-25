@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Morbid Sanctuary
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to Armour
+8% increased Armour
++9 to maximum Life
+2.0 Life Regenerated per second
+6% increased Stun and Block Recovery

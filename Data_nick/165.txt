@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Damnation Pelt
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++3 to Armour
+24% increased Armour
++10% to Fire Resistance
++6% to Lightning Resistance
+11% increased Stun and Block Recovery

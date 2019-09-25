@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Hypnotic Veil
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++10 to Strength
++3 to Armour
+24% increased Armour
++6% to Cold Resistance

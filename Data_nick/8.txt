@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Loath Salvation
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+13% increased Armour
++8 to maximum Life
+1.1 Life Regenerated per second
+20% increased Stun and Block Recovery

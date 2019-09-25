@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Apocalypse Shroud
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++7 to maximum Life
+2.0 Life Regenerated per second
++7% to Fire Resistance
++7% to Cold Resistance

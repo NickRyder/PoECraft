@@ -1,0 +1,19 @@
+﻿Rarity: Rare
+Blood Carapace
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++9 to Strength
++5 to Armour
+17% increased Armour
++11% to Fire Resistance
++8% to Lightning Resistance
+Reflects 2 Physical Damage to Melee Attackers

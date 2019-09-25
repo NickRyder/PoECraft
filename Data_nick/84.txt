@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Spirit Carapace
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
++7 to maximum Life
+1.5 Life Regenerated per second
++6% to Lightning Resistance

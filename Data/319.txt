@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Beast Veil
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
++9% to Cold Resistance
+13% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

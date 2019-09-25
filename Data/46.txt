@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Maelström Coat
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++3 to Armour
+12% increased Armour
+1.1 Life Regenerated per second
++8% to Lightning Resistance
+7% increased Stun and Block Recovery
