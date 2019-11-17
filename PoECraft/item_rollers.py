@@ -1,61 +1,72 @@
-from itertools import combinations
-from itertools import chain
-from itertools import product
+from itertools import combinations, chain, product
 import random
 import numpy as np
+import RePoE
 import copy
-from repoe_import import *
 from collections import Counter
 
 
 
+def _get_positive_spawn_weight_tags(affix, starting_tags) -> set:
+    '''
+    Takes in an affix dict and a set of starting_tags
+    Finds all positive weight tags in spawn_weights
+    Ignores all spawn_weights if one of our starting tags forces a spawn_weight of zero
+    '''
+    pos_spawn_weight_tags = set()
+    for spawn_weight in affix["spawn_weights"]:
+        if spawn_weight["weight"] == 0:
+            #We read the spawn_weights in order they are listed
+            #If we find one which gives matches a tag we have we in starting_tags, we ignore
+            if spawn_weight["tag"] in starting_tags:
+                break
+        elif spawn_weight["weight"] > 0:
+            pos_spawn_weight_tags.add(spawn_weight["tag"])
+        else:
+            raise ValueError("spawn_weights should be nonnegative")
+    return pos_spawn_weight_tags
 
+
+# TODO: MAYBE?: this should take in some generic item type and calculate the possible mods that 
+# can roll on that item. This will allow support for items which have some odd non-spawnable
+# mods on them (like league specific mod drops)
 def generate_all_possible_affixes_and_tags(starting_tags, mod_pool):
     '''
     :param starting_tags: set containing all the starting_tags on the item we are rolling
     :param mod_pool: a dictionary containing all possible mods possible to roll on our item
-    :return: realized_spawn_tags, affixes
-            realized_spawn_tags -   all possible tags which can spawn from rolling this item
-            affixes -               final mod pool of all things that can spawn
+    :return: spawn_tags, affixes
+            spawn_tags -   all possible tags which can spawn from rolling this item
+            affixes -      final mod pool of all things that can spawn
     '''
     spawn_tags = set(starting_tags.copy())
 
-    realized_spawn_tags = set([])
     affixes = {}
-    affix_length = -1
-    while affix_length != len(affixes):
-        affix_length = len(affixes)
-        add_tags = set()
-        realized_spawn_tags = set([])
+    added_new_affixes = True
+    while added_new_affixes:
+
+        added_new_affixes = False
         for key, affix in mod_pool.items():
             # We want to only consider affixes which have a positive spawn weight for one of our potential tags
             # We also want to keep track of which tags affect this affix, whether they show up as any spawn_weight (even 0)
             # or they show up as a generation_weight
 
-            spawn_weights = set([spawn_weight["tag"] for spawn_weight in affix["spawn_weights"]])
-            pos_spawn_weights = set()
+            spawn_weight_tags = set([spawn_weight["tag"] for spawn_weight in affix["spawn_weights"]])
 
-            for spawn_weight in affix["spawn_weights"]:
-                if spawn_weight["tag"] in starting_tags and spawn_weight["weight"] == 0:
-                    break
-                if spawn_weight["weight"] > 0:
-                    pos_spawn_weights.add(spawn_weight["tag"])
+            #important that we only block starting_tags here, as there could be routes of crafting which spawn some tags and not others which affects blocking
+            pos_spawn_weights_tags = _get_positive_spawn_weight_tags(affix, starting_tags)
 
-            # pos_spawn_weights = set([spawn_weight["tag"] for spawn_weight in affix["spawn_weights"] if spawn_weight["weight"] > 0])
-            gen_weights = set([gen_weight["tag"] for gen_weight in affix["generation_weights"]])
+            assert pos_spawn_weights_tags.issubset(spawn_weight_tags), "pos_spawn_weight_tags should be subset of spawn_weight_tags"
 
-            realized_affix_spawn_tags = spawn_tags.intersection(pos_spawn_weights)
-
-            if len(realized_affix_spawn_tags) > 0 or affix["is_essence_only"]:
+            add_tags = set()
+            if (len(pos_spawn_weights_tags) > 0 or affix["is_essence_only"]) and key not in affixes:
                 affixes[key] = affix
-                realized_spawn_tags = realized_spawn_tags.union(spawn_tags.intersection(spawn_weights))
-                realized_spawn_tags = realized_spawn_tags.union(spawn_tags.intersection(gen_weights))
+                added_new_affixes = True
+
                 add_tags = add_tags.union(set(affix["adds_tags"]))
 
-        spawn_tags = realized_spawn_tags.copy()
         spawn_tags = spawn_tags.union(add_tags)
 
-    return realized_spawn_tags, affixes
+    return spawn_tags, affixes
 
 
 
@@ -237,7 +248,7 @@ class hash_weight_dict():
         for weight in self.weights:
             tag = weight["tag"]
             weighting = weight["weight"]
-            if tag in repoe_data["mod_types"][affix["type"]]["tags"]:
+            if tag in RePoE.mod_types[affix["type"]]["tags"]:
                 generation_weight *= weighting/100.0
 
 
