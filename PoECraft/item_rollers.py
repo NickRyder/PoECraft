@@ -86,7 +86,6 @@ def generate_prefix_suffix_lookups(affix_data):
     return prefix_bits, suffix_bits
 
 
-
 def get_base_item(name):
     for base_item in base_items.values():
         if base_item["name"] == name:
@@ -268,8 +267,6 @@ class base_item():
 
         for roll_index in range(len(forced_affix_indices), affix_N):
             append_affix(hash_weight_dict=self.hash_weight_dict, tags=self.tags, affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
-
-
 
 
 

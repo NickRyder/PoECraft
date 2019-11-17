@@ -1,3 +1,5 @@
+import numpy as np
+from itertools import product
 
 class Cached_Weight_Draw():
     '''
