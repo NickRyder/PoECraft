@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Brood Jack
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+23% increased Armour
+1.3 Life Regenerated per second
++7% to Fire Resistance
++11% to Lightning Resistance

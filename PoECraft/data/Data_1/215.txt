@@ -1,0 +1,19 @@
+﻿Rarity: Rare
+Honour Hide
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+35% increased Armour
+2.0 Life Regenerated per second
++7% to Fire Resistance
++11% to Lightning Resistance
+6% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

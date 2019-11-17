@@ -1,0 +1,3473 @@
+﻿
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Hypnotic Trap
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++25 to Strength
++441 to Armour
++3 to maximum Energy Shield
++86 to maximum Life
++43% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Pandemonium Bind
+Stygian Vise
+--------
+Requirements:
+Level: 52
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++131 to Armour
++35% to Lightning Resistance
++30% to Chaos Resistance
+18% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Torment Strap
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+11% reduced Enemy Stun Threshold
++367 to Armour
++45% to Fire Resistance
++29% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Vortex Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++48 to Strength
++44 to maximum Energy Shield
++68 to maximum Life
+19% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Dusk Tether
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++299 to Armour
++49 to maximum Life
++16% to Fire Resistance
++39% to Lightning Resistance
++25% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Corruption Lock
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+9% reduced Enemy Stun Threshold
++20 to Armour
++41% to Lightning Resistance
+16% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Kraken Harness
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++25 to Strength
+7% reduced Enemy Stun Threshold
++436 to Armour
++46% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Hypnotic Thread
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++47 to maximum Energy Shield
++22% to Cold Resistance
+24% increased Stun Duration on Enemies
+Reflects 4 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Morbid Lock
+Stygian Vise
+--------
+Requirements:
+Level: 56
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++23 to Strength
++400 to Armour
++14% to Fire Resistance
+15% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Leash
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++37 to maximum Life
++48% to Fire Resistance
++45% to Cold Resistance
+16% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Horror Trap
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++12 to Strength
++2 to maximum Energy Shield
+28% increased Stun and Block Recovery
+29% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Miracle Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++40 to Strength
++40 to maximum Energy Shield
++45% to Cold Resistance
++14% to Lightning Resistance
+36% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Beast Harness
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++255 to Armour
++51 to maximum Energy Shield
++47% to Cold Resistance
++47% to Lightning Resistance
+15% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Pandemonium Harness
+Stygian Vise
+--------
+Requirements:
+Level: 24
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++44 to Armour
+4.3 Life Regenerated per second
++17% to Lightning Resistance
+15% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Chimeric Cord
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++41 to Strength
++449 to Armour
++76 to maximum Life
++22% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rage Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 63
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++25 to Strength
++15 to maximum Life
++45% to Cold Resistance
+28% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Sol Cord
+Stygian Vise
+--------
+Requirements:
+Level: 54
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++41 to maximum Energy Shield
++48 to maximum Life
+1.3 Life Regenerated per second
++24% to Fire Resistance
++23% to Cold Resistance
+16% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Maelström Tether
+Stygian Vise
+--------
+Requirements:
+Level: 54
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to Strength
++8 to Armour
++39 to maximum Energy Shield
++97 to maximum Life
+6.6 Life Regenerated per second
++23% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Beast Tether
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++37 to maximum Energy Shield
+1.9 Life Regenerated per second
++28% to Lightning Resistance
+19% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Maelström Tether
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++45 to Strength
++25 to maximum Energy Shield
++17 to maximum Life
+18.5 Life Regenerated per second
+16% reduced Flask Charges used
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Wrath Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++60 to Strength
++400 to Armour
++19 to maximum Life
++8% to Fire Resistance
++38% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Invasion Harness
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++10 to Strength
++192 to Armour
++43 to maximum Energy Shield
++84 to maximum Life
+6.4 Life Regenerated per second
+27% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Blight Cord
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++336 to Armour
++51 to maximum Energy Shield
+6.1 Life Regenerated per second
++26% to Fire Resistance
+24% increased Stun Duration on Enemies
+18% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Dusk Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++52 to Strength
++55 to maximum Life
+17.4 Life Regenerated per second
+15% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rune Lash
+Stygian Vise
+--------
+Requirements:
+Level: 45
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++16 to Strength
++234 to Armour
++14 to maximum Energy Shield
++19 to maximum Life
++34% to Cold Resistance
++29% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Onslaught Leash
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++40 to maximum Energy Shield
+17.9 Life Regenerated per second
+14% increased Stun Duration on Enemies
+17% increased Flask Life Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Trap
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+13% reduced Enemy Stun Threshold
++505 to Armour
++45 to maximum Life
+24% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Vengeance Harness
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++49 to Armour
++47 to maximum Energy Shield
++64 to maximum Life
++13% to Fire Resistance
++41% to Cold Resistance
++11% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Havoc Snare
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+7% reduced Enemy Stun Threshold
++58 to maximum Life
++27% to Cold Resistance
+30% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Torment Tether
+Stygian Vise
+--------
+Requirements:
+Level: 63
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++38% to Cold Resistance
++33% to Lightning Resistance
+28% increased Stun and Block Recovery
+Reflects 5 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Demon Lock
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++435 to Armour
++28 to maximum Life
+15.4 Life Regenerated per second
++41% to Fire Resistance
+18% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Bramble Lock
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++42 to maximum Energy Shield
++38 to maximum Life
++48% to Cold Resistance
++15% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Miracle Tether
+Stygian Vise
+--------
+Requirements:
+Level: 35
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++30 to Strength
++76 to maximum Life
++12% to Chaos Resistance
+19% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Skull Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 35
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++44 to Armour
++12 to maximum Energy Shield
++11% to Cold Resistance
+28% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Victory Thread
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++17 to maximum Energy Shield
+5.5 Life Regenerated per second
++35% to Fire Resistance
++48% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Victory Thread
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++17 to maximum Energy Shield
+5.5 Life Regenerated per second
++35% to Fire Resistance
++48% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Lock
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++502 to Armour
+16.7 Life Regenerated per second
++45% to Fire Resistance
+19% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Carrion Leash
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
++6 to Armour
++44% to Cold Resistance
+25% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Carrion Leash
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
++6 to Armour
++44% to Cold Resistance
+25% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++35 to Strength
++37 to maximum Energy Shield
++32% to Cold Resistance
+30% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Pandemonium Bind
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++11 to Strength
++2 to maximum Energy Shield
+12.7 Life Regenerated per second
++24% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rift Leash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++526 to Armour
++43 to maximum Energy Shield
++14% to Cold Resistance
+35% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ambush Lock
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++121 to Armour
++3 to maximum Energy Shield
+18.9 Life Regenerated per second
++48% to Fire Resistance
+24% increased Stun and Block Recovery
+18% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Spirit Locket
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++26 to Strength
++310 to Armour
++49 to maximum Energy Shield
++16% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Bond
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to Strength
+9% reduced Enemy Stun Threshold
++113 to Armour
++5 to maximum Energy Shield
++58 to maximum Life
++45% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Armageddon Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++301 to Armour
++51 to maximum Energy Shield
++15 to maximum Life
+19.4 Life Regenerated per second
++28% to Fire Resistance
++18% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Blight Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++419 to Armour
++46 to maximum Energy Shield
++7% to Fire Resistance
++40% to Cold Resistance
+29% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Anarchy Thread
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++510 to Armour
++20 to maximum Energy Shield
++45% to Cold Resistance
++40% to Lightning Resistance
+25% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++55 to Armour
++78 to maximum Life
++16% to Cold Resistance
+27% increased Flask Charges gained
+50% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Empyrean Twine
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++35 to Strength
++42 to maximum Energy Shield
++88 to maximum Life
++33% to Lightning Resistance
+11% increased Stun and Block Recovery
+42% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Beast Bind
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++27 to Strength
+13% reduced Enemy Stun Threshold
++421 to Armour
+27% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Thread
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++57 to Strength
++26 to maximum Energy Shield
++43% to Lightning Resistance
+14% increased Flask Effect Duration
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Kraken Lock
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++47 to Strength
++420 to Armour
++33 to maximum Energy Shield
++29% to Cold Resistance
++41% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Corruption Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+11% reduced Enemy Stun Threshold
++43% to Cold Resistance
+18% increased Flask Charges gained
+28% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Twine
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++9 to Strength
+15% reduced Enemy Stun Threshold
++21 to maximum Energy Shield
++75 to maximum Life
++48% to Lightning Resistance
+Reflects 9 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Viper Lock
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++536 to Armour
++21 to maximum Energy Shield
+12.2 Life Regenerated per second
++40% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Empyrean Bond
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++39 to Strength
++88 to maximum Life
+19.2 Life Regenerated per second
++29% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Leash
+Stygian Vise
+--------
+Requirements:
+Level: 30
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++25 to maximum Life
+1.5 Life Regenerated per second
++27% to Cold Resistance
++27% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Wrath Snare
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++37 to Strength
++29% to Cold Resistance
++39% to Lightning Resistance
+18% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Wrath Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++34 to Strength
++531 to Armour
+29% increased Stun Duration on Enemies
+Reflects 10 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Domination Harness
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++37 to maximum Energy Shield
++38 to maximum Life
+2.5 Life Regenerated per second
++10% to Cold Resistance
+18% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Twine
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++59 to Armour
++14 to maximum Energy Shield
++43% to Cold Resistance
++40% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Tempest Strap
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++18 to maximum Life
++35% to Chaos Resistance
+24% increased Stun and Block Recovery
+30% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Wrath Snare
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++450 to Armour
++26 to maximum Energy Shield
++25% to Fire Resistance
+28% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Wrath Snare
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++450 to Armour
++26 to maximum Energy Shield
++25% to Fire Resistance
+28% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Glyph Twine
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++21 to maximum Energy Shield
+12.4 Life Regenerated per second
++26% to Fire Resistance
++40% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Lock
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++18 to Strength
++120 to Armour
++47 to maximum Life
++45% to Cold Resistance
++48% to Lightning Resistance
+19% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Brood Trap
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++57 to Strength
++54 to maximum Life
++47% to Fire Resistance
++28% to Lightning Resistance
+14% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Invasion Strap
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++39 to Strength
++457 to Armour
+14.5 Life Regenerated per second
++26% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Storm Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++9% to Fire Resistance
++44% to Cold Resistance
+34% increased Stun Duration on Enemies
+20% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Vengeance Cord
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++24 to Strength
++47% to Lightning Resistance
+14% reduced Flask Charges used
+10% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Loath Harness
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to Strength
++35 to maximum Energy Shield
++41% to Cold Resistance
++25% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rage Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
++47 to maximum Life
++43% to Fire Resistance
++26% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Onslaught Locket
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++32 to Armour
++24 to maximum Energy Shield
++41 to maximum Life
+4.9 Life Regenerated per second
++48% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Foe Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++382 to Armour
++35 to maximum Energy Shield
+19.5 Life Regenerated per second
++16% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Skull Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 62
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++48 to maximum Life
+14.9 Life Regenerated per second
++45% to Cold Resistance
+35% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Bind
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++501 to Armour
++58 to maximum Life
++23% to Fire Resistance
+18% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Viper Snare
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+10% reduced Enemy Stun Threshold
++45 to maximum Energy Shield
++29 to maximum Life
++35% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Plague Strap
+Stygian Vise
+--------
+Requirements:
+Level: 54
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++34 to Strength
++43 to maximum Energy Shield
++33 to maximum Life
++14% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Blight Cord
+Stygian Vise
+--------
+Requirements:
+Level: 45
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++249 to Armour
++11 to maximum Energy Shield
++8% to Fire Resistance
++29% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Pain Tether
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to maximum Energy Shield
++41% to Cold Resistance
+34% increased Stun Duration on Enemies
+29% increased Flask Charges gained
+Reflects 4 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Armageddon Girdle
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+5% reduced Enemy Stun Threshold
++389 to Armour
++43 to maximum Energy Shield
++45% to Lightning Resistance
+13% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Leash
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++451 to Armour
++39 to maximum Life
++39% to Fire Resistance
+Reflects 7 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Apocalypse Locket
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++14 to maximum Energy Shield
++87 to maximum Life
++43% to Fire Resistance
++47% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Eagle Bond
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+15% reduced Enemy Stun Threshold
++76 to Armour
++77 to maximum Life
++8% to Fire Resistance
+15% increased Stun and Block Recovery
+49% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Morbid Snare
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++55 to Strength
++13 to maximum Energy Shield
++89 to maximum Life
++47% to Fire Resistance
++15% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Viper Thread
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++42 to Strength
++67 to maximum Life
+18.1 Life Regenerated per second
++28% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Thread
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++109 to Armour
++46 to maximum Energy Shield
++39 to maximum Life
++39% to Cold Resistance
++33% to Lightning Resistance
+34% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Dragon Bind
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++53 to Strength
++129 to Armour
++43% to Fire Resistance
+25% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Armageddon Leash
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++64 to maximum Life
++35% to Fire Resistance
++48% to Cold Resistance
+16% increased Stun and Block Recovery
+33% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Carrion Bind
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++48 to Strength
++26 to maximum Energy Shield
++67 to maximum Life
++34% to Cold Resistance
++10% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Maelström Lock
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
++12 to maximum Energy Shield
++14 to maximum Life
++40% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Glyph Girdle
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+10% reduced Enemy Stun Threshold
++44 to maximum Energy Shield
++47% to Fire Resistance
++9% to Cold Resistance
+Reflects 4 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Skull Tether
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++33 to maximum Energy Shield
+25% increased Stun Duration on Enemies
+Reflects 5 Physical Damage to Melee Attackers
+30% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Harness
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++32 to Strength
++45 to maximum Energy Shield
++56 to maximum Life
++41% to Cold Resistance
++16% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Doom Trap
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++58 to Armour
++46 to maximum Life
+19.2 Life Regenerated per second
+38% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to Strength
++49 to maximum Energy Shield
+18.7 Life Regenerated per second
++26% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Harness
+Stygian Vise
+--------
+Requirements:
+Level: 46
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++29 to Strength
+14% reduced Enemy Stun Threshold
++30 to maximum Energy Shield
+19% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Bind
+Stygian Vise
+--------
+Requirements:
+Level: 51
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+13% reduced Enemy Stun Threshold
++98 to maximum Life
++24% to Fire Resistance
++23% to Cold Resistance
+Reflects 9 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Bind
+Stygian Vise
+--------
+Requirements:
+Level: 51
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+13% reduced Enemy Stun Threshold
++98 to maximum Life
++24% to Fire Resistance
++23% to Cold Resistance
+Reflects 9 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Glyph Leash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++42 to Strength
++84 to maximum Life
+5.9 Life Regenerated per second
+23% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Tether
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++10 to Armour
++22% to Fire Resistance
++37% to Cold Resistance
+17% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Tether
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++26 to Strength
++28 to maximum Life
++45% to Lightning Resistance
+42% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Brimstone Trap
+Stygian Vise
+--------
+Requirements:
+Level: 52
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++40 to Strength
+14% reduced Enemy Stun Threshold
++37 to maximum Energy Shield
++10% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Snare
+Stygian Vise
+--------
+Requirements:
+Level: 39
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+9% reduced Enemy Stun Threshold
++45 to Armour
++77 to maximum Life
++33% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Dusk Leash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++51 to maximum Energy Shield
+28% increased Stun Duration on Enemies
+22% increased Stun and Block Recovery
+25% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Sorrow Lash
+Stygian Vise
+--------
+Requirements:
+Level: 33
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++25 to maximum Energy Shield
++63 to maximum Life
+6.4 Life Regenerated per second
+19% increased Flask Effect Duration
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Chimeric Twine
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to maximum Energy Shield
++48% to Fire Resistance
++39% to Cold Resistance
+23% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Viper Bind
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++22 to maximum Life
+9.2 Life Regenerated per second
++44% to Fire Resistance
+13% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Victory Cord
+Stygian Vise
+--------
+Requirements:
+Level: 62
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++1 to maximum Energy Shield
+15 Life Regenerated per second
+16% increased Stun and Block Recovery
+14% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Dire Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++48 to Strength
+8% reduced Enemy Stun Threshold
++50 to Armour
++14 to maximum Life
+27% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rapture Bind
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++60 to Strength
++94 to Armour
++33% to Fire Resistance
++48% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rift Thread
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++35 to Strength
++29% to Lightning Resistance
+29% increased Stun Duration on Enemies
+Reflects 6 Physical Damage to Melee Attackers
+41% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Fate Cord
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+9% reduced Enemy Stun Threshold
++10 to maximum Energy Shield
++65 to maximum Life
++46% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Foe Strap
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++446 to Armour
++45% to Fire Resistance
++40% to Lightning Resistance
+28% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Domination Lash
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to maximum Energy Shield
++14 to maximum Life
++44% to Fire Resistance
++45% to Cold Resistance
+30% increased Stun Duration on Enemies
+35% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Maelström Bond
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++47 to Strength
++22 to maximum Energy Shield
++86 to maximum Life
+34% increased Stun Duration on Enemies
+24% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Apocalypse Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++539 to Armour
++47% to Fire Resistance
++48% to Lightning Resistance
+41% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Behemoth Strap
+Stygian Vise
+--------
+Requirements:
+Level: 62
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++27 to Strength
+10% reduced Enemy Stun Threshold
++22 to Armour
+15.1 Life Regenerated per second
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Chimeric Locket
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++136 to Armour
++39 to maximum Life
++44% to Fire Resistance
++44% to Cold Resistance
++31% to Lightning Resistance
+20% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rift Lock
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++36 to Strength
++31 to Armour
++63 to maximum Life
++26% to Cold Resistance
++38% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 35
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++128 to Armour
++29 to maximum Life
++27% to Lightning Resistance
+12% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rage Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++59 to Strength
++10 to Armour
++41% to Lightning Resistance
+15% increased Stun Duration on Enemies
+14% increased Flask Life Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Foe Twine
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++40 to maximum Energy Shield
+19.4 Life Regenerated per second
++9% to Fire Resistance
++45% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Fate Tether
+Stygian Vise
+--------
+Requirements:
+Level: 64
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++36 to Strength
++5 to Armour
++50 to maximum Energy Shield
++41% to Lightning Resistance
+16% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gale Thread
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
++28 to maximum Energy Shield
++45% to Cold Resistance
+25% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Onslaught Bond
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++450 to Armour
+11.9 Life Regenerated per second
++33% to Lightning Resistance
+29% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Onslaught Bond
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++450 to Armour
+11.9 Life Regenerated per second
++33% to Lightning Resistance
+29% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Twine
+Stygian Vise
+--------
+Requirements:
+Level: 29
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++24% to Lightning Resistance
++8% to Chaos Resistance
+19% increased Stun Duration on Enemies
+17% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Invasion Harness
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++19 to Strength
++5 to maximum Energy Shield
++40% to Cold Resistance
+20% reduced Flask Charges used
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Apocalypse Trap
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++46 to Strength
+12% reduced Enemy Stun Threshold
++473 to Armour
++2 to maximum Energy Shield
++21% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Behemoth Harness
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+9% reduced Enemy Stun Threshold
++16 to maximum Life
++45% to Fire Resistance
+13% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Lock
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++57 to Strength
++31 to maximum Life
+19.8 Life Regenerated per second
+18% increased Flask Life Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Oblivion Twine
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++31 to Strength
+12% reduced Enemy Stun Threshold
++449 to Armour
++48% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++51 to Armour
++48% to Fire Resistance
++29% to Cold Resistance
+25% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Foe Twine
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++58 to Strength
++22 to maximum Energy Shield
+21% increased Stun and Block Recovery
+Reflects 8 Physical Damage to Melee Attackers
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Skull Cord
+Stygian Vise
+--------
+Requirements:
+Level: 65
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++55 to Strength
+13% reduced Enemy Stun Threshold
++18% to Chaos Resistance
+12% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Ghoul Thread
+Stygian Vise
+--------
+Requirements:
+Level: 65
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++55 to Strength
++386 to Armour
++45% to Fire Resistance
+22% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Behemoth Twine
+Stygian Vise
+--------
+Requirements:
+Level: 52
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++42 to Strength
+15% reduced Enemy Stun Threshold
++14 to Armour
++6 to maximum Energy Shield
++23% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Victory Bond
+Stygian Vise
+--------
+Requirements:
+Level: 65
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++52 to Strength
++45 to maximum Energy Shield
++7% to Fire Resistance
+41% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Skull Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++58 to Strength
+9% reduced Enemy Stun Threshold
++9 to maximum Life
+28% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Woe Clasp
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++26 to maximum Energy Shield
++29% to Cold Resistance
++47% to Lightning Resistance
+15% reduced Flask Charges used
+15% increased Flask Life Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Vengeance Twine
+Stygian Vise
+--------
+Requirements:
+Level: 59
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+15% reduced Enemy Stun Threshold
++47 to maximum Energy Shield
+29% increased Stun Duration on Enemies
+22% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Death Trap
+Stygian Vise
+--------
+Requirements:
+Level: 48
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++30 to maximum Energy Shield
++17 to maximum Life
+1.6 Life Regenerated per second
++21% to Fire Resistance
++41% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Foe Tether
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++40 to Strength
++22 to Armour
++85 to maximum Life
+18 Life Regenerated per second
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Sorrow Twine
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++59 to Strength
++357 to Armour
++18 to maximum Energy Shield
++17% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gale Cord
+Stygian Vise
+--------
+Requirements:
+Level: 38
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+5% reduced Enemy Stun Threshold
++3 to maximum Energy Shield
+6.1 Life Regenerated per second
++33% to Fire Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Locket
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++48 to Strength
++58 to Armour
++51 to maximum Energy Shield
+18.3 Life Regenerated per second
++28% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Plague Leash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++60 to Strength
++22 to maximum Energy Shield
++25% to Cold Resistance
+16% increased Flask Effect Duration
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gale Snare
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+9% reduced Enemy Stun Threshold
++49 to maximum Energy Shield
++95 to maximum Life
++14% to Fire Resistance
++47% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Behemoth Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++42 to Strength
++24 to maximum Energy Shield
++46% to Fire Resistance
+13% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Tempest Locket
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++424 to Armour
++22 to maximum Life
++34% to Cold Resistance
+16% increased Flask Mana Recovery rate
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Behemoth Snare
+Stygian Vise
+--------
+Requirements:
+Level: 65
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++54 to Strength
++26 to maximum Energy Shield
+Reflects 8 Physical Damage to Melee Attackers
+34% increased Elemental Damage with Attack Skills
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Phoenix Lock
+Stygian Vise
+--------
+Requirements:
+Level: 28
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++27 to Strength
+11% reduced Enemy Stun Threshold
++67 to maximum Life
++23% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Fate Trap
+Stygian Vise
+--------
+Requirements:
+Level: 47
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+15% reduced Enemy Stun Threshold
++34 to maximum Energy Shield
+34% increased Stun Duration on Enemies
+13% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Soul Tether
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++60 to Strength
++25 to maximum Energy Shield
++17% to Fire Resistance
++44% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Domination Lash
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++3 to maximum Energy Shield
++38 to maximum Life
++23% to Fire Resistance
+21% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Hypnotic Snare
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++9 to Strength
++85 to maximum Life
++45% to Fire Resistance
+18% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Glyph Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++394 to Armour
+19.3 Life Regenerated per second
++37% to Lightning Resistance
+19% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Torment Bind
+Stygian Vise
+--------
+Requirements:
+Level: 65
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++52 to Strength
++136 to Armour
++49 to maximum Energy Shield
+9.5 Life Regenerated per second
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rage Snare
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++46 to Strength
++9 to maximum Energy Shield
+3.7 Life Regenerated per second
+30% increased Flask Charges gained
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Empyrean Girdle
+Stygian Vise
+--------
+Requirements:
+Level: 57
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++49 to Armour
++35 to maximum Life
+11.3 Life Regenerated per second
++45% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Maelström Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 66
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++80 to Armour
++51 to maximum Energy Shield
+17.3 Life Regenerated per second
++27% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rune Lock
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++26 to maximum Energy Shield
++24 to maximum Life
++48% to Fire Resistance
++47% to Lightning Resistance
+18% increased Stun and Block Recovery
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Hypnotic Buckle
+Stygian Vise
+--------
+Requirements:
+Level: 56
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++17 to Strength
++396 to Armour
++3 to maximum Energy Shield
++34% to Cold Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Rift Tether
+Stygian Vise
+--------
+Requirements:
+Level: 52
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++39 to Strength
++65 to maximum Life
++29% to Lightning Resistance
+20% increased Flask Effect Duration
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Death Trap
+Stygian Vise
+--------
+Requirements:
+Level: 51
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++32 to Strength
++111 to Armour
++94 to maximum Life
++33% to Cold Resistance
++37% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Nemesis Shackle
+Stygian Vise
+--------
+Requirements:
+Level: 45
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
+5% reduced Enemy Stun Threshold
++213 to Armour
++2 to maximum Energy Shield
++34% to Lightning Resistance
+28% increased Stun Duration on Enemies
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Loath Lock
+Stygian Vise
+--------
+Requirements:
+Level: 67
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++26 to Strength
++112 to Armour
++48% to Lightning Resistance
++35% to Chaos Resistance
+
+&&&&&&&&&&&&&&&&&&&&
+
+Rarity: Rare
+Gloom Thread
+Stygian Vise
+--------
+Requirements:
+Level: 68
+--------
+Sockets: A 
+--------
+Item Level: 86
+--------
+Has 1 Abyssal Socket
+--------
++524 to Armour
++59 to maximum Life
+3.2 Life Regenerated per second
++45% to Cold Resistance
++35% to Lightning Resistance
+
+&&&&&&&&&&&&&&&&&&&&

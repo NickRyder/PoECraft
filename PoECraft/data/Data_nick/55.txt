@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Brimstone Mantle
+Plate Vest
+--------
+Armour: 20 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+7% increased Armour
++4 to maximum Life
++8% to Lightning Resistance
+7% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

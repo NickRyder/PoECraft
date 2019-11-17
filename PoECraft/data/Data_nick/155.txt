@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Bramble Skin
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Strength
++4 to Armour
++5 to maximum Life
+1 Life Regenerated per second
++7% to Cold Resistance

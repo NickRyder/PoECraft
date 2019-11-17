@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Loath Mantle
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
+16% increased Armour
++10% to Lightning Resistance
+11% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

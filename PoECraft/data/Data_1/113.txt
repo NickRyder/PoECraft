@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Chimeric Hide
+Plate Vest
+--------
+Armour: 32 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
+12% increased Armour
++9% to Fire Resistance
+20% increased Stun and Block Recovery

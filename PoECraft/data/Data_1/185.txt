@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Gale Keep
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+16% increased Armour
++5 to maximum Life
++6% to Cold Resistance
+13% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

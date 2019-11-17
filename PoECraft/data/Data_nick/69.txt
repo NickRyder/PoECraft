@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Gloom Shell
+Plate Vest
+--------
+Armour: 33 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++12 to Strength
++8 to Armour
+22% increased Armour
+1.5 Life Regenerated per second
+Reflects 4 Physical Damage to Melee Attackers

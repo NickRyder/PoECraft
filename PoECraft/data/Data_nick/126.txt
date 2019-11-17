@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Grim Veil
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to maximum Life
+1.8 Life Regenerated per second
+11% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

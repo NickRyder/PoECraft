@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Empyrean Ward
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+12% increased Armour
++4 to maximum Life
+1.9 Life Regenerated per second
++9% to Lightning Resistance
+7% increased Stun and Block Recovery

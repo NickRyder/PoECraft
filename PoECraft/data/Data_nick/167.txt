@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Wrath Ward
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to maximum Life
++8% to Cold Resistance
++8% to Lightning Resistance
+12% increased Stun and Block Recovery

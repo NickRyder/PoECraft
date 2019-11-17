@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Entropy Shelter
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++4 to maximum Life
++6% to Cold Resistance
+13% increased Stun and Block Recovery

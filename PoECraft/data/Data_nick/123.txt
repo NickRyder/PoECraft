@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Victory Ward
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++6 to maximum Life
+1.6 Life Regenerated per second
++9% to Lightning Resistance
+11% increased Stun and Block Recovery

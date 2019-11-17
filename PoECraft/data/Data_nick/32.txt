@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Gale Shroud
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++7 to Armour
+1.1 Life Regenerated per second
++11% to Lightning Resistance
+12% increased Stun and Block Recovery

@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Corpse Keep
+Plate Vest
+--------
+Armour: 38 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
+31% increased Armour
++9% to Fire Resistance
++8% to Cold Resistance
+19% increased Stun and Block Recovery

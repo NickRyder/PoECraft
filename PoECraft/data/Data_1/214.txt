@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Dire Salvation
+Plate Vest
+--------
+Armour: 30 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Armour
+11% increased Armour
++7% to Cold Resistance
+7% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

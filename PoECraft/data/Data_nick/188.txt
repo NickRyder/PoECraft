@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Hypnotic Ward
+Plate Vest
+--------
+Armour: 20 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
+6% increased Armour
+1 Life Regenerated per second
+17% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Empyrean Suit
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++9 to Strength
++4 to Armour
+6% increased Armour
++7% to Cold Resistance
+18% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

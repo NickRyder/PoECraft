@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Kraken Guardian
+Plate Vest
+--------
+Armour: 20 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+6% increased Armour
++9% to Fire Resistance
++10% to Cold Resistance
+20% increased Stun and Block Recovery

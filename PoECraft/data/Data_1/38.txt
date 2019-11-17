@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Dragon Cloak
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
++6 to maximum Life
+1.4 Life Regenerated per second
+13% increased Stun and Block Recovery

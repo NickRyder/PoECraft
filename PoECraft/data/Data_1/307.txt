@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Blood Pelt
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
++7% to Cold Resistance
++8% to Lightning Resistance
+Reflects 1 Physical Damage to Melee Attackers

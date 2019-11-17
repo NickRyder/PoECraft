@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Rage Veil
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++4 to Armour
+6% increased Armour
++9 to maximum Life
+1.9 Life Regenerated per second
+6% increased Stun and Block Recovery

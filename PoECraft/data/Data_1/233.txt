@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Miracle Shroud
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++4 to Armour
+1 Life Regenerated per second
++7% to Lightning Resistance

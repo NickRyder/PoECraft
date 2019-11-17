@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Fate Shelter
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++3 to Armour
+6% increased Armour
++6% to Fire Resistance
++8% to Lightning Resistance
+7% increased Stun and Block Recovery

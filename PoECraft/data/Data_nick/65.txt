@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Maelström Suit
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++4 to Armour
++5 to maximum Life
++8% to Lightning Resistance
+13% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Phoenix Veil
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Strength
++6 to Armour
++9 to maximum Life
+11% increased Stun and Block Recovery

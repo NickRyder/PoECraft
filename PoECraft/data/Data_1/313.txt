@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Death Ward
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
++5 to maximum Life
++10% to Cold Resistance
++10% to Lightning Resistance
+Reflects 2 Physical Damage to Melee Attackers

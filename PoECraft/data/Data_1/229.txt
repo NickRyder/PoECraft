@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Maelström Cloak
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
++9 to maximum Life
++10% to Fire Resistance
+Reflects 4 Physical Damage to Melee Attackers

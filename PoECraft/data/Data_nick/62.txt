@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Storm Ward
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+17% increased Armour
+1.6 Life Regenerated per second
++9% to Fire Resistance
++7% to Lightning Resistance
+Reflects 3 Physical Damage to Melee Attackers

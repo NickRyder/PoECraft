@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Victory Ward
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++12 to Strength
+32% increased Armour
++8 to maximum Life
++10% to Fire Resistance
+18% increased Stun and Block Recovery

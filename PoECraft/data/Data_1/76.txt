@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Grim Shroud
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++4 to Armour
+25% increased Armour
+1.7 Life Regenerated per second
+20% increased Stun and Block Recovery

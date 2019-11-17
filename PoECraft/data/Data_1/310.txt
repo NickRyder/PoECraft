@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Kraken Guardian
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+1.9 Life Regenerated per second
++10% to Fire Resistance
+12% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

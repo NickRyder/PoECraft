@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Victory Cloak
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++3 to Armour
+1.4 Life Regenerated per second
+13% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

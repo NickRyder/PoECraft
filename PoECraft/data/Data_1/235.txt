@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Havoc Carapace
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++12 to Strength
+12% increased Armour
+1.7 Life Regenerated per second
++8% to Fire Resistance
+7% increased Stun and Block Recovery

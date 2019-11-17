@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Behemoth Keep
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Strength
++5 to Armour
+12% increased Armour
++7% to Cold Resistance
+20% increased Stun and Block Recovery

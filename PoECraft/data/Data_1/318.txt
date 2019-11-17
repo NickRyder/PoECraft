@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Demon Shell
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Armour
+6% increased Armour
++11% to Cold Resistance
++6% to Lightning Resistance
+6% increased Stun and Block Recovery

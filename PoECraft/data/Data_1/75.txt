@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Entropy Ward
+Plate Vest
+--------
+Armour: 36 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
+23% increased Armour
+1.9 Life Regenerated per second
++11% to Cold Resistance

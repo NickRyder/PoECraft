@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Corruption Keep
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Armour
+1.2 Life Regenerated per second
++6% to Cold Resistance
++11% to Lightning Resistance
+Reflects 3 Physical Damage to Melee Attackers

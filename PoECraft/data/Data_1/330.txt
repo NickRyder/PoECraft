@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Vortex Coat
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Armour
++4 to maximum Life
++8% to Fire Resistance
++7% to Lightning Resistance
+11% increased Stun and Block Recovery

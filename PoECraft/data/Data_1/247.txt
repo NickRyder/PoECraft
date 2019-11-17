@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Agony Guardian
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++12 to Strength
+19% increased Armour
+1.2 Life Regenerated per second
+11% increased Stun and Block Recovery

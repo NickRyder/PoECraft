@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Skull Hide
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+27% increased Armour
++11% to Cold Resistance
++11% to Lightning Resistance
+18% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

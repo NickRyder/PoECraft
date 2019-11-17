@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Morbid Salvation
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++7 to Armour
++6 to maximum Life
+2.0 Life Regenerated per second
++11% to Cold Resistance
++8% to Lightning Resistance

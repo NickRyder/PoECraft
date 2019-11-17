@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Gale Veil
+Plate Vest
+--------
+Armour: 32 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++8 to Armour
+20% increased Armour
++9% to Fire Resistance
++9% to Lightning Resistance

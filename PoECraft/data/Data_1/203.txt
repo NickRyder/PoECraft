@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Blight Skin
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+26% increased Armour
++11% to Lightning Resistance
+18% increased Stun and Block Recovery

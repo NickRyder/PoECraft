@@ -1,0 +1,16 @@
+﻿Rarity: Rare
+Hypnotic Shelter
+Plate Vest
+--------
+Armour: 25 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++12 to Strength
++4 to Armour
+7% increased Armour
++5 to maximum Life
+1.2 Life Regenerated per second
+20% increased Stun and Block Recovery

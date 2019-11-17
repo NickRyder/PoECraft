@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Sorrow Keep
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++6 to Armour
+10% increased Armour
++9% to Cold Resistance
++7% to Lightning Resistance
+18% increased Stun and Block Recovery

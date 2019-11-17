@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Blight Shell
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
+24% increased Armour
++7% to Fire Resistance
+7% increased Stun and Block Recovery

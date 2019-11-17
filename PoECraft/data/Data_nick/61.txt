@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Dusk Guardian
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+1.7 Life Regenerated per second
++8% to Fire Resistance
+11% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

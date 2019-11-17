@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Chimeric Shell
+Plate Vest
+--------
+Armour: 26 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+38% increased Armour
++6 to maximum Life
+1 Life Regenerated per second
+6% increased Stun and Block Recovery

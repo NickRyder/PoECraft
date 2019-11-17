@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Sol Ward
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++10 to Strength
++6 to Armour
+15% increased Armour
++10% to Cold Resistance
++9% to Lightning Resistance

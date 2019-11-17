@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Mind Jack
+Plate Vest
+--------
+Armour: 33 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++6 to Armour
+33% increased Armour
+1.7 Life Regenerated per second
++6% to Lightning Resistance
+17% increased Stun and Block Recovery

@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Loath Jack
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+26% increased Armour
++4 to maximum Life
+1.4 Life Regenerated per second
++9% to Fire Resistance
++10% to Cold Resistance

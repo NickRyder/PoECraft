@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Vortex Curtain
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++11 to Strength
++8 to maximum Life
++9% to Cold Resistance
+12% increased Stun and Block Recovery

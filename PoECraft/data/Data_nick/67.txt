@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Pain Sanctuary
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++10 to Strength
+16% increased Armour
++8% to Cold Resistance
+Reflects 2 Physical Damage to Melee Attackers

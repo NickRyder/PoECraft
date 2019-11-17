@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Ghoul Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+9% increased Armour
++4 to maximum Life
++10% to Lightning Resistance
+18% increased Stun and Block Recovery

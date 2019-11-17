@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Foe Suit
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+1.4 Life Regenerated per second
++11% to Fire Resistance
+13% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

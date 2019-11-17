@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Rune Suit
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++12 to Strength
++5 to Armour
+19% increased Armour
++3 to maximum Life

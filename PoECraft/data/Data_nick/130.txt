@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Fate Hide
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to Armour
++8 to maximum Life
+1.6 Life Regenerated per second
+Reflects 1 Physical Damage to Melee Attackers

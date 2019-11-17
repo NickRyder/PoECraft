@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Victory Salvation
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+13% increased Armour
++11% to Fire Resistance
++7% to Cold Resistance
++11% to Lightning Resistance
+6% increased Stun and Block Recovery

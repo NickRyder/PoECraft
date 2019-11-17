@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Fate Guardian
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+15% increased Armour
++10% to Fire Resistance
++8% to Cold Resistance
+Reflects 3 Physical Damage to Melee Attackers

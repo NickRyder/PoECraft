@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Plague Mantle
+Plate Vest
+--------
+Armour: 27 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++3 to Armour
+23% increased Armour
+1.9 Life Regenerated per second
++7% to Cold Resistance
++9% to Lightning Resistance

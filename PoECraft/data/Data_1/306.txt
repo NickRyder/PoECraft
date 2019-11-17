@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Hate Wrap
+Plate Vest
+--------
+Armour: 22 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++11 to Strength
+17% increased Armour
+1.6 Life Regenerated per second
++6% to Fire Resistance

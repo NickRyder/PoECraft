@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Havoc Suit
+Plate Vest
+--------
+Armour: 24 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
++3 to Armour
+11% increased Armour
++7% to Fire Resistance
+6% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Victory Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+11% increased Armour
+1 Life Regenerated per second
++8% to Fire Resistance
++10% to Lightning Resistance
+7% increased Stun and Block Recovery

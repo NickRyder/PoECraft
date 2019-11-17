@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Viper Shelter
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
+8% increased Armour
++6 to maximum Life
+19% increased Stun and Block Recovery
+Reflects 4 Physical Damage to Melee Attackers

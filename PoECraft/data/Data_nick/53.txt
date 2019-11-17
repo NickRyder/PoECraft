@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Plague Skin
+Plate Vest
+--------
+Armour: 19
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to maximum Life
+1.8 Life Regenerated per second
++7% to Cold Resistance
+Reflects 2 Physical Damage to Melee Attackers

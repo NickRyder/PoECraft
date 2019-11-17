@@ -1,0 +1,19 @@
+﻿Rarity: Rare
+Skull Shell
+Plate Vest
+--------
+Armour: 28 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++4 to Armour
+20% increased Armour
+1.3 Life Regenerated per second
++9% to Cold Resistance
+11% increased Stun and Block Recovery
+Reflects 2 Physical Damage to Melee Attackers

@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Hate Coat
+Plate Vest
+--------
+Armour: 21 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++9 to Strength
+9% increased Armour
++11% to Fire Resistance
+7% increased Stun and Block Recovery
+Reflects 3 Physical Damage to Melee Attackers

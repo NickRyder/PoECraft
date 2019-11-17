@@ -1,0 +1,17 @@
+﻿Rarity: Rare
+Glyph Hide
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+20% increased Armour
++7% to Fire Resistance
++6% to Cold Resistance
++9% to Lightning Resistance

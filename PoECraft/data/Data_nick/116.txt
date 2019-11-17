@@ -1,0 +1,15 @@
+﻿Rarity: Rare
+Gloom Hide
+Plate Vest
+--------
+Armour: 29 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Strength
++8 to Armour
+8% increased Armour
+1 Life Regenerated per second
+7% increased Stun and Block Recovery

@@ -1,0 +1,19 @@
+﻿Rarity: Rare
+Entropy Shroud
+Plate Vest
+--------
+Armour: 30 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++6 to Armour
+20% increased Armour
+1.2 Life Regenerated per second
++9% to Fire Resistance
+12% increased Stun and Block Recovery
+Reflects 1 Physical Damage to Melee Attackers

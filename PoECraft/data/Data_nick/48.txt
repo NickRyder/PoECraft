@@ -1,0 +1,14 @@
+﻿Rarity: Rare
+Corruption Mantle
+Plate Vest
+--------
+Armour: 20 (augmented)
+--------
+Sockets: B-B-R 
+--------
+Item Level: 3
+--------
++8 to Strength
+6% increased Armour
++11% to Fire Resistance
+17% increased Stun and Block Recovery

@@ -1,0 +1,18 @@
+﻿Rarity: Rare
+Brimstone Shell
+Plate Vest
+--------
+Armour: 23 (augmented)
+--------
+Requirements:
+Level: 2
+--------
+Sockets: R B-G 
+--------
+Item Level: 3
+--------
+19% increased Armour
++3 to maximum Life
+1.8 Life Regenerated per second
++6% to Cold Resistance
+13% increased Stun and Block Recovery
