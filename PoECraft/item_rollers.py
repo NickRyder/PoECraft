@@ -5,7 +5,7 @@ from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
 import copy
 from collections import Counter
 from PoECraft.mod_collector import collect_mods_and_tags
-
+from PoECraft.cached_weight_draw import Cached_Weight_Draw
 
 def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
     '''
@@ -62,21 +62,6 @@ def tags_to_spawn_weights(tags: set, global_generation_weights, affix_data):
     return np.array(spawn_weights)
 
 
-def spawn_tags_to_spawn_weight_arrays(spawn_tags,starting_tags, global_generation_weights, affix_data) -> np.array:
-    
-    tag_N = 2 ** len(spawn_tags)
-
-    assert len(spawn_tags) <= 16, "too many spawn tags"
-
-    spawn_weight_array = np.empty((tag_N, len(affix_data)), dtype=int)
-
-    for tag_combo in product([0,1], repeat=len(spawn_tags)):
-        tags = [spawn_tags[index] for index in range(len(spawn_tags)) if tag_combo[index] == 1]
-        out = 0
-        for bit in tag_combo:
-            out = (out << 1) | bit
-        spawn_weight_array[out] = tags_to_spawn_weights(starting_tags.union(tags),global_generation_weights=global_generation_weights, affix_data=affix_data )
-    return spawn_weight_array
 
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
     adds_tags = [None] * len(affix_data)
@@ -99,83 +84,6 @@ def generate_prefix_suffix_lookups(affix_data):
         elif affix_data[index]["generation_type"] == "suffix":
             suffix_bits[index] = True
     return prefix_bits, suffix_bits
-
-def generate_group_sums(spawn_tags_to_spawn_weight: np.array, affix_data):
-    '''
-
-    '''
-    affix_N = len(affix_data)
-    tag_N = spawn_tags_to_spawn_weight.shape[0]
-    
-    sums_group_prefix_bits = np.empty((tag_N, affix_N, affix_N))
-    sums_group_suffix_bits = np.empty((tag_N, affix_N, affix_N))
-
-    for tag_idx in range(tag_N):
-        for affix1_idx in range(tag_N):
-            
-            prefix_group_sum = 0
-            suffix_group_sum = 0
-            for affix2_idx in range(affix_N):
-
-                if affix_data[affix1_idx]["group"] == affix_data[affix2_idx]["group"]:
-                    if affix_data[affix2_idx]["generation_type"] == "prefix":
-                        prefix_group_sum += spawn_tags_to_spawn_weight[tag_idx][affix2_idx]
-                    else:
-                        suffix_group_sum += spawn_tags_to_spawn_weight[tag_idx][affix2_idx]
-                sums_group_prefix_bits[tag_idx][affix1_idx][affix2_idx] = prefix_group_sum
-                sums_group_suffix_bits[tag_idx][affix1_idx][affix2_idx] = suffix_group_sum
-
-    return sums_group_prefix_bits, sums_group_suffix_bits
-
-
-#TODO:cleanup
-def generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight: np.array, affix_data):
-    affix_N = len(affix_data)
-    tag_N = spawn_tags_to_spawn_weight.shape[0]
-
-
-    sums_weights = np.empty((tag_N, affix_N))
-    sums_prefix_bits = np.empty((tag_N, affix_N))
-    sums_suffix_bits = np.empty((tag_N, affix_N))
-
-    for index in range(tag_N):
-        partial_sums = 0
-        prefix_sum = 0
-        suffix_sum = 0
-        for affix_index in range(affix_N):
-            spawn_weight = spawn_tags_to_spawn_weight[index][affix_index]
-            partial_sums += spawn_weight
-            if affix_data[affix_index]["generation_type"] == "prefix":
-                prefix_sum += spawn_weight
-            else:
-                suffix_sum += spawn_weight
-            sums_weights[index][affix_index] = partial_sums
-            sums_prefix_bits[index][affix_index] = prefix_sum
-            sums_suffix_bits[index][affix_index] = suffix_sum
-
-    return sums_weights, sums_prefix_bits, sums_suffix_bits
-
-    
-
-def append_affix(hash_weight_dict, tags, affixes, prefix_N, suffix_N, max_pre = 3, max_suff = 3):
-
-    sum_weights = hash_weight_dict.sums_weights[tags].copy()
-
-    if prefix_N == max_pre:
-        sum_weights -= hash_weight_dict.sums_prefix_bits[tags]
-    if suffix_N == max_suff:
-        sum_weights -= hash_weight_dict.sums_suffix_bits[tags]
-
-    for affix in affixes:
-        if prefix_N < max_pre:
-            sum_weights -= hash_weight_dict.sums_group_prefix_bits[tags][affix]
-        if suffix_N < max_suff:
-            sum_weights -= hash_weight_dict.sums_group_suffix_bits[tags][affix]
-
-    affix_index_draw = weighted_draw_sums(sum_weights)
-
-    return affix_index_draw
-
 
 
 
@@ -243,12 +151,10 @@ class hash_weight_dict():
         self.spawn_tags_to_prefix_Q, self.spawn_tags_to_suffix_Q = generate_prefix_suffix_lookups(self.affix_data)
 
         new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
-        self.spawn_tags_to_spawn_weight = spawn_tags_to_spawn_weight_arrays(new_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights,affix_data=self.affix_data)
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
 
         #TODO: clean up further with datastructure
-        self.sums_weights, self.sums_prefix_bits, self.sums_suffix_bits = generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_data=self.affix_data)
-        self.sums_group_prefix_bits, self.sums_group_suffix_bits = generate_group_sums(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_data=self.affix_data)
+        self.cached_weight_draw = Cached_Weight_Draw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
 
 
 def get_base_item(name):
@@ -361,27 +267,50 @@ class base_item():
             added_mod_dictionary[name] = base_dict[name]
 
         print(added_mod_dictionary)
-        self.hash_weight_dict = hash_weight_dict(base_dict, starting_tags, domain= domains, added_mods= added_mod_dictionary, global_generation_weights=global_generation_weights, is_sanctified = is_sanctified, ilvl = ilvl )
+
+        ## REPLACEMENT FOR HASH_WEIGHT_DICT
+        self.global_generation_weights = global_generation_weights
+
+        starting_tags = set(starting_tags)
+        starting_tags.add("default")
+
+        # self.is_sanctified = is_sanctified
+
+        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=domains, starting_tags=starting_tags, added_mods=added_mods, ilvl=ilvl)
+
+        ##Order the keys and data
+        self.affix_keys = list(self.base_dict.keys())
+        self.affix_data = [self.base_dict[key] for key in self.affix_keys]
+
+        self.spawn_tags_to_prefix_Q, self.spawn_tags_to_suffix_Q = generate_prefix_suffix_lookups(self.affix_data)
+
+        new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
+        self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
+
+        #TODO: clean up further with datastructure
+        self.cached_weight_draw = Cached_Weight_Draw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
+
+
 
         for forced_mod in forced_mod_names:
-            self.forced_affix_indices.append(self.hash_weight_dict.affix_keys.index(forced_mod))
+            self.forced_affix_indices.append(self.affix_keys.index(forced_mod))
 
 
     def add_affix(self, affix_index):
         self.affix_indices.append(affix_index)
-        affix_key = self.hash_weight_dict.affix_keys[affix_index]
+        affix_key = self.affix_keys[affix_index]
         self.affix_keys.append(affix_key)
-        self.affix_groups.append(self.hash_weight_dict.base_dict[affix_key]["group"])
-        for stat in self.hash_weight_dict.base_dict[affix_key]["stats"]:
+        self.affix_groups.append(self.base_dict[affix_key]["group"])
+        for stat in self.base_dict[affix_key]["stats"]:
             if stat["id"] not in self.stats:
                 self.stats[stat["id"]] = []
             self.stats[stat["id"]].append([stat["min"], stat["max"]])
 
-        self.affix_groups.append(self.hash_weight_dict.base_dict[affix_key]["group"])
+        self.affix_groups.append(self.base_dict[affix_key]["group"])
 
-        self.tags = self.tags | self.hash_weight_dict.adds_tags[affix_index]
+        self.tags = self.tags | self.adds_tags[affix_index]
 
-        if self.hash_weight_dict.spawn_tags_to_prefix_Q[affix_index]:
+        if self.spawn_tags_to_prefix_Q[affix_index]:
             self.prefix_N += 1
         else:
             self.suffix_N += 1
@@ -446,31 +375,6 @@ def add_affix(item, affix_index):
         item.prefix_N += 1
     else:
         item.suffix_N += 1
-
-
-
-
-def chaos_item(item):
-    forced_affix_indices = item.forced_affix_indices
-
-    rand_seed = 12 * random.random()
-
-    if rand_seed < 1:
-        affix_N = 6
-    elif rand_seed < 4:
-        affix_N = 5
-    else:
-        affix_N = 4
-
-
-    item.clear_item()
-
-    for forced_affix_index in forced_affix_indices:
-        add_affix(item, forced_affix_index)
-
-    for roll_index in range(len(forced_affix_indices), affix_N):
-        append_affix(item)
-
 
 
 
