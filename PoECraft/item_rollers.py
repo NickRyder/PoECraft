@@ -304,7 +304,7 @@ class hash_weight_dict():
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
 
         #TODO: clean up further with datastructure
-        self.sums_weights, self.sums_prefix_bits, self.sums_suffix_bits, self.sums_group_prefix_bits, self.sums_group_suffix_bits = generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=spawn_tags_to_spawn_weight, affix_data=self.affix_data)
+        self.sums_weights, self.sums_prefix_bits, self.sums_suffix_bits, self.sums_group_prefix_bits, self.sums_group_suffix_bits = generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_data=self.affix_data)
 
 
 
