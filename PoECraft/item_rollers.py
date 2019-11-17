@@ -43,6 +43,7 @@ def generate_all_possible_affixes_and_tags(starting_tags, mod_pool):
     affixes = {}
     added_new_affixes = True
     while added_new_affixes:
+    
 
         added_new_affixes = False
         for key, affix in mod_pool.items():
