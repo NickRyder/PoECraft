@@ -80,7 +80,7 @@ class ExplictlessItem():
         self.set_implicit_stats()
 
 
- def unpack_fossils(fossil_names):
+def unpack_fossils(fossil_names):
     '''
     Takes in a list of fossil_names (which are keys in RePoE.fossil) and generates:
     added_mods: mods to add to the mod pool 
@@ -102,6 +102,10 @@ class ExplictlessItem():
     return forced_mod_names, added_mod_names, global_generation_weights
 
 def unpack_essences(essence_names):
+    '''
+    Takes in a list of essence_names (which are values for the key 'name' in RePoE.essence) and generates:
+    forced_mod_names: all the mods which must spawn by using tehse essences
+    '''
     forced_mod_names = []
     for essence_name in essence_names:
         found_essence = False
@@ -113,13 +117,7 @@ def unpack_essences(essence_names):
     return forced_mod_names
 
 class ExplicitModRoller():
-    '''A class to quickly simulate using currency on an item in PoE '''
-
-    def __init__(self):
-        pass
-
-class base_item():
-
+   '''A class to quickly simulate using currency on an item in PoE '''
     def clear_item(self):
         self.prefix_N = 0
         self.suffix_N = 0
@@ -137,45 +135,28 @@ class base_item():
 
         is_sanctified = False
 
-        added_mod_names = []
-        global_generation_weights = []
-
         fossils_added_mod_names, fossils_forced_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
 
-        essences_forced_mod_names = unpack_essence(essence_names)
-
-        
-        starting_tags = explicitless_item.tags
-        base_dict = mods
+        essences_forced_mod_names = unpack_essences(essence_names)
 
         added_mod_dictionary = {}
-        for name in forced_mod_names + added_mod_names:
-            added_mod_dictionary[name] = base_dict[name]
+        for name in fossils_forced_mod_names + fossils_added_mod_names + essences_forced_mod_names:
+            added_mod_dictionary[name] = mods[name]
 
-
-        ## REPLACEMENT FOR HASH_WEIGHT_DICT
-        self.global_generation_weights = global_generation_weights
-
-        starting_tags = set(starting_tags)
+        starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
-
-        # self.is_sanctified = is_sanctified
-
-        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=domains, starting_tags=starting_tags, added_mods=added_mods, ilvl=ilvl)
+        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, added_mods=added_mods, ilvl=ilvl)
 
         ##Order the keys and data
         self.affix_keys = list(self.base_dict.keys())
         self.affix_data = [self.base_dict[key] for key in self.affix_keys]
 
-        # self.spawn_tags_to_prefix_Q, self.spawn_tags_to_suffix_Q = generate_prefix_suffix_lookups(self.affix_data)
-
         new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
 
-        #TODO: clean up further with datastructure
-        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
+        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_values_list=affix_data, global_generation_weights=fossils_global_generation_weights)
 
-        for forced_mod in forced_mod_names:
+        for forced_mod in essences_forced_mod_names + fossils_forced_mod_names:
             self.forced_affix_indices.append(self.affix_keys.index(forced_mod))
 
 
@@ -199,9 +180,7 @@ class base_item():
             self.suffix_N += 1
 
 
-
-
-    def chaos_item(self):
+    def roll_item(self):
         forced_affix_indices = self.forced_affix_indices
 
         rand_seed = 12 * random.random()
@@ -213,7 +192,6 @@ class base_item():
         else:
             affix_N = 4
 
-
         self.clear_item()
 
         for forced_affix_index in forced_affix_indices:
@@ -222,32 +200,9 @@ class base_item():
         for roll_index in range(len(forced_affix_indices), affix_N):
             append_affix(hash_weight_dict=self.hash_weight_dict, tags=self.tags, affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
 
-
-
-
     def __str__(self):
         return str(self.affix_keys)
 
-
-
-def add_affix(item, affix_index):
-    item.affix_indices.append(affix_index)
-    affix_key = item.hash_weight_dict.affix_keys[affix_index]
-    item.affix_keys.append(affix_key)
-    item.affix_groups.append(item.hash_weight_dict.base_dict[affix_key]["group"])
-    for stat in item.hash_weight_dict.base_dict[affix_key]["stats"]:
-        if stat["id"] not in item.stats:
-            item.stats[stat["id"]] = []
-        item.stats[stat["id"]].append([stat["min"], stat["max"]])
-
-    item.affix_groups.append(item.hash_weight_dict.base_dict[affix_key]["group"])
-
-    item.tags = item.tags | item.hash_weight_dict.adds_tags[affix_index]
-
-    if item.hash_weight_dict.spawn_tags_to_prefix_Q[affix_index]:
-        item.prefix_N += 1
-    else:
-        item.suffix_N += 1
 
 
 
