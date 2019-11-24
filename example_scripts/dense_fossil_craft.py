@@ -17,7 +17,7 @@ print(f"First roll's affix names: {vaal_regalia_dense_roller.affix_keys}")
 print(f"First roll's total stats: {vaal_regalia_dense_roller.get_total_stats()}")
 
 #We pick the number of times to use our dense fossil
-trial_N = 10 ** 6
+trial_N = 10 ** 2
 
 #define a small helper function to extract the average local energy shield:
 def average_one_stat(stat_key):
@@ -25,7 +25,7 @@ def average_one_stat(stat_key):
 
 
 average_local_energy_shield_results = []
-for i in range(1000000):
+for i in range(trial_N):
     vaal_regalia_dense_roller.roll_item()
     roll_stats = vaal_regalia_dense_roller.get_total_stats()
     roll_local_energy_sheild = roll_stats.get("local_energy_shield", [[0,0]])
