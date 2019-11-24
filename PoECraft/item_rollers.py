@@ -7,60 +7,6 @@ from collections import Counter
 from PoECraft.mod_collector import collect_mods_and_tags
 from PoECraft.cached_weight_draw import Cached_Weight_Draw
 
-def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
-    '''
-
-    '''
-    generation_weight = 1
-    for weight in mod_type_tags:
-        tag = weight["tag"]
-        weighting = weight["weight"]
-        if tag in mod_types[affix["type"]]["tags"]:
-            generation_weight *= weighting/100.0
-    return generation_weight
-
-def get_generation_weight_for_affix(affix, tags):
-    '''
-
-    '''
-    generation_weight = 1
-    for generation_weight_rule in affix["generation_weights"]:
-        if generation_weight_rule["tag"] in tags:
-            generation_weight *= generation_weight_rule["weight"]/100.0
-            #reads top to bottom like spawn_weights
-            break
-    return generation_weight
-    
-def get_spawn_weighting(affix, tags, mod_type_tags):
-    spawn_weights = affix["spawn_weights"]
-
-    generation_weight = 1
-
-    #TODO: need to determine affect of sanctifieds
-    # if self.is_sanctified:
-    #     generation_weight *= (1 + affix["required_level"] / 100.0)
-
-    #change generation weight by global effect (caused by using fossils)
-    generation_weight *= get_mod_type_generation_weight_for_affix(affix, mod_type_tags)
-
-    #change generation weight by local effect (caused by adding affixes)
-    generation_weight *= get_generation_weight_for_affix(affix, tags)
-
-    for spawn_weight in spawn_weights:
-        if spawn_weight["tag"] in tags:
-            weight = spawn_weight["weight"]
-            rounded_weight = int(generation_weight * weight)
-            assert weight == 0 or rounded_weight > 0 or generation_weight == 0, str(generation_weight) + " " + str(spawn_weight["weight"])
-            return rounded_weight
-
-    raise ValueError("spawn_weights did not contain appropriate tag for spawning")
-
-
-def tags_to_spawn_weights(tags: set, global_generation_weights, affix_data):
-    spawn_weights = [get_spawn_weighting(affix_datum, tags, global_generation_weights) for affix_datum in affix_data]
-
-    return np.array(spawn_weights)
-
 
 
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
@@ -73,17 +19,17 @@ def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
         adds_tags[index] = bit_adds_tags
     return adds_tags
 
-def generate_prefix_suffix_lookups(affix_data):
-    affix_N = len(affix_data)
-    prefix_bits = np.zeros(affix_N, dtype=bool)
-    suffix_bits = np.zeros(affix_N, dtype=bool)
+# def generate_prefix_suffix_lookups(affix_data):
+#     affix_N = len(affix_data)
+#     prefix_bits = np.zeros(affix_N, dtype=bool)
+#     suffix_bits = np.zeros(affix_N, dtype=bool)
 
-    for index in range(affix_N):
-        if affix_data[index]["generation_type"] == "prefix":
-            prefix_bits[index] = True
-        elif affix_data[index]["generation_type"] == "suffix":
-            suffix_bits[index] = True
-    return prefix_bits, suffix_bits
+#     for index in range(affix_N):
+#         if affix_data[index]["generation_type"] == "prefix":
+#             prefix_bits[index] = True
+#         elif affix_data[index]["generation_type"] == "suffix":
+#             suffix_bits[index] = True
+#     return prefix_bits, suffix_bits
 
 
 def get_base_item(name):
@@ -211,7 +157,7 @@ class base_item():
         self.affix_keys = list(self.base_dict.keys())
         self.affix_data = [self.base_dict[key] for key in self.affix_keys]
 
-        self.spawn_tags_to_prefix_Q, self.spawn_tags_to_suffix_Q = generate_prefix_suffix_lookups(self.affix_data)
+        # self.spawn_tags_to_prefix_Q, self.spawn_tags_to_suffix_Q = generate_prefix_suffix_lookups(self.affix_data)
 
         new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
@@ -274,14 +220,6 @@ class base_item():
     def __str__(self):
         return str(self.affix_keys)
 
-
-
-
-
-def weighted_draw_sums(sums):
-    total_sum = sums[-1]
-    # return np.sum(sums < total_sum*random.random())
-    return np.searchsorted(sums, total_sum*random.random())
 
 
 def add_affix(item, affix_index):
