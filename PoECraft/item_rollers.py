@@ -39,11 +39,11 @@ class ExplictlessItem():
             for stat in mod["stats"]:
                 id = stat["id"]
                 if id not in self.implicit_stats:
-                    self.implicit_stats[id] = []
+                    self.implicit_stats[id] = np.empty((0,2))
                 if max_implicit_rolls:
-                    self.implicit_stats[id].append([stat["max"], stat["max"]])
+                    self.implicit_stats[id] = np.vstack([self.implicit_stats[id], np.array([stat["max"], stat["max"]])])
                 else:
-                    self.implicit_stats[id].append([stat["min"], stat["max"]])
+                    self.implicit_stats[id]= np.vstack([self.implicit_stats[id], np.array([stat["min"], stat["max"]])])
 
 
 
@@ -192,12 +192,21 @@ class ExplicitModRoller():
         return affix_groups
 
     def get_total_stats(self):
-        stats = self.base_explicitless_item.implicit_stats.copy()
+        '''
+        Returns a dict where the keys are stat_names and the values are numpy arrays of size (n,2) where the first dimension corresponds to unique sources of that stat
+        stats[stat_name][i] = [min_stat_value, max_stat_value] for the ith source
+        '''
+        stats = {}
+        #first initialize on the base item
+        for stat_name, stat_ranges in self.base_explicitless_item.implicit_stats.items():
+            stats[stat_name] = stat_ranges
+        #add stas for each affix
         for affix_key in self.affix_keys_current:
             for stat in self.base_dict[affix_key]["stats"]:
                 if stat["id"] not in stats:
-                    stats[stat["id"]] = []
-                stats[stat["id"]].append([stat["min"], stat["max"]])
+                    stats[stat["id"]] = np.empty((0,2))
+                min_max_range_entry = np.array([stat["min"], stat["max"]])
+                stats[stat["id"]] = np.vstack([stats[stat["id"]], min_max_range_entry])
         return stats
 
     def __str__(self):
