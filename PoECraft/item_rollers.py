@@ -43,12 +43,12 @@ class ExplictlessItem():
 
 
 
-    def __init__(self, base_item_entry, influences, ilvl = 100, implicits = [], quality = 20, fractured_mods = []):
-        self.base_item_entry = base_item_entry
+    def __init__(self, base_item_name, influences = [], ilvl = 100, implicits = [], quality = 20, fractured_mods = []):
+        self.base_item_entry = get_base_item(base_item_name)
 
         self.tags = []
         #make all of the properties of base_item_entry properties of this class
-        for key, value in base_item_entry.items():
+        for key, value in self.base_item_entry.items():
             setattr(self, key, value)
 
         self.ilvl = ilvl
