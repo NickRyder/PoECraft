@@ -8,6 +8,7 @@ from PoECraft.mod_collector import collect_mods_and_tags
 from PoECraft.cached_weight_draw import CachedWeightDraw
 
 
+influence_to_tags = dict(shaper="shaper_tag", elder="elder_tag")
 
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
     adds_tags = [None] * len(affix_data)
@@ -37,54 +38,11 @@ def get_base_item(name):
         if base_item["name"] == name:
             return base_item
 
-class base_item():
 
-    hash_weight_dict = {}
+class ExplictlessItem():
+    '''A class to represent an item without explicit mods in PoE'''
 
-
-    #temporary properties
-    prefix_N = 0
-    suffix_N = 0
-    affix_indices = []
-    affix_keys = []
-    affix_groups = []
-    stats = {}
-
-    tags = 0
-
-    #permanent properties
-    forced_affix_indices = []
-    item_class = ""
-    properties = {}
-    implicits = []
-
-    # def get_essence_mods(self):
-    #     essence_mods = {}
-    #     for essence in repoe_data["essences"].values():
-    #         if self.item_class in essence["mods"]:
-    #             essence_mod_name = essence["mods"][self.item_class]
-    #             essence_mods[essence_mod_name] = repoe_data["mods"][essence_mod_name]
-    #     return essence_mods
-
-    def clear_item(self):
-        self.prefix_N = 0
-        self.suffix_N = 0
-        self.affix_indices = []
-        self.affix_keys = []
-        self.affix_groups = []
-        self.stats = copy.deepcopy(self.implicit_stats)
-        self.tags = 0
-
-
-    def __init__(self, base_item_entry, fossil_names = [], essence_names = [], shaper = False, elder = False, domains = ["item"], ilvl = 100, implicits = [], quality = 20, max_implicit_rolls = True, fractured_mods = []):
-        self.item_class = base_item_entry["item_class"]
-        self.properties = base_item_entry["properties"]
-        self.quality = quality
-
-        self.implicits = base_item_entry["implicits"]
-        if len(implicits) > 0:
-            self.implicits = implicits
-
+    def set_implicit_stats(self, max_implicit_rolls=True):
         self.implicit_stats = {}
 
         for mod_key in self.implicits:
@@ -98,50 +56,102 @@ class base_item():
                 else:
                     self.implicit_stats[id].append([stat["min"], stat["max"]])
 
+
+
+    def __init__(self, base_item_entry, influences, ilvl = 100, implicits = [], quality = 20, fractured_mods = []):
+        self.base_item_entry = base_item_entry
+
+        self.tags = []
+        #make all of the properties of base_item_entry properties of this class
+        for key, value in base_item_entry.items():
+            setattr(self, key, value)
+
+        self.ilvl = ilvl
+        
+        for influence in influences:
+            self.tags.append(influence_to_tags[influence])
+
+        self.quality = quality
+        self.fractured_mods = fractured_mods
+
+        #Handle custom implicits for synthesis
+        if len(implicits) > 0:
+            self.implicits = implicits
+        self.set_implicit_stats()
+
+
+ def unpack_fossils(fossil_names):
+    '''
+    Takes in a list of fossil_names (which are keys in RePoE.fossil) and generates:
+    added_mods: mods to add to the mod pool 
+    forced_mods: mods which must spawn on the item
+    global_generation_weights: 
+    '''
+    forced_mod_names = []
+    added_mod_names = []
+    global_generation_weights = []
+    for fossil_name in fossil_names:
+        fossil_data = fossils[fossil_name]
+        if fossil_data["rolls_lucky"]:
+            is_sanctified = True
+
+        forced_mod_names += fossil_data["forced_mods"]
+        added_mod_names += fossil_data["added_mods"]
+        for mod_weights in fossil_data["positive_mod_weights"] + fossil_data["negative_mod_weights"]:
+            global_generation_weights.append(mod_weights)
+    return forced_mod_names, added_mod_names, global_generation_weights
+
+def unpack_essences(essence_names):
+    forced_mod_names = []
+    for essence_name in essence_names:
+        found_essence = False
+        for essence_entry in essences.values():
+            if essence_entry["name"] == essence_name:
+                found_essence = True
+                forced_mod_names += [essence_entry["mods"][self.item_class]]
+        assert found_essence, "essence name not in json"
+    return forced_mod_names
+
+class ExplicitModRoller():
+    '''A class to quickly simulate using currency on an item in PoE '''
+
+    def __init__(self):
+        pass
+
+class base_item():
+
+    def clear_item(self):
+        self.prefix_N = 0
+        self.suffix_N = 0
+        self.affix_indices = []
+        self.affix_keys = []
+        self.affix_groups = []
+        self.stats = copy.deepcopy(self.implicit_stats)
+        self.tags = 0
+
+   
+
+    def __init__(self, explicitless_item: ExplictlessItem,  fossil_names = [], essence_names = []):
+
         self.stats = copy.deepcopy(self.implicit_stats)
 
         is_sanctified = False
 
-        starting_tags = base_item_entry["tags"]
-
-        if shaper:
-            starting_tags.append(item_classes[self.item_class]["shaper_tag"])
-        if elder:
-            starting_tags.append(item_classes[self.item_class]["elder_tag"])
-
-        # essence_mods = self.get_essence_mods()
-
-
-        forced_mod_names = fractured_mods
         added_mod_names = []
         global_generation_weights = []
 
-        for fossil_name in fossil_names:
-            fossil_data = fossils[fossil_name]
-            if fossil_data["rolls_lucky"]:
-                is_sanctified = True
+        fossils_added_mod_names, fossils_forced_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
 
-            forced_mod_names += fossil_data["forced_mods"]
-            added_mod_names += fossil_data["added_mods"]
-            for mod_weights in fossil_data["positive_mod_weights"] + fossil_data["negative_mod_weights"]:
-                global_generation_weights.append(mod_weights)
+        essences_forced_mod_names = unpack_essence(essence_names)
 
-        for essence_name in essence_names:
-            found_essence = False
-            for essence_entry in essences.values():
-                if essence_entry["name"] == essence_name:
-                    found_essence = True
-                    forced_mod_names += [essence_entry["mods"][self.item_class]]
-            assert found_essence, "essence name not in json"
-
-
+        
+        starting_tags = explicitless_item.tags
         base_dict = mods
 
         added_mod_dictionary = {}
         for name in forced_mod_names + added_mod_names:
             added_mod_dictionary[name] = base_dict[name]
 
-        print(added_mod_dictionary)
 
         ## REPLACEMENT FOR HASH_WEIGHT_DICT
         self.global_generation_weights = global_generation_weights
@@ -164,8 +174,6 @@ class base_item():
 
         #TODO: clean up further with datastructure
         self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
-
-
 
         for forced_mod in forced_mod_names:
             self.forced_affix_indices.append(self.affix_keys.index(forced_mod))
