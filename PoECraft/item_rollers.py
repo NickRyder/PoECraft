@@ -2,7 +2,6 @@ from itertools import combinations, chain, product
 import random
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
-import copy
 from collections import Counter
 from PoECraft.mod_collector import collect_mods_and_tags
 from PoECraft.cached_weight_draw import CachedWeightDraw
@@ -180,12 +179,14 @@ class ExplicitModRoller():
             self.add_affix(forced_affix_index)
 
         for roll_index in range(len(forced_affix_indices), affix_N):
-            self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            self.add_affix(new_affix_idx)
 
-    #TODO: implement
     def get_affix_groups(self):
-        self.affix_groups.append(self.base_dict[affix_key]["group"])
-        raise NotImplementedError
+        affix_groups = []
+        for affix_key in self.affix_keys:
+            affix_groups.append(self.base_dict[affix_key]["group"])
+        return affix_groups
 
     #TODO: implement
     def get_total_stats(self):
