@@ -93,11 +93,11 @@ def _get_spawnable_mods_for_item(domains,ilvl):
 
 
 
-def collect_mods_and_tags(starting_tags, added_mods, domains, ilvl):
+def collect_mods_and_tags(starting_tags, appended_mod_dictionary, domains, ilvl):
     spawnable_mods = _get_spawnable_mods_for_item(domains, ilvl)
-    mod_pool = {**spawnable_mods, **added_mods}
+    mod_pool = {**spawnable_mods, **appended_mod_dictionary}
 
     #further reduce the mod pool by looking at spawn weights and tags
     realized_spawn_tags, mod_pool = generate_all_possible_affixes_and_tags(starting_tags, mod_pool)
 
-    return {**mod_pool, **added_mods}, realized_spawn_tags
+    return {**mod_pool, **appended_mod_dictionary}, realized_spawn_tags

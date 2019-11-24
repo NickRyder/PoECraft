@@ -20,19 +20,6 @@ def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
         adds_tags[index] = bit_adds_tags
     return adds_tags
 
-# def generate_prefix_suffix_lookups(affix_data):
-#     affix_N = len(affix_data)
-#     prefix_bits = np.zeros(affix_N, dtype=bool)
-#     suffix_bits = np.zeros(affix_N, dtype=bool)
-
-#     for index in range(affix_N):
-#         if affix_data[index]["generation_type"] == "prefix":
-#             prefix_bits[index] = True
-#         elif affix_data[index]["generation_type"] == "suffix":
-#             suffix_bits[index] = True
-#     return prefix_bits, suffix_bits
-
-
 def get_base_item(name):
     for base_item in base_items.values():
         if base_item["name"] == name:
@@ -80,6 +67,7 @@ class ExplictlessItem():
         self.set_implicit_stats()
 
 
+
 def unpack_fossils(fossil_names):
     '''
     Takes in a list of fossil_names (which are keys in RePoE.fossil) and generates:
@@ -116,36 +104,36 @@ def unpack_essences(essence_names):
         assert found_essence, "essence name not in json"
     return forced_mod_names
 
+
 class ExplicitModRoller():
-   '''A class to quickly simulate using currency on an item in PoE '''
+    '''A class to quickly simulate using currency on an item in PoE'''
+
     def clear_item(self):
         self.prefix_N = 0
         self.suffix_N = 0
         self.affix_indices = []
         self.affix_keys = []
         self.affix_groups = []
-        self.stats = copy.deepcopy(self.implicit_stats)
         self.tags = 0
 
    
 
     def __init__(self, explicitless_item: ExplictlessItem,  fossil_names = [], essence_names = []):
 
-        self.stats = copy.deepcopy(self.implicit_stats)
+        self.base_explicitless_item = explicitless_item
 
         is_sanctified = False
 
         fossils_added_mod_names, fossils_forced_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
 
         essences_forced_mod_names = unpack_essences(essence_names)
-
-        added_mod_dictionary = {}
+        appended_mod_dictionary = {}
         for name in fossils_forced_mod_names + fossils_added_mod_names + essences_forced_mod_names:
-            added_mod_dictionary[name] = mods[name]
+            appended_mod_dictionary[name] = mods[name]
 
         starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
-        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, added_mods=added_mods, ilvl=ilvl)
+        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
 
         ##Order the keys and data
         self.affix_keys = list(self.base_dict.keys())
@@ -154,8 +142,9 @@ class ExplicitModRoller():
         new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
 
-        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_values_list=affix_data, global_generation_weights=fossils_global_generation_weights)
+        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_values_list=self.affix_data, global_generation_weights=fossils_global_generation_weights)
 
+        self.forced_affix_indices = []
         for forced_mod in essences_forced_mod_names + fossils_forced_mod_names:
             self.forced_affix_indices.append(self.affix_keys.index(forced_mod))
 
@@ -164,13 +153,6 @@ class ExplicitModRoller():
         self.affix_indices.append(affix_index)
         affix_key = self.affix_keys[affix_index]
         self.affix_keys.append(affix_key)
-        self.affix_groups.append(self.base_dict[affix_key]["group"])
-        for stat in self.base_dict[affix_key]["stats"]:
-            if stat["id"] not in self.stats:
-                self.stats[stat["id"]] = []
-            self.stats[stat["id"]].append([stat["min"], stat["max"]])
-
-        self.affix_groups.append(self.base_dict[affix_key]["group"])
 
         self.tags = self.tags | self.adds_tags[affix_index]
 
@@ -195,10 +177,23 @@ class ExplicitModRoller():
         self.clear_item()
 
         for forced_affix_index in forced_affix_indices:
-            add_affix(self, forced_affix_index)
+            self.add_affix(forced_affix_index)
 
         for roll_index in range(len(forced_affix_indices), affix_N):
-            append_affix(hash_weight_dict=self.hash_weight_dict, tags=self.tags, affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+
+    #TODO: implement
+    def get_affix_groups(self):
+        self.affix_groups.append(self.base_dict[affix_key]["group"])
+        raise NotImplementedError
+
+    #TODO: implement
+    def get_total_stats(self):
+        for stat in self.base_dict[affix_key]["stats"]:
+            if stat["id"] not in self.stats:
+                self.stats[stat["id"]] = []
+            self.stats[stat["id"]].append([stat["min"], stat["max"]])
+        raise NotImplementedError
 
     def __str__(self):
         return str(self.affix_keys)

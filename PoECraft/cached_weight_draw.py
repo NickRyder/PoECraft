@@ -59,8 +59,8 @@ def get_spawn_weighting(affix, tags, mod_type_tags):
     raise ValueError("spawn_weights did not contain appropriate tag for spawning")
 
 
-def tags_to_spawn_weights(tags: set, global_generation_weights, affix_data):
-    spawn_weights = [get_spawn_weighting(affix_datum, tags, global_generation_weights) for affix_datum in affix_data]
+def tags_to_spawn_weights(tags: set, global_generation_weights, affix_values_list):
+    spawn_weights = [get_spawn_weighting(affix_value, tags, global_generation_weights) for affix_value in affix_values_list]
 
     return np.array(spawn_weights)
 
@@ -82,31 +82,31 @@ class CachedWeightDraw():
         self.affix_values_list = affix_values_list
 
         #(tag_N, affix_N): Here we generate the raw spawn weights for each affix given a set of tags on our item
-        self.spawn_tags_to_spawn_weight = self.spawn_tags_to_spawn_weight_arrays(new_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights,affix_data=self.affix_values_list)
+        self.spawn_tags_to_spawn_weight = self.spawn_tags_to_spawn_weight_arrays(new_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights)
         #(tag_N, affix_N): 
-        self.weights_cummulative, self.prefixes_cummulative, self.suffixes_cummulative = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_values_list=self.affix_values_list)
+        self.weights_cummulative, self.prefixes_cummulative, self.suffixes_cummulative = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight)
         #(tag_N, affix_N, affix_N): 
-        self.group_diff_prefix_cummulative, self.group_diff_suffix_cummulative = self.generate_group_diffs_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_values_list=self.affix_values_list)
+        self.group_diff_prefix_cummulative, self.group_diff_suffix_cummulative = self.generate_group_diffs_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight)
  
      
 
-    def spawn_tags_to_spawn_weight_arrays(self,spawn_tags,starting_tags, global_generation_weights, affix_data) -> np.array:
+    def spawn_tags_to_spawn_weight_arrays(self,spawn_tags,starting_tags, global_generation_weights) -> np.array:
         
         tag_N = 2 ** len(spawn_tags)
 
         assert len(spawn_tags) <= 16, "too many spawn tags"
 
-        spawn_weight_array = np.empty((tag_N, len(affix_data)), dtype=int)
+        spawn_weight_array = np.empty((tag_N, len(self.affix_values_list)), dtype=int)
 
         for tag_combo in product([0,1], repeat=len(spawn_tags)):
             tags = [spawn_tags[index] for index in range(len(spawn_tags)) if tag_combo[index] == 1]
             out = 0
             for bit in tag_combo:
                 out = (out << 1) | bit
-            spawn_weight_array[out] = tags_to_spawn_weights(starting_tags.union(tags),global_generation_weights=global_generation_weights, affix_data=affix_data)
+            spawn_weight_array[out] = tags_to_spawn_weights(starting_tags.union(tags),global_generation_weights=global_generation_weights, affix_values_list=self.affix_values_list)
         return spawn_weight_array
 
-    def generate_group_diffs_lookup_tables(self, spawn_tags_to_spawn_weight: np.array, affix_values_list):
+    def generate_group_diffs_lookup_tables(self, spawn_tags_to_spawn_weight: np.array):
         '''
         Group diffs allow us to quickly get the weights for our mods by starting with the weights based off of our tags and prefix/suffix status, and then subtracting off the weights due to the group restrictions.
 
@@ -114,16 +114,16 @@ class CachedWeightDraw():
         affix_values_list: an ordered list of the affixes our item can roll whose values are dictionaries from RePoE.mods
         '''
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
-        assert len(affix_values_list) == affix_N, "need the number affixes to match"
+        assert len(self.affix_values_list) == affix_N, "need the number affixes to match"
         
         group_diff_prefix_cummulative = np.empty((tag_N, affix_N, affix_N))
         group_diff_suffix_cummulative = np.empty((tag_N, affix_N, affix_N))
 
         for tag_idx in range(tag_N):
-            for affix_to_diff_idx, affix_to_diff_data in enumerate(affix_values_list):
+            for affix_to_diff_idx, affix_to_diff_data in enumerate(self.affix_values_list):
                 prefix_group_sum = 0
                 suffix_group_sum = 0
-                for affix_idx, affix_data in enumerate(affix_values_list):
+                for affix_idx, affix_data in enumerate(self.affix_values_list):
 
                     if affix_to_diff_data["group"] == affix_data["group"]:
                         if affix_data["generation_type"] == "prefix":
@@ -136,7 +136,7 @@ class CachedWeightDraw():
         return group_diff_prefix_cummulative, group_diff_suffix_cummulative
 
 
-    def generate_spawn_tag_lookup_tables(self, spawn_tags_to_spawn_weight: np.array, affix_values_list):
+    def generate_spawn_tag_lookup_tables(self, spawn_tags_to_spawn_weight: np.array):
         '''
         Generates look up tables which take in a tag configuration and give the cummulative sums of the weights for the affixes
 
@@ -144,7 +144,7 @@ class CachedWeightDraw():
         affix_values_list: an ordered list of the affixes our item can roll whose values are dictionaries from RePoE.mods
         '''
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
-        assert len(affix_values_list) == affix_N, "need the number affixes to match"
+        assert len(self.affix_values_list) == affix_N, "need the number affixes to match"
 
         weights_cummulative = np.empty((tag_N, affix_N))
         prefix_cummulative = np.empty((tag_N, affix_N))
@@ -154,7 +154,7 @@ class CachedWeightDraw():
             partial_sums = 0
             prefix_sum = 0
             suffix_sum = 0
-            for affix_index, affix_data in enumerate(affix_values_list):
+            for affix_index, affix_data in enumerate(self.affix_values_list):
                 spawn_weight = spawn_tags_to_spawn_weight[index][affix_index]
                 partial_sums += spawn_weight
                 if affix_data["generation_type"] == "prefix":
@@ -195,6 +195,23 @@ class CachedWeightDraw():
                 sum_weights -= self.group_diff_suffix_cummulative[current_tags][affix]
 
         return weighted_draw_sums(sum_weights)
+
+
+    def generate_prefix_suffix_lookups(self):
+        '''
+
+        '''
+        affix_N = len(self.affix_values_list)
+        prefix_bits = np.zeros(affix_N, dtype=bool)
+        suffix_bits = np.zeros(affix_N, dtype=bool)
+
+        for index in range(affix_N):
+            if self.affix_values_list[index]["generation_type"] == "prefix":
+                prefix_bits[index] = True
+            elif self.affix_values_list[index]["generation_type"] == "suffix":
+                suffix_bits[index] = True
+        return prefix_bits, suffix_bits
+
 
 
 def weighted_draw_sums(sums):
