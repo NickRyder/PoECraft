@@ -13,8 +13,6 @@ for stat_translation in repoe_data["stat_translations"]:
         affix_strings[affix_string].append(stat_translation)
 
 
-
-
 index_handlers_multipliers = {'negate' : -1, 'canonical_stat' : 1, 'divide_by_fifteen_0dp' : 15, 'per_minute_to_per_second_1dp' : 60,
                      'divide_by_twenty_then_double_0dp' : 10, '60%_of_value' : 5.0/3, 'divide_by_one_hundred_2dp' : 100,
                      'milliseconds_to_seconds_0dp' : 1000, 'per_minute_to_per_second_2dp_if_required' : 60,

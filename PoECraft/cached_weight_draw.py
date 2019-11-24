@@ -7,7 +7,8 @@ import random
 
 def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
     '''
-
+    Given an affix and a list of mod_type tags, generates the generation weight based on those mod_type tags for the affix entry.
+    More details on crafting process in README.md
     '''
     generation_weight = 1
     for weight in mod_type_tags:
@@ -19,7 +20,8 @@ def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
 
 def get_generation_weight_for_affix(affix, tags):
     '''
-    
+    Given an affix and a list of tags, generates the generation weight based on those mod_type tags for the affix entry.
+    More details on crafting process in README.md
     '''
     generation_weight = 1
     for generation_weight_rule in affix["generation_weights"]:
@@ -30,6 +32,9 @@ def get_generation_weight_for_affix(affix, tags):
     return generation_weight
     
 def get_spawn_weighting(affix, tags, mod_type_tags):
+    '''
+    Given an affix, tags, and mod_type tags, returns the raw spawn_weight.
+    '''
     spawn_weights = affix["spawn_weights"]
 
     generation_weight = 1
@@ -131,12 +136,12 @@ class CachedWeightDraw():
         return group_diff_prefix_cummulative, group_diff_suffix_cummulative
 
 
-    #TODO:cleanup
     def generate_spawn_tag_lookup_tables(self, spawn_tags_to_spawn_weight: np.array, affix_values_list):
         '''
         Generates look up tables which take in a tag configuration and give the cummulative sums of the weights for the affixes
 
-
+        spawn_tags_to_spawn_weight: (tag_N, affix_N) array which yields the weight of an affix with the given tags
+        affix_values_list: an ordered list of the affixes our item can roll whose values are dictionaries from RePoE.mods
         '''
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
         assert len(affix_values_list) == affix_N, "need the number affixes to match"
