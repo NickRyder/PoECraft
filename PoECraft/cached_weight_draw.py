@@ -87,10 +87,12 @@ class CachedWeightDraw():
         self.weights_cummulative, self.prefixes_cummulative, self.suffixes_cummulative = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight)
         #(tag_N, affix_N, affix_N): 
         self.group_diff_prefix_cummulative, self.group_diff_suffix_cummulative = self.generate_group_diffs_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight)
- 
+        
+        #(affix_N, dtype=bool)
+        self.prefix_Q, self.suffix_Q = self.generate_prefix_suffix_lookups()
      
 
-    def spawn_tags_to_spawn_weight_arrays(self,spawn_tags,starting_tags, global_generation_weights) -> np.array:
+    def spawn_tags_to_spawn_weight_arrays(self,spawn_tags, starting_tags, global_generation_weights) -> np.array:
         
         tag_N = 2 ** len(spawn_tags)
 
@@ -115,7 +117,7 @@ class CachedWeightDraw():
         '''
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
         assert len(self.affix_values_list) == affix_N, "need the number affixes to match"
-        
+            
         group_diff_prefix_cummulative = np.empty((tag_N, affix_N, affix_N))
         group_diff_suffix_cummulative = np.empty((tag_N, affix_N, affix_N))
 

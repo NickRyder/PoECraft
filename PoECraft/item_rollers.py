@@ -1,4 +1,3 @@
-from itertools import combinations, chain, product
 import random
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
@@ -121,8 +120,6 @@ class ExplicitModRoller():
 
         self.base_explicitless_item = explicitless_item
 
-        is_sanctified = False
-
         fossils_added_mod_names, fossils_forced_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
 
         essences_forced_mod_names = unpack_essences(essence_names)
@@ -155,7 +152,7 @@ class ExplicitModRoller():
 
         self.tags = self.tags | self.adds_tags[affix_index]
 
-        if self.spawn_tags_to_prefix_Q[affix_index]:
+        if self.cached_weight_draw.spawn_tags_to_prefix_Q[affix_index]:
             self.prefix_N += 1
         else:
             self.suffix_N += 1
@@ -179,6 +176,9 @@ class ExplicitModRoller():
             self.add_affix(forced_affix_index)
 
         for roll_index in range(len(forced_affix_indices), affix_N):
+            self.roll_one_affix()
+    
+    def roll_one_affix(self):
             new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
             self.add_affix(new_affix_idx)
 
@@ -188,13 +188,14 @@ class ExplicitModRoller():
             affix_groups.append(self.base_dict[affix_key]["group"])
         return affix_groups
 
-    #TODO: implement
     def get_total_stats(self):
-        for stat in self.base_dict[affix_key]["stats"]:
-            if stat["id"] not in self.stats:
-                self.stats[stat["id"]] = []
-            self.stats[stat["id"]].append([stat["min"], stat["max"]])
-        raise NotImplementedError
+        stats = self.base_explicitless_item.implicit_stats.copy()
+        for affix_key in self.affix_keys:
+            for stat in self.base_dict[affix_key]["stats"]:
+                if stat["id"] not in stats:
+                    stats[stat["id"]] = []
+                stats[stat["id"]].append([stat["min"], stat["max"]])
+        return stats
 
     def __str__(self):
         return str(self.affix_keys)
