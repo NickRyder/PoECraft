@@ -18,11 +18,15 @@ def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
         adds_tags[index] = bit_adds_tags
     return adds_tags
 
-def get_base_item(name):
+def get_base_item_by_name(name):
     for base_item in base_items.values():
         if base_item["name"] == name:
             return base_item
 
+def get_fossil_by_name(name):
+    for fossil in fossils.values():
+        if fossil["name"] == name:
+            return fossil
 
 class ExplictlessItem():
     '''A class to represent an item without explicit mods in PoE'''
@@ -44,7 +48,7 @@ class ExplictlessItem():
 
 
     def __init__(self, base_item_name, influences = [], ilvl = 100, implicits = [], quality = 20, fractured_mods = []):
-        self.base_item_entry = get_base_item(base_item_name)
+        self.base_item_entry = get_base_item_by_name(base_item_name)
 
         self.tags = []
         #make all of the properties of base_item_entry properties of this class
@@ -77,7 +81,7 @@ def unpack_fossils(fossil_names):
     added_mod_names = []
     global_generation_weights = []
     for fossil_name in fossil_names:
-        fossil_data = fossils[fossil_name]
+        fossil_data = get_fossil_by_name(fossil_name)
         if fossil_data["rolls_lucky"]:
             is_sanctified = True
 
