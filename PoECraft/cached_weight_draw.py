@@ -19,7 +19,7 @@ def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
 
 def get_generation_weight_for_affix(affix, tags):
     '''
-
+    
     '''
     generation_weight = 1
     for generation_weight_rule in affix["generation_weights"]:
@@ -59,7 +59,7 @@ def tags_to_spawn_weights(tags: set, global_generation_weights, affix_data):
 
     return np.array(spawn_weights)
 
-class Cached_Weight_Draw():
+class CachedWeightDraw():
     '''
     This class creates cached objects to enable quick rolling of items at any state.
 
@@ -79,7 +79,7 @@ class Cached_Weight_Draw():
         #(tag_N, affix_N): Here we generate the raw spawn weights for each affix given a set of tags on our item
         self.spawn_tags_to_spawn_weight = self.spawn_tags_to_spawn_weight_arrays(new_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights,affix_data=self.affix_values_list)
         #(tag_N, affix_N): 
-        self.sums_weights, self.sums_prefix_bits, self.sums_suffix_bits = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_values_list=self.affix_values_list)
+        self.weights_cummulative, self.prefixes_cummulative, self.suffixes_cummulative = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_values_list=self.affix_values_list)
         #(tag_N, affix_N, affix_N): 
         self.group_diff_prefix_cummulative, self.group_diff_suffix_cummulative = self.generate_group_diffs_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight, affix_values_list=self.affix_values_list)
  
@@ -134,16 +134,16 @@ class Cached_Weight_Draw():
     #TODO:cleanup
     def generate_spawn_tag_lookup_tables(self, spawn_tags_to_spawn_weight: np.array, affix_values_list):
         '''
-        
+        Generates look up tables which take in a tag configuration and give the cummulative sums of the weights for the affixes
+
 
         '''
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
         assert len(affix_values_list) == affix_N, "need the number affixes to match"
 
-
         weights_cummulative = np.empty((tag_N, affix_N))
-        prefix_Q_cummulative = np.empty((tag_N, affix_N))
-        suffix_Q_cummulative = np.empty((tag_N, affix_N))
+        prefix_cummulative = np.empty((tag_N, affix_N))
+        suffix_cummulative = np.empty((tag_N, affix_N))
 
         for index in range(tag_N):
             partial_sums = 0
@@ -157,30 +157,39 @@ class Cached_Weight_Draw():
                 else:
                     suffix_sum += spawn_weight
                 weights_cummulative[index][affix_index] = partial_sums
-                prefix_Q_cummulative[index][affix_index] = prefix_sum
-                suffix_Q_cummulative[index][affix_index] = suffix_sum
+                prefix_cummulative[index][affix_index] = prefix_sum
+                suffix_cummulative[index][affix_index] = suffix_sum
 
-        return weights_cummulative, prefix_Q_cummulative, suffix_Q_cummulative
+        return weights_cummulative, prefix_cummulative, suffix_cummulative
 
 
-    def affix_draw(self, hash_weight_dict, tags, affixes, prefix_N, suffix_N, max_pre = 3, max_suff = 3):
+    def affix_draw(self, current_tags, current_affixes, prefix_N, suffix_N, max_pre = 3, max_suff = 3):
+        '''
+        Takes in current tags, affixes, prefix number, suffix number, and rolls a new affix.
 
-        sum_weights = hash_weight_dict.sums_weights[tags].copy()
+        Uses all of the precomputed hashing from above.
 
+        This method should be the main performance blocker.
+        '''
+        #Get the cummulative weights for each affix based on the current tags
+        sum_weights = self.weights_cummulative[current_tags].copy()
+
+        #If we have maxed out prefixes or suffixes, remove them from the pool
         if prefix_N == max_pre:
-            sum_weights -= hash_weight_dict.sums_prefix_bits[tags]
+            sum_weights -= self.prefixes_cummulative[current_tags]
         if suffix_N == max_suff:
-            sum_weights -= hash_weight_dict.sums_suffix_bits[tags]
+            sum_weights -= self.suffixes_cummulative[current_tags]
 
-        for affix in affixes:
+        #For each affix already on the item, remove it's group
+        for affix in current_affixes:
+            #Need to only remove the weights for prefixes and suffixes in the group if they 
+            #aren't already zeroed out from above.
             if prefix_N < max_pre:
-                sum_weights -= hash_weight_dict.sums_group_prefix_bits[tags][affix]
+                sum_weights -= self.group_diff_prefix_cummulative[current_tags][affix]
             if suffix_N < max_suff:
-                sum_weights -= hash_weight_dict.sums_group_suffix_bits[tags][affix]
+                sum_weights -= self.group_diff_suffix_cummulative[current_tags][affix]
 
-        affix_index_draw = weighted_draw_sums(sum_weights)
-
-        return affix_index_draw
+        return weighted_draw_sums(sum_weights)
 
 
 def weighted_draw_sums(sums):

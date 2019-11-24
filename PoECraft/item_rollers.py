@@ -5,7 +5,7 @@ from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
 import copy
 from collections import Counter
 from PoECraft.mod_collector import collect_mods_and_tags
-from PoECraft.cached_weight_draw import Cached_Weight_Draw
+from PoECraft.cached_weight_draw import CachedWeightDraw
 
 
 
@@ -163,7 +163,7 @@ class base_item():
         self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, self.affix_data)
 
         #TODO: clean up further with datastructure
-        self.cached_weight_draw = Cached_Weight_Draw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
+        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_data=affix_data, global_generation_weights=global_generation_weights)
 
 
 
