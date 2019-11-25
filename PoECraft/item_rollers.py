@@ -137,9 +137,10 @@ class ExplicitModRoller():
         starting_tags.add("default")
         self.base_dict, relevant_starting_tags, added_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
 
-        ##Order the keys and data
+        ##Order the keys, data, and added tags
         self.affix_key_pool = list(self.base_dict.keys())
         affix_data_pool = [self.base_dict[key] for key in self.affix_key_pool]
+        added_spawn_tags = list(added_spawn_tags)
 
         self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)
 
