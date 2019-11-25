@@ -70,9 +70,6 @@ def generate_all_possible_affixes_and_tags(starting_tags, mod_pool):
     #added tags don't need to include the relevant_start_tags
     added_tags = added_tags.difference(relevant_start_tags)
 
-    print(f"relevant_start_tags {relevant_start_tags}") 
-    print(f"added_tags {added_tags}")
-    print(affixes.keys())
     return relevant_start_tags, added_tags, affixes
 
 def _get_spawnable_mods_for_item(domains,ilvl):

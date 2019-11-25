@@ -167,26 +167,21 @@ class ExplicitModRoller():
     def roll_item(self):
         forced_affix_indices = self.forced_affix_indices
 
-        with timer("affix_N"):
-            rand_seed = 12 * random.random()
+        rand_seed = 12 * random.random()
+        if rand_seed < 1:
+            affix_N = 6
+        elif rand_seed < 4:
+            affix_N = 5
+        else:
+            affix_N = 4
 
-            if rand_seed < 1:
-                affix_N = 6
-            elif rand_seed < 4:
-                affix_N = 5
-            else:
-                affix_N = 4
-        
-        with timer("clear_item"):
-            self.clear_item()   
+        self.clear_item()   
 
-        with timer("add forced"):
-            for forced_affix_index in forced_affix_indices:
-                self.add_affix(forced_affix_index)
+        for forced_affix_index in forced_affix_indices:
+            self.add_affix(forced_affix_index)
         
         for roll_index in range(len(forced_affix_indices), affix_N):
-            with timer("roll affix"):
-                self.roll_one_affix()
+            self.roll_one_affix()
     
     def roll_one_affix(self):
             new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)

@@ -77,6 +77,8 @@ class CachedWeightDraw():
     This class has a draw random index command which draws an index using the cached objects
     '''
 
+    weight_dtype = np.float
+
 
     def __init__(self, starting_tags, added_spawn_tags, affix_values_list, global_generation_weights):
         self.affix_values_list = affix_values_list
@@ -118,8 +120,8 @@ class CachedWeightDraw():
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
         assert len(self.affix_values_list) == affix_N, "need the number affixes to match"
             
-        group_diff_prefix_cummulative = np.empty((tag_N, affix_N, affix_N))
-        group_diff_suffix_cummulative = np.empty((tag_N, affix_N, affix_N))
+        group_diff_prefix_cummulative = np.empty((tag_N, affix_N, affix_N), dtype=self.weight_dtype)
+        group_diff_suffix_cummulative = np.empty((tag_N, affix_N, affix_N), dtype=self.weight_dtype)
 
         for tag_idx in range(tag_N):
             for affix_to_diff_idx, affix_to_diff_data in enumerate(self.affix_values_list):
@@ -148,9 +150,9 @@ class CachedWeightDraw():
         tag_N, affix_N = spawn_tags_to_spawn_weight.shape
         assert len(self.affix_values_list) == affix_N, "need the number affixes to match"
 
-        weights_cummulative = np.empty((tag_N, affix_N))
-        prefix_cummulative = np.empty((tag_N, affix_N))
-        suffix_cummulative = np.empty((tag_N, affix_N))
+        weights_cummulative = np.empty((tag_N, affix_N), dtype=self.weight_dtype)
+        prefix_cummulative = np.empty((tag_N, affix_N), dtype=self.weight_dtype)
+        suffix_cummulative = np.empty((tag_N, affix_N), dtype=self.weight_dtype)
 
         for index in range(tag_N):
             partial_sums = 0
@@ -218,5 +220,5 @@ class CachedWeightDraw():
 from bisect import bisect_left
 def weighted_draw_sums(sums):
     total_sum = sums[-1]
-    # return np.sum(sums < total_sum*random.random())
-    return np.searchsorted(sums, total_sum*random.random())
+    # return np.searchsorted(sums, int(total_sum*random.random()))
+    return bisect_left(sums, total_sum*random.random())
