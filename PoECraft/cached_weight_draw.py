@@ -181,24 +181,28 @@ class CachedWeightDraw():
         This method should be the main performance blocker.
         '''
         #Get the cummulative weights for each affix based on the current tags
-        sum_weights = self.weights_cummulative[current_tags].copy()
+        
+        maxed_out_prefixes = prefix_N == max_pre
+        maxed_out_suffixes = suffix_N == max_suff
 
-        #If we have maxed out prefixes or suffixes, remove them from the pool
-        if prefix_N == max_pre:
-            sum_weights -= self.prefixes_cummulative[current_tags]
-        if suffix_N == max_suff:
-            sum_weights -= self.suffixes_cummulative[current_tags]
+        if not maxed_out_prefixes and not maxed_out_suffixes:
+            sum_weights = self.weights_cummulative[current_tags]
+        elif maxed_out_prefixes and not maxed_out_suffixes:
+            sum_weights = self.suffixes_cummulative[current_tags]
+        elif not maxed_out_prefixes and maxed_out_suffixes:
+            sum_weights = self.prefixes_cummulative[current_tags]
+        else:
+            raise ValueError("can't add affix to full item")
 
         #For each affix already on the item, remove it's group
+        group_corrector = np.zeros(sum_weights.shape)
         for affix in current_affixes:
-            #Need to only remove the weights for prefixes and suffixes in the group if they 
-            #aren't already zeroed out from above.
             if prefix_N < max_pre:
-                sum_weights -= self.group_diff_prefix_cummulative[current_tags][affix]
+                group_corrector += self.group_diff_prefix_cummulative[current_tags][affix]
             if suffix_N < max_suff:
-                sum_weights -= self.group_diff_suffix_cummulative[current_tags][affix]
+                group_corrector += self.group_diff_suffix_cummulative[current_tags][affix]
 
-        return weighted_draw_sums(sum_weights)
+        return weighted_draw_sums(sum_weights - group_corrector)
 
 
     def generate_prefix_suffix_lookups(self):

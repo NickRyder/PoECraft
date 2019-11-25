@@ -193,6 +193,7 @@ class ExplicitModRoller():
             affix_groups.append(self.base_dict[affix_key]["group"])
         return affix_groups
 
+
     def get_total_stats(self):
         '''
         Returns a dict where the keys are stat_names and the values are numpy arrays of size (n,2) where the first dimension corresponds to unique sources of that stat
