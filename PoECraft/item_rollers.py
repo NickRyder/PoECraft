@@ -4,19 +4,23 @@ from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
 from collections import Counter
 from PoECraft.mod_collector import collect_mods_and_tags
 from PoECraft.cached_weight_draw import CachedWeightDraw
-
+from PoECraft.utils.performance import timer
 
 influence_to_tags = dict(shaper="shaper_tag", elder="elder_tag")
 
-def spawn_tags_to_add_tags_array(spawn_tags, affix_data):
-    adds_tags = [None] * len(affix_data)
-    for index in range(len(affix_data)):
+def spawn_tags_to_add_tags_array(spawn_tags, affix_data_list):
+    '''
+    takes in all possible added tags and all affixes.
+    For each affix generates a bit string which represents which tags are added
+    '''
+    affix_to_added_tags_bitstring = [None] * len(affix_data_list)
+    for index in range(len(affix_data_list)):
         bit_adds_tags = 0
-        for tag in affix_data[index]["adds_tags"]:
+        for tag in affix_data_list[index]["adds_tags"]:
             if tag in spawn_tags:
                 bit_adds_tags += 2**spawn_tags.index(tag)
-        adds_tags[index] = bit_adds_tags
-    return adds_tags
+        affix_to_added_tags_bitstring[index] = bit_adds_tags
+    return affix_to_added_tags_bitstring
 
 def get_base_item_by_name(name):
     for base_item in base_items.values():
@@ -131,16 +135,15 @@ class ExplicitModRoller():
 
         starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
-        self.base_dict, realized_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
+        self.base_dict, relevant_starting_tags, added_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
 
         ##Order the keys and data
         self.affix_key_pool = list(self.base_dict.keys())
         affix_data_pool = [self.base_dict[key] for key in self.affix_key_pool]
 
-        new_spawn_tags = list(realized_spawn_tags.difference(starting_tags))
-        self.adds_tags = spawn_tags_to_add_tags_array(new_spawn_tags, affix_data_pool)
+        self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)
 
-        self.cached_weight_draw = CachedWeightDraw(starting_tags=starting_tags, new_spawn_tags=new_spawn_tags, affix_values_list=affix_data_pool, global_generation_weights=fossils_global_generation_weights)
+        self.cached_weight_draw = CachedWeightDraw(starting_tags=relevant_starting_tags, added_spawn_tags=added_spawn_tags, affix_values_list=affix_data_pool, global_generation_weights=fossils_global_generation_weights)
 
         self.forced_affix_indices = []
         for forced_mod in essences_forced_mod_names + fossils_forced_mod_names:
@@ -153,7 +156,7 @@ class ExplicitModRoller():
         affix_key = self.affix_key_pool[affix_index]
         self.affix_keys_current.append(affix_key)
 
-        self.tags = self.tags | self.adds_tags[affix_index]
+        self.tags = self.tags | self.affix_to_added_tags_bitstring[affix_index]
 
         if self.cached_weight_draw.prefix_Q[affix_index]:
             self.prefix_N += 1
@@ -164,22 +167,26 @@ class ExplicitModRoller():
     def roll_item(self):
         forced_affix_indices = self.forced_affix_indices
 
-        rand_seed = 12 * random.random()
+        with timer("affix_N"):
+            rand_seed = 12 * random.random()
 
-        if rand_seed < 1:
-            affix_N = 6
-        elif rand_seed < 4:
-            affix_N = 5
-        else:
-            affix_N = 4
+            if rand_seed < 1:
+                affix_N = 6
+            elif rand_seed < 4:
+                affix_N = 5
+            else:
+                affix_N = 4
+        
+        with timer("clear_item"):
+            self.clear_item()   
 
-        self.clear_item()
-
-        for forced_affix_index in forced_affix_indices:
-            self.add_affix(forced_affix_index)
-
+        with timer("add forced"):
+            for forced_affix_index in forced_affix_indices:
+                self.add_affix(forced_affix_index)
+        
         for roll_index in range(len(forced_affix_indices), affix_N):
-            self.roll_one_affix()
+            with timer("roll affix"):
+                self.roll_one_affix()
     
     def roll_one_affix(self):
             new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)

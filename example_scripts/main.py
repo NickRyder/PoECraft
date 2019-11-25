@@ -6,6 +6,8 @@ from repoe_import import *
 import os
 from tqdm import tqdm
 
+raise NotImplementedError("This script is defunct.")
+
 # file_texts = set()
 #
 # for filename in os.listdir("Data"):
@@ -215,21 +217,6 @@ def count_simulations_with_mods(item_class, query_mods, trial_N = 1000000):
     return counter
 
 
-
-def affix_counter_simulation(item_class, trial_N = 1000000):
-
-    mod_counter = Counter()
-
-    for trial_idx in tqdm(range(trial_N)):
-        chaos_item(item_class)
-        for affix_key in item_class.affix_keys:
-            if affix_key not in mod_counter:
-                mod_counter[affix_key] = 0
-            mod_counter[affix_key] += 1
-    for key in mod_counter.keys():
-        mod_counter[key] = mod_counter[key]
-
-    return mod_counter
 
 
 def import_i86_belts():

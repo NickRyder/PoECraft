@@ -78,11 +78,11 @@ class CachedWeightDraw():
     '''
 
 
-    def __init__(self, starting_tags, new_spawn_tags, affix_values_list, global_generation_weights):
+    def __init__(self, starting_tags, added_spawn_tags, affix_values_list, global_generation_weights):
         self.affix_values_list = affix_values_list
 
         #(tag_N, affix_N): Here we generate the raw spawn weights for each affix given a set of tags on our item
-        self.spawn_tags_to_spawn_weight = self.spawn_tags_to_spawn_weight_arrays(new_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights)
+        self.spawn_tags_to_spawn_weight = self.spawn_tags_to_spawn_weight_arrays(added_spawn_tags,starting_tags=starting_tags, global_generation_weights=global_generation_weights)
         #(tag_N, affix_N): 
         self.weights_cummulative, self.prefixes_cummulative, self.suffixes_cummulative = self.generate_spawn_tag_lookup_tables(spawn_tags_to_spawn_weight=self.spawn_tags_to_spawn_weight)
         #(tag_N, affix_N, affix_N): 
@@ -215,7 +215,7 @@ class CachedWeightDraw():
         return prefix_bits, suffix_bits
 
 
-
+from bisect import bisect_left
 def weighted_draw_sums(sums):
     total_sum = sums[-1]
     # return np.sum(sums < total_sum*random.random())

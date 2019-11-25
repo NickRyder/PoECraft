@@ -3,7 +3,7 @@ This project is intended to be a Python Package focused on performant crafting s
 # Crafting Model
 This project presumes the following model in which the game crafts items.
 - **Crafts one affix at a time** - Even when a currency orb puts multiple affixes on an item, it accomplishes this by randomly selecting a mod from the available mod pool one at time
-- **1:4:7 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 4/12 chance for 5 mods, and 7/12 chance for 6 mods
+- **1:3:8 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 4/12 chance for 5 mods, and 7/12 chance for 6 mods
 
 ## Affix Weights
 There are multiple entities which influence the affix weighting.
