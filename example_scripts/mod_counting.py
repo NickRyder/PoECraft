@@ -4,7 +4,7 @@ import numpy
 from collections import Counter
 from tqdm import tqdm
 
-stygian_vise_item = ExplictlessItem("Stygian Vise")
+stygian_vise_item = ExplictlessItem("Stygian Vise", ilvl=84)
 
 stygian_vise_roller = ExplicitModRoller(stygian_vise_item)
 
