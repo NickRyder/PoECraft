@@ -176,6 +176,7 @@ class CachedWeightDraw():
     last_inputs = (False,False,False,False)
     cached_weights = None
 
+    #TODO: clean up
     def affix_draw(self, current_tags, current_affixes, prefix_N, suffix_N, max_pre = 3, max_suff = 3):
         '''
         Takes in current tags, affixes, prefix number, suffix number, and rolls a new affix.
@@ -189,6 +190,8 @@ class CachedWeightDraw():
         maxed_out_prefixes = prefix_N == max_pre
         maxed_out_suffixes = suffix_N == max_suff
 
+
+        #if prefixes/suffixes/tags have not changed, simply grab the last weights and update group
         if self.last_inputs == (current_tags, current_affixes[:-1], maxed_out_prefixes, maxed_out_suffixes):
             sum_weights = self.cached_weights
             affix = current_affixes[-1]
@@ -197,6 +200,7 @@ class CachedWeightDraw():
             if suffix_N < max_suff:
                 sum_weights -= self.group_diff_suffix_cummulative[current_tags][affix]
         else:
+            #if prefixes/suffixes/tags have changed, recalculate weights from all affix changes
             if not maxed_out_prefixes and not maxed_out_suffixes:
                 sum_weights = self.weights_cummulative[current_tags].copy()
             elif maxed_out_prefixes and not maxed_out_suffixes:
@@ -237,5 +241,6 @@ class CachedWeightDraw():
 from bisect import bisect_left
 def weighted_draw_sums(sums):
     total_sum = sums[-1]
+    print(sums)
     # return np.searchsorted(sums, int(total_sum*random.random()))
     return bisect_left(sums, total_sum*random.random())

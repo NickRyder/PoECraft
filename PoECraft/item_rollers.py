@@ -2,7 +2,7 @@ import random
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
 from collections import Counter
-from PoECraft.mod_collector import collect_mods_and_tags
+from PoECraft.mod_collector import collect_mods_and_tags, generate_all_possible_affixes_and_tags
 from PoECraft.cached_weight_draw import CachedWeightDraw
 from PoECraft.utils.performance import timer
 
@@ -123,7 +123,7 @@ class ExplicitModRoller():
    
 
     def __init__(self, explicitless_item: ExplictlessItem,  fossil_names = [], essence_names = []):
-
+        raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
         self.base_explicitless_item = explicitless_item
 
         fossils_forced_mod_names, fossils_added_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
@@ -133,23 +133,28 @@ class ExplicitModRoller():
         for name in fossils_forced_mod_names + fossils_added_mod_names + essences_forced_mod_names:
             appended_mod_dictionary[name] = mods[name]
 
-        starting_tags = set(explicitless_item.tags)
-        starting_tags.add("default")
-        self.base_dict, relevant_starting_tags, added_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
-
-        ##Order the keys, data, and added tags
-        self.affix_key_pool = list(self.base_dict.keys())
-        affix_data_pool = [self.base_dict[key] for key in self.affix_key_pool]
-        added_spawn_tags = list(added_spawn_tags)
-
-        self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)
-
-        self.cached_weight_draw = CachedWeightDraw(starting_tags=relevant_starting_tags, added_spawn_tags=added_spawn_tags, affix_values_list=affix_data_pool, global_generation_weights=fossils_global_generation_weights)
-
         self.forced_affix_indices = []
         for forced_mod in essences_forced_mod_names + fossils_forced_mod_names:
             print(f"forced_mod: {forced_mod}")
             self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
+
+        starting_tags = set(explicitless_item.tags)
+        starting_tags.add("default")
+        mod_dict, relevant_starting_tags, added_spawn_tags = collect_mods_and_tags(domains=[explicitless_item.domain], starting_tags=starting_tags, appended_mod_dictionary=appended_mod_dictionary, ilvl=self.base_explicitless_item.ilvl)
+
+        self.setup_cached_weight_draw(mod_dict=mod_dict, relevant_starting_tags=relevant_starting_tags, added_spawn_tags=added_spawn_tags, global_generation_weights=fossils_global_generation_weights)
+
+
+    def setup_cached_weight_draw(self, mod_dict, relevant_starting_tags, added_spawn_tags, global_generation_weights = []):
+        ##Order the keys, data, and added tags
+        self.mod_dict = mod_dict
+        self.affix_key_pool = list(self.mod_dict.keys())
+        affix_data_pool = [self.mod_dict[key] for key in self.affix_key_pool]
+        added_spawn_tags = list(added_spawn_tags)
+
+        self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)
+
+        self.cached_weight_draw = CachedWeightDraw(starting_tags=relevant_starting_tags, added_spawn_tags=added_spawn_tags, affix_values_list=affix_data_pool, global_generation_weights=global_generation_weights)
 
 
     def add_affix(self, affix_index):
@@ -191,7 +196,7 @@ class ExplicitModRoller():
     def get_affix_groups(self):
         affix_groups = []
         for affix_key in self.affix_keys_current:
-            affix_groups.append(self.base_dict[affix_key]["group"])
+            affix_groups.append(self.mod_dict[affix_key]["group"])
         return affix_groups
 
 
@@ -206,7 +211,7 @@ class ExplicitModRoller():
             stats[stat_name] = stat_ranges
         #add stas for each affix
         for affix_key in self.affix_keys_current:
-            for stat in self.base_dict[affix_key]["stats"]:
+            for stat in self.mod_dict[affix_key]["stats"]:
                 if stat["id"] not in stats:
                     stats[stat["id"]] = np.empty((0,2))
                 min_max_range_entry = np.array([stat["min"], stat["max"]])

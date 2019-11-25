@@ -4,7 +4,7 @@ import numpy
 from collections import Counter
 from tqdm import tqdm
 
-base_item = ExplictlessItem("Jewelled Foil", ilvl=84)
+base_item = ExplictlessItem("Stygian Vise", ilvl=25)
 
 item_roller = ExplicitModRoller(base_item)
 
@@ -19,17 +19,19 @@ def affix_counter_simulation(item_roller: ExplicitModRoller, trial_N = 10 ** 6):
             mod_counter[affix_key] += 1
     return mod_counter
 
+def divide_counter(counter:Counter, dividend):
+    divided_counter = {}
+    for key, value in counter.items():
+        divided_counter[key] = value/dividend
+    return divided_counter
+
+
 def counter_to_percentages(counter:Counter):
     total_sum = 0
     for key, value in counter.items():
         total_sum += value
-    percentages = {}
-    for key, value in counter.items():
-        percentages[key] = value / total_sum
-    return percentages
-    
+    return divide_counter(counter, total_sum)
 
-
-mod_counter = affix_counter_simulation(item_roller, trial_N = 10 ** 6)
-
-print(counter_to_percentages(mod_counter))
+trial_N = 10 ** 6
+mod_counter = affix_counter_simulation(item_roller, trial_N = trial_N)
+print(divide_counter(mod_counter, trial_N))
