@@ -14,7 +14,7 @@ vaal_regalia_roller = ExplicitModRoller(vaal_regalia_item)
 #before we do a batch craft, we'll do one small craft:
 #This is the equivalent of using our fossil:
 
-trial_N = 10 ** 4
+trial_N = 10 ** 6
 with timer(f" {trial_N} rolls"):
     for _ in range(trial_N):
         vaal_regalia_roller.roll_item()

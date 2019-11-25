@@ -5,6 +5,12 @@ This project presumes the following model in which the game crafts items.
 - **Crafts one affix at a time** - Even when a currency orb puts multiple affixes on an item, it accomplishes this by randomly selecting a mod from the available mod pool one at time
 - **1:3:8 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 4/12 chance for 5 mods, and 7/12 chance for 6 mods
 
+## Features to Implement
+- Max Prefix/Suffix other than 3/3
+- Meta Crafting Mods
+- Beast Crafting
+- More Currency Items
+
 ## Affix Weights
 There are multiple entities which influence the affix weighting.
 - **Mod Groups** - In `RePoE.mods` every affix has a property `group`. Only one total mod can show up from each group on the item
@@ -25,4 +31,13 @@ There are multiple entities which influence the affix weighting.
 
 # Performant Crafting Simulator
 The crafting process at it's core is a markov chain - one can imagine starting with a blank base and then rolling a random first mod, whose probabilities are described above. Then for each one of those we get new probabilities based on tags, groups, etc. There are two basic approaches to evaluating a function over this probability space
-- **Exact Computation** - 
+- **Exact Computation** - In order to do exact computation, we need the exact probability of every permutation of mods spawning on an item. On a ilvl 100 Vaal Regalia there are 119 mods that can spawn. So for 6 mod variants we have 119^6 possible permutations. Many of these will be invalid because of too many prefixes, suffixes, or repeated groups. Regardless the order of magnitude should only be off by a bit. 10^12 leaves is computationally infeasible.
+    -**Mod Group Computation** - One alternative strategy that would work for some cases is to instead calculate the probability of a mod group being chose, instead of a mod itself. However, with influenced items even the total number of mod groups can get near 100, leading to the same problem as before.
+- **Simulated Rollouts** - Instead of exactly calculating the probability of each leaf in our crafting tree, we instead quickly simulate rollouts. There are a few limiting factors in simulating crafts:
+    -**Generating Random Numbers** - Generating random numbers is slow and expensive.
+    -**Need to Recalculate Spawn Weights at Every Step** - More on this below.
+
+## Our Strategy
+In order to get fast rollouts, we need to cache as much information as possible to do our random draws. There are three main factors that change our distribution: tags, groups, and generation type (prefix/suffix).   
+
+

@@ -4,9 +4,9 @@ import numpy
 from collections import Counter
 from tqdm import tqdm
 
-stygian_vise_item = ExplictlessItem("Stygian Vise", ilvl=84)
+base_item = ExplictlessItem("Jewelled Foil", ilvl=84)
 
-stygian_vise_roller = ExplicitModRoller(stygian_vise_item)
+item_roller = ExplicitModRoller(base_item)
 
 def affix_counter_simulation(item_roller: ExplicitModRoller, trial_N = 10 ** 6):
 
@@ -30,6 +30,6 @@ def counter_to_percentages(counter:Counter):
     
 
 
-mod_counter = affix_counter_simulation(stygian_vise_roller, trial_N = 10 ** 5)
+mod_counter = affix_counter_simulation(item_roller, trial_N = 10 ** 6)
 
 print(counter_to_percentages(mod_counter))
