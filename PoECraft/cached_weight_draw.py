@@ -241,6 +241,5 @@ class CachedWeightDraw():
 from bisect import bisect_left
 def weighted_draw_sums(sums):
     total_sum = sums[-1]
-    print(sums)
     # return np.searchsorted(sums, int(total_sum*random.random()))
     return bisect_left(sums, total_sum*random.random())

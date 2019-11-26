@@ -123,7 +123,7 @@ class ExplicitModRoller():
    
 
     def __init__(self, explicitless_item: ExplictlessItem,  fossil_names = [], essence_names = []):
-        raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
+        # raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
         self.base_explicitless_item = explicitless_item
 
         fossils_forced_mod_names, fossils_added_mod_names, fossils_global_generation_weights = unpack_fossils(fossil_names)
