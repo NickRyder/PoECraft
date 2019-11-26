@@ -7,6 +7,9 @@ from math import abs
 
 '''
 smoke test
+
+rolls an item with 7 affixes, equal weight, 4 prefixes, 3 suffixes. 2 of the suffixes share a mod group, none of the others do.
+this effectively only tests mod group rolling
 '''
 
 test_item_mod_name = ["FireResist1", "IncreasedLife0", "IncreasedLife1", "IncreasedMana3", "ColdResist1", "LightningResist1", "AttackerTakesDamage1"]
