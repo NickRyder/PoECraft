@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+from distutils.core import setup
+from Cython.Build import cythonize
 
 # Package meta-data.
 NAME = 'PoECraft'
@@ -32,4 +34,5 @@ setup(
     extras_require=EXTRAS,
     include_package_data=True,
     license='proprietary',
+    ext_modules=cythonize("PoECraft/performance/prng.pyx")
 )

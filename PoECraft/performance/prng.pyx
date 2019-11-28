@@ -4,7 +4,6 @@ cdef unsigned int rotl(unsigned int x, int k):
     return (x << k) | (x >> (32 - k))
 
 cdef unsigned int s[4]
-
 s[:] = [7,92929898,10100292,9999932]
 
 cdef unsigned int rng():
