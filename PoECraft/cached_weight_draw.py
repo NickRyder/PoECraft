@@ -195,7 +195,7 @@ class CachedWeightDraw():
         if self.last_inputs == (current_tags, current_affixes[:-1], maxed_out_prefixes, maxed_out_suffixes):
             sum_weights = self.cached_weights
             affix = current_affixes[-1]
-            if prefix_N < max_pre:
+            if prefix_N < max_pre:  
                 sum_weights -= self.group_diff_prefix_cummulative[current_tags][affix]
             if suffix_N < max_suff:
                 sum_weights -= self.group_diff_suffix_cummulative[current_tags][affix]
