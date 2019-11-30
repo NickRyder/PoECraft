@@ -1,0 +1,4 @@
+include *.md
+include *.py
+recursive-include PoECraft *.py *.pyx *.pxd
+recursive-include tools *.py

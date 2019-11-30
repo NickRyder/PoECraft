@@ -1,11 +1,33 @@
 This project is intended to be a Python Package focused on performant crafting simulations for Path of Exile. All of the data is gathered from [RePoE](https://github.com/brather1ng/RePoE), which parses the `content.ggpk` file into json. 
 
+# Distribution Details
+
+This project now uses [Cython](https://cython.org/), which precompiles some of the code to allow for C level performance. 
+Upon close inspection one will notice extra structure around this package, which is to accomodate Cython. 
+We follow the cython template that `scikit-learn` uses, which is outlined at this [repository](https://github.com/jakevdp/cython_template).
+The main gist of the extra files is there are recursive `setup.py` files in every subdirectory which help compile the cython into extension `.c` files for distribution.
+
+## How to Use
+
+To use this repository, one needs to install [RePoE](https://github.com/brather1ng/RePoE) (which in turn requires [PyPoE](https://github.com/OmegaK2/PyPoE)).
+With these installed one can run `pip install -e .` in the `PoECraft` directory to install `PoECraft` as a package.
+
+### Example Scripts
+
+There are example scripts which are carefully annotated found in `/example_scripts`. These demonstrate the current basic features of this package.
+
+### Smoke Tests
+
+Currently this package has no unit tests, but does have smoke tests to confirm the probability distribution on certain test items is as expected.
+
 # Crafting Model
+
 This project presumes the following model in which the game crafts items.
 - **Crafts one affix at a time** - Even when a currency orb puts multiple affixes on an item, it accomplishes this by randomly selecting a mod from the available mod pool one at time
 - **1:3:8 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 4/12 chance for 5 mods, and 7/12 chance for 6 mods
 
 ## Features to Implement
+
 - Max Prefix/Suffix other than 3/3
 - Meta Crafting Mods
 - Beast Crafting
@@ -39,5 +61,6 @@ The crafting process at it's core is a markov chain - one can imagine starting w
 
 ## Our Strategy
 In order to get fast rollouts, we need to cache as much information as possible to do our random draws. There are three main factors that change our distribution: tags, groups, and generation type (prefix/suffix).   
+
 
 

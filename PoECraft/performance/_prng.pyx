@@ -1,4 +1,5 @@
 
+
 # http://prng.di.unimi.it/xoshiro128starstar.c
 cdef unsigned int rotl(unsigned int x, int k):
     return (x << k) | (x >> (32 - k))
@@ -38,4 +39,5 @@ cdef unsigned int bounded_rand(unsigned int rand_range):
             m = <unsigned long>x * <unsigned long>rand_range
             l = <unsigned int>m
     return m >> 32
+
 
