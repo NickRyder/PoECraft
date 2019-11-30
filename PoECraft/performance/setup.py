@@ -10,6 +10,10 @@ def configuration(parent_package='', top_path=None):
 
     config.add_extension('_prng',
                          sources=['_prng.c'])
+    config.add_extension('_bisect',
+                         sources=['_bisect.c'])
+    config.add_extension('_draw_affix',
+                         sources=['_draw_affix.c'])
 
     return config
 

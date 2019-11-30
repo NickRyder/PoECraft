@@ -6,6 +6,8 @@ from PoECraft.mod_collector import collect_mods_and_tags, generate_all_possible_
 from PoECraft.cached_weight_draw import CachedWeightDraw
 from PoECraft.utils.performance import timer
 
+from PoECraft.performance._draw_affix import affix_draw
+
 influence_to_tags = dict(shaper="shaper_tag", elder="elder_tag")
 
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data_list):
@@ -114,10 +116,13 @@ def unpack_essences(essence_names, item_class):
 class ExplicitModRoller():
     '''A class to quickly simulate using currency on an item in PoE'''
 
+    max_pre = 3
+    max_suff = 3
+
     def clear_item(self):
         self.prefix_N = 0
         self.suffix_N = 0
-        self.tags = 0
+        self.tags_current = 0
         self.affix_indices_current = []
         self.affix_keys_current = []
    
@@ -162,7 +167,7 @@ class ExplicitModRoller():
         affix_key = self.affix_key_pool[affix_index]
         self.affix_keys_current.append(affix_key)
 
-        self.tags = self.tags | self.affix_to_added_tags_bitstring[affix_index]
+        self.tags_current = self.tags_current | self.affix_to_added_tags_bitstring[affix_index]
 
         if self.cached_weight_draw.prefix_Q[affix_index]:
             self.prefix_N += 1
@@ -190,8 +195,12 @@ class ExplicitModRoller():
             self.roll_one_affix()
     
     def roll_one_affix(self):
-            new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags_current, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            # new_affix_idx = affix_draw(self)
             self.add_affix(new_affix_idx)
+
+    
+
 
     def get_affix_groups(self):
         affix_groups = []

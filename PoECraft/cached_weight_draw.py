@@ -77,7 +77,7 @@ class CachedWeightDraw():
     This class has a draw random index command which draws an index using the cached objects
     '''
 
-    weight_dtype = np.float
+    weight_dtype = np.uint32
 
 
     def __init__(self, starting_tags, added_spawn_tags, affix_values_list, global_generation_weights):
@@ -172,6 +172,21 @@ class CachedWeightDraw():
         return weights_cummulative, prefix_cummulative, suffix_cummulative
 
 
+    def generate_prefix_suffix_lookups(self):
+        '''
+
+        '''
+        affix_N = len(self.affix_values_list)
+        prefix_bits = np.zeros(affix_N, dtype=bool)
+        suffix_bits = np.zeros(affix_N, dtype=bool)
+
+        for index in range(affix_N):
+            if self.affix_values_list[index]["generation_type"] == "prefix":
+                prefix_bits[index] = True
+            elif self.affix_values_list[index]["generation_type"] == "suffix":
+                suffix_bits[index] = True
+        return prefix_bits, suffix_bits
+
 
     last_inputs = (False,False,False,False)
     cached_weights = None
@@ -222,20 +237,6 @@ class CachedWeightDraw():
         return weighted_draw_sums(sum_weights)
 
 
-    def generate_prefix_suffix_lookups(self):
-        '''
-
-        '''
-        affix_N = len(self.affix_values_list)
-        prefix_bits = np.zeros(affix_N, dtype=bool)
-        suffix_bits = np.zeros(affix_N, dtype=bool)
-
-        for index in range(affix_N):
-            if self.affix_values_list[index]["generation_type"] == "prefix":
-                prefix_bits[index] = True
-            elif self.affix_values_list[index]["generation_type"] == "suffix":
-                suffix_bits[index] = True
-        return prefix_bits, suffix_bits
 
 
 from bisect import bisect_left

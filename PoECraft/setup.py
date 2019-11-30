@@ -9,14 +9,13 @@ def configuration(parent_package='', top_path=None):
     config = Configuration(PACKAGE_NAME, parent_package, top_path)
 
     config.add_subpackage('performance')
-    # config.add_subpackage('__check_build')
-    # config.add_subpackage('tests')
-    # config.add_extension('example_code',
-                        #  sources=['example_code.c'])
+    config.add_subpackage('__check_build')
+    config.add_subpackage('tests')
+    config.add_subpackage('utils')
 
     return config
 
 
 if __name__ == '__main__':
     from numpy.distutils.core import setup
-    setup(**configuration(top_path='').todict())
+    setup(**configuration(top_path='').tosdict())
