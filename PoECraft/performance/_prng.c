@@ -590,8 +590,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE___prng
-#define __PYX_HAVE_API___prng
+#define __PYX_HAVE__PoECraft__performance___prng
+#define __PYX_HAVE_API__PoECraft__performance___prng
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -974,13 +974,16 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
 /* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_unsigned_int(unsigned int value);
+
+/* CIntFromPy.proto */
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+
+/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
-
-/* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* FastTypeChecks.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1002,41 +1005,53 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from '_prng' */
-static unsigned int __pyx_v_5_prng_s[4];
-static unsigned int __pyx_f_5_prng_rotl(unsigned int, int); /*proto*/
-static unsigned int __pyx_f_5_prng_rng(void); /*proto*/
-#define __Pyx_MODULE_NAME "_prng"
-extern int __pyx_module_is_main__prng;
-int __pyx_module_is_main__prng = 0;
+/* Module declarations from 'PoECraft.performance._prng' */
+static unsigned int __pyx_v_8PoECraft_11performance_5_prng_s[4];
+static CYTHON_INLINE unsigned int __pyx_f_8PoECraft_11performance_5_prng_rotl(unsigned int, int); /*proto*/
+static unsigned int __pyx_f_8PoECraft_11performance_5_prng_rng(void); /*proto*/
+static unsigned int __pyx_f_8PoECraft_11performance_5_prng__bounded_rand(unsigned int); /*proto*/
+#define __Pyx_MODULE_NAME "PoECraft.performance._prng"
+extern int __pyx_module_is_main_PoECraft__performance___prng;
+int __pyx_module_is_main_PoECraft__performance___prng = 0;
 
-/* Implementation of '_prng' */
+/* Implementation of 'PoECraft.performance._prng' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_rand_range[] = "rand_range";
+static const char __pyx_k_bounded_rand[] = "bounded_rand";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_PoECraft_performance__prng[] = "PoECraft.performance._prng";
+static const char __pyx_k_PoECraft_performance__prng_pyx[] = "PoECraft/performance/_prng.pyx";
+static PyObject *__pyx_n_s_PoECraft_performance__prng;
+static PyObject *__pyx_kp_s_PoECraft_performance__prng_pyx;
+static PyObject *__pyx_n_s_bounded_rand;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
+static PyObject *__pyx_n_s_rand_range;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_pf_8PoECraft_11performance_5_prng_bounded_rand(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_rand_range); /* proto */
+static PyObject *__pyx_tuple_;
+static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "_prng.pyx":3
+/* "PoECraft/performance/_prng.pyx":4
  * 
  * # http://prng.di.unimi.it/xoshiro128starstar.c
- * cdef unsigned int rotl(unsigned int x, int k):             # <<<<<<<<<<<<<<
+ * cdef inline unsigned int rotl(unsigned int x, int k):             # <<<<<<<<<<<<<<
  *     return (x << k) | (x >> (32 - k))
  * 
  */
 
-static unsigned int __pyx_f_5_prng_rotl(unsigned int __pyx_v_x, int __pyx_v_k) {
+static CYTHON_INLINE unsigned int __pyx_f_8PoECraft_11performance_5_prng_rotl(unsigned int __pyx_v_x, int __pyx_v_k) {
   unsigned int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("rotl", 0);
 
-  /* "_prng.pyx":4
+  /* "PoECraft/performance/_prng.pyx":5
  * # http://prng.di.unimi.it/xoshiro128starstar.c
- * cdef unsigned int rotl(unsigned int x, int k):
+ * cdef inline unsigned int rotl(unsigned int x, int k):
  *     return (x << k) | (x >> (32 - k))             # <<<<<<<<<<<<<<
  * 
  * cdef unsigned int s[4]
@@ -1044,10 +1059,10 @@ static unsigned int __pyx_f_5_prng_rotl(unsigned int __pyx_v_x, int __pyx_v_k) {
   __pyx_r = ((__pyx_v_x << __pyx_v_k) | (__pyx_v_x >> (32 - __pyx_v_k)));
   goto __pyx_L0;
 
-  /* "_prng.pyx":3
+  /* "PoECraft/performance/_prng.pyx":4
  * 
  * # http://prng.di.unimi.it/xoshiro128starstar.c
- * cdef unsigned int rotl(unsigned int x, int k):             # <<<<<<<<<<<<<<
+ * cdef inline unsigned int rotl(unsigned int x, int k):             # <<<<<<<<<<<<<<
  *     return (x << k) | (x >> (32 - k))
  * 
  */
@@ -1058,7 +1073,7 @@ static unsigned int __pyx_f_5_prng_rotl(unsigned int __pyx_v_x, int __pyx_v_k) {
   return __pyx_r;
 }
 
-/* "_prng.pyx":9
+/* "PoECraft/performance/_prng.pyx":10
  * s[:] = [7,92929898,10100292,9999932]
  * 
  * cdef unsigned int rng():             # <<<<<<<<<<<<<<
@@ -1066,7 +1081,7 @@ static unsigned int __pyx_f_5_prng_rotl(unsigned int __pyx_v_x, int __pyx_v_k) {
  *     cdef unsigned int result = rotl(5*s[1],7)*9
  */
 
-static unsigned int __pyx_f_5_prng_rng(void) {
+static unsigned int __pyx_f_8PoECraft_11performance_5_prng_rng(void) {
   unsigned int __pyx_v_result;
   unsigned int __pyx_v_t;
   unsigned int __pyx_r;
@@ -1074,25 +1089,25 @@ static unsigned int __pyx_f_5_prng_rng(void) {
   long __pyx_t_1;
   __Pyx_RefNannySetupContext("rng", 0);
 
-  /* "_prng.pyx":11
+  /* "PoECraft/performance/_prng.pyx":12
  * cdef unsigned int rng():
  * 
  *     cdef unsigned int result = rotl(5*s[1],7)*9             # <<<<<<<<<<<<<<
  *     cdef unsigned int t = s[1] << 9
  * 
  */
-  __pyx_v_result = (__pyx_f_5_prng_rotl((5 * (__pyx_v_5_prng_s[1])), 7) * 9);
+  __pyx_v_result = (__pyx_f_8PoECraft_11performance_5_prng_rotl((5 * (__pyx_v_8PoECraft_11performance_5_prng_s[1])), 7) * 9);
 
-  /* "_prng.pyx":12
+  /* "PoECraft/performance/_prng.pyx":13
  * 
  *     cdef unsigned int result = rotl(5*s[1],7)*9
  *     cdef unsigned int t = s[1] << 9             # <<<<<<<<<<<<<<
  * 
  *     s[2] ^= s[0]
  */
-  __pyx_v_t = ((__pyx_v_5_prng_s[1]) << 9);
+  __pyx_v_t = ((__pyx_v_8PoECraft_11performance_5_prng_s[1]) << 9);
 
-  /* "_prng.pyx":14
+  /* "PoECraft/performance/_prng.pyx":15
  *     cdef unsigned int t = s[1] << 9
  * 
  *     s[2] ^= s[0]             # <<<<<<<<<<<<<<
@@ -1100,9 +1115,9 @@ static unsigned int __pyx_f_5_prng_rng(void) {
  *     s[1] ^= s[2]
  */
   __pyx_t_1 = 2;
-  (__pyx_v_5_prng_s[__pyx_t_1]) = ((__pyx_v_5_prng_s[__pyx_t_1]) ^ (__pyx_v_5_prng_s[0]));
+  (__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) = ((__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) ^ (__pyx_v_8PoECraft_11performance_5_prng_s[0]));
 
-  /* "_prng.pyx":15
+  /* "PoECraft/performance/_prng.pyx":16
  * 
  *     s[2] ^= s[0]
  *     s[3] ^= s[1]             # <<<<<<<<<<<<<<
@@ -1110,9 +1125,9 @@ static unsigned int __pyx_f_5_prng_rng(void) {
  *     s[0] ^= s[3]
  */
   __pyx_t_1 = 3;
-  (__pyx_v_5_prng_s[__pyx_t_1]) = ((__pyx_v_5_prng_s[__pyx_t_1]) ^ (__pyx_v_5_prng_s[1]));
+  (__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) = ((__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) ^ (__pyx_v_8PoECraft_11performance_5_prng_s[1]));
 
-  /* "_prng.pyx":16
+  /* "PoECraft/performance/_prng.pyx":17
  *     s[2] ^= s[0]
  *     s[3] ^= s[1]
  *     s[1] ^= s[2]             # <<<<<<<<<<<<<<
@@ -1120,9 +1135,9 @@ static unsigned int __pyx_f_5_prng_rng(void) {
  * 
  */
   __pyx_t_1 = 1;
-  (__pyx_v_5_prng_s[__pyx_t_1]) = ((__pyx_v_5_prng_s[__pyx_t_1]) ^ (__pyx_v_5_prng_s[2]));
+  (__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) = ((__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) ^ (__pyx_v_8PoECraft_11performance_5_prng_s[2]));
 
-  /* "_prng.pyx":17
+  /* "PoECraft/performance/_prng.pyx":18
  *     s[3] ^= s[1]
  *     s[1] ^= s[2]
  *     s[0] ^= s[3]             # <<<<<<<<<<<<<<
@@ -1130,9 +1145,9 @@ static unsigned int __pyx_f_5_prng_rng(void) {
  *     s[2] ^= t
  */
   __pyx_t_1 = 0;
-  (__pyx_v_5_prng_s[__pyx_t_1]) = ((__pyx_v_5_prng_s[__pyx_t_1]) ^ (__pyx_v_5_prng_s[3]));
+  (__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) = ((__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) ^ (__pyx_v_8PoECraft_11performance_5_prng_s[3]));
 
-  /* "_prng.pyx":19
+  /* "PoECraft/performance/_prng.pyx":20
  *     s[0] ^= s[3]
  * 
  *     s[2] ^= t             # <<<<<<<<<<<<<<
@@ -1140,18 +1155,18 @@ static unsigned int __pyx_f_5_prng_rng(void) {
  *     s[3] = rotl(s[3], 11)
  */
   __pyx_t_1 = 2;
-  (__pyx_v_5_prng_s[__pyx_t_1]) = ((__pyx_v_5_prng_s[__pyx_t_1]) ^ __pyx_v_t);
+  (__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) = ((__pyx_v_8PoECraft_11performance_5_prng_s[__pyx_t_1]) ^ __pyx_v_t);
 
-  /* "_prng.pyx":21
+  /* "PoECraft/performance/_prng.pyx":22
  *     s[2] ^= t
  * 
  *     s[3] = rotl(s[3], 11)             # <<<<<<<<<<<<<<
  *     return result
  * 
  */
-  (__pyx_v_5_prng_s[3]) = __pyx_f_5_prng_rotl((__pyx_v_5_prng_s[3]), 11);
+  (__pyx_v_8PoECraft_11performance_5_prng_s[3]) = __pyx_f_8PoECraft_11performance_5_prng_rotl((__pyx_v_8PoECraft_11performance_5_prng_s[3]), 11);
 
-  /* "_prng.pyx":22
+  /* "PoECraft/performance/_prng.pyx":23
  * 
  *     s[3] = rotl(s[3], 11)
  *     return result             # <<<<<<<<<<<<<<
@@ -1161,7 +1176,7 @@ static unsigned int __pyx_f_5_prng_rng(void) {
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "_prng.pyx":9
+  /* "PoECraft/performance/_prng.pyx":10
  * s[:] = [7,92929898,10100292,9999932]
  * 
  * cdef unsigned int rng():             # <<<<<<<<<<<<<<
@@ -1175,15 +1190,15 @@ static unsigned int __pyx_f_5_prng_rng(void) {
   return __pyx_r;
 }
 
-/* "_prng.pyx":26
+/* "PoECraft/performance/_prng.pyx":27
  * 
  * #http://www.pcg-random.org/posts/bounded-rands.html
- * cdef unsigned int bounded_rand(unsigned int rand_range):             # <<<<<<<<<<<<<<
+ * cdef unsigned int _bounded_rand(unsigned int rand_range):             # <<<<<<<<<<<<<<
  *     cdef unsigned int x = rng()
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
  */
 
-static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range) {
+static unsigned int __pyx_f_8PoECraft_11performance_5_prng__bounded_rand(unsigned int __pyx_v_rand_range) {
   unsigned int __pyx_v_x;
   unsigned long __pyx_v_m;
   unsigned int __pyx_v_l;
@@ -1191,19 +1206,19 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
   unsigned int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  __Pyx_RefNannySetupContext("bounded_rand", 0);
+  __Pyx_RefNannySetupContext("_bounded_rand", 0);
 
-  /* "_prng.pyx":27
+  /* "PoECraft/performance/_prng.pyx":28
  * #http://www.pcg-random.org/posts/bounded-rands.html
- * cdef unsigned int bounded_rand(unsigned int rand_range):
+ * cdef unsigned int _bounded_rand(unsigned int rand_range):
  *     cdef unsigned int x = rng()             # <<<<<<<<<<<<<<
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
  *     cdef unsigned int l = <unsigned long>m
  */
-  __pyx_v_x = __pyx_f_5_prng_rng();
+  __pyx_v_x = __pyx_f_8PoECraft_11performance_5_prng_rng();
 
-  /* "_prng.pyx":28
- * cdef unsigned int bounded_rand(unsigned int rand_range):
+  /* "PoECraft/performance/_prng.pyx":29
+ * cdef unsigned int _bounded_rand(unsigned int rand_range):
  *     cdef unsigned int x = rng()
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range             # <<<<<<<<<<<<<<
  *     cdef unsigned int l = <unsigned long>m
@@ -1211,7 +1226,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
   __pyx_v_m = (((unsigned long)__pyx_v_x) * ((unsigned long)__pyx_v_rand_range));
 
-  /* "_prng.pyx":29
+  /* "PoECraft/performance/_prng.pyx":30
  *     cdef unsigned int x = rng()
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
  *     cdef unsigned int l = <unsigned long>m             # <<<<<<<<<<<<<<
@@ -1220,7 +1235,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
   __pyx_v_l = ((unsigned long)__pyx_v_m);
 
-  /* "_prng.pyx":30
+  /* "PoECraft/performance/_prng.pyx":31
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
  *     cdef unsigned int l = <unsigned long>m
  *     cdef unsigned int t = -rand_range             # <<<<<<<<<<<<<<
@@ -1229,7 +1244,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
   __pyx_v_t = (-__pyx_v_rand_range);
 
-  /* "_prng.pyx":31
+  /* "PoECraft/performance/_prng.pyx":32
  *     cdef unsigned int l = <unsigned long>m
  *     cdef unsigned int t = -rand_range
  *     if (l < rand_range):             # <<<<<<<<<<<<<<
@@ -1239,7 +1254,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
   __pyx_t_1 = ((__pyx_v_l < __pyx_v_rand_range) != 0);
   if (__pyx_t_1) {
 
-    /* "_prng.pyx":32
+    /* "PoECraft/performance/_prng.pyx":33
  *     cdef unsigned int t = -rand_range
  *     if (l < rand_range):
  *         if (t >= rand_range):             # <<<<<<<<<<<<<<
@@ -1249,7 +1264,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
     __pyx_t_1 = ((__pyx_v_t >= __pyx_v_rand_range) != 0);
     if (__pyx_t_1) {
 
-      /* "_prng.pyx":33
+      /* "PoECraft/performance/_prng.pyx":34
  *     if (l < rand_range):
  *         if (t >= rand_range):
  *             t -= rand_range             # <<<<<<<<<<<<<<
@@ -1258,7 +1273,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
       __pyx_v_t = (__pyx_v_t - __pyx_v_rand_range);
 
-      /* "_prng.pyx":34
+      /* "PoECraft/performance/_prng.pyx":35
  *         if (t >= rand_range):
  *             t -= rand_range
  *             if (t >= rand_range):             # <<<<<<<<<<<<<<
@@ -1268,7 +1283,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
       __pyx_t_1 = ((__pyx_v_t >= __pyx_v_rand_range) != 0);
       if (__pyx_t_1) {
 
-        /* "_prng.pyx":35
+        /* "PoECraft/performance/_prng.pyx":36
  *             t -= rand_range
  *             if (t >= rand_range):
  *                 t %= rand_range             # <<<<<<<<<<<<<<
@@ -1277,11 +1292,11 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
         if (unlikely(__pyx_v_rand_range == 0)) {
           PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-          __PYX_ERR(0, 35, __pyx_L1_error)
+          __PYX_ERR(0, 36, __pyx_L1_error)
         }
         __pyx_v_t = (__pyx_v_t % __pyx_v_rand_range);
 
-        /* "_prng.pyx":34
+        /* "PoECraft/performance/_prng.pyx":35
  *         if (t >= rand_range):
  *             t -= rand_range
  *             if (t >= rand_range):             # <<<<<<<<<<<<<<
@@ -1290,7 +1305,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
       }
 
-      /* "_prng.pyx":32
+      /* "PoECraft/performance/_prng.pyx":33
  *     cdef unsigned int t = -rand_range
  *     if (l < rand_range):
  *         if (t >= rand_range):             # <<<<<<<<<<<<<<
@@ -1299,7 +1314,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
     }
 
-    /* "_prng.pyx":36
+    /* "PoECraft/performance/_prng.pyx":37
  *             if (t >= rand_range):
  *                 t %= rand_range
  *         while (l < t):             # <<<<<<<<<<<<<<
@@ -1310,16 +1325,16 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
       __pyx_t_1 = ((__pyx_v_l < __pyx_v_t) != 0);
       if (!__pyx_t_1) break;
 
-      /* "_prng.pyx":37
+      /* "PoECraft/performance/_prng.pyx":38
  *                 t %= rand_range
  *         while (l < t):
  *             x = rng()             # <<<<<<<<<<<<<<
  *             m = <unsigned long>x * <unsigned long>rand_range
  *             l = <unsigned int>m
  */
-      __pyx_v_x = __pyx_f_5_prng_rng();
+      __pyx_v_x = __pyx_f_8PoECraft_11performance_5_prng_rng();
 
-      /* "_prng.pyx":38
+      /* "PoECraft/performance/_prng.pyx":39
  *         while (l < t):
  *             x = rng()
  *             m = <unsigned long>x * <unsigned long>rand_range             # <<<<<<<<<<<<<<
@@ -1328,7 +1343,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
       __pyx_v_m = (((unsigned long)__pyx_v_x) * ((unsigned long)__pyx_v_rand_range));
 
-      /* "_prng.pyx":39
+      /* "PoECraft/performance/_prng.pyx":40
  *             x = rng()
  *             m = <unsigned long>x * <unsigned long>rand_range
  *             l = <unsigned int>m             # <<<<<<<<<<<<<<
@@ -1338,7 +1353,7 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
       __pyx_v_l = ((unsigned int)__pyx_v_m);
     }
 
-    /* "_prng.pyx":31
+    /* "PoECraft/performance/_prng.pyx":32
  *     cdef unsigned int l = <unsigned long>m
  *     cdef unsigned int t = -rand_range
  *     if (l < rand_range):             # <<<<<<<<<<<<<<
@@ -1347,28 +1362,99 @@ static unsigned int __pyx_f_5_prng_bounded_rand(unsigned int __pyx_v_rand_range)
  */
   }
 
-  /* "_prng.pyx":40
+  /* "PoECraft/performance/_prng.pyx":41
  *             m = <unsigned long>x * <unsigned long>rand_range
  *             l = <unsigned int>m
  *     return m >> 32             # <<<<<<<<<<<<<<
  * 
+ * def bounded_rand(int rand_range):
  */
   __pyx_r = (__pyx_v_m >> 32);
   goto __pyx_L0;
 
-  /* "_prng.pyx":26
+  /* "PoECraft/performance/_prng.pyx":27
  * 
  * #http://www.pcg-random.org/posts/bounded-rands.html
- * cdef unsigned int bounded_rand(unsigned int rand_range):             # <<<<<<<<<<<<<<
+ * cdef unsigned int _bounded_rand(unsigned int rand_range):             # <<<<<<<<<<<<<<
  *     cdef unsigned int x = rng()
  *     cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("_prng.bounded_rand", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("PoECraft.performance._prng._bounded_rand", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "PoECraft/performance/_prng.pyx":43
+ *     return m >> 32
+ * 
+ * def bounded_rand(int rand_range):             # <<<<<<<<<<<<<<
+ *     return _bounded_rand(rand_range)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8PoECraft_11performance_5_prng_1bounded_rand(PyObject *__pyx_self, PyObject *__pyx_arg_rand_range); /*proto*/
+static PyMethodDef __pyx_mdef_8PoECraft_11performance_5_prng_1bounded_rand = {"bounded_rand", (PyCFunction)__pyx_pw_8PoECraft_11performance_5_prng_1bounded_rand, METH_O, 0};
+static PyObject *__pyx_pw_8PoECraft_11performance_5_prng_1bounded_rand(PyObject *__pyx_self, PyObject *__pyx_arg_rand_range) {
+  int __pyx_v_rand_range;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("bounded_rand (wrapper)", 0);
+  assert(__pyx_arg_rand_range); {
+    __pyx_v_rand_range = __Pyx_PyInt_As_int(__pyx_arg_rand_range); if (unlikely((__pyx_v_rand_range == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("PoECraft.performance._prng.bounded_rand", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8PoECraft_11performance_5_prng_bounded_rand(__pyx_self, ((int)__pyx_v_rand_range));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8PoECraft_11performance_5_prng_bounded_rand(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_rand_range) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("bounded_rand", 0);
+
+  /* "PoECraft/performance/_prng.pyx":44
+ * 
+ * def bounded_rand(int rand_range):
+ *     return _bounded_rand(rand_range)             # <<<<<<<<<<<<<<
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_f_8PoECraft_11performance_5_prng__bounded_rand(__pyx_v_rand_range)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "PoECraft/performance/_prng.pyx":43
+ *     return m >> 32
+ * 
+ * def bounded_rand(int rand_range):             # <<<<<<<<<<<<<<
+ *     return _bounded_rand(rand_range)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("PoECraft.performance._prng.bounded_rand", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -1419,9 +1505,13 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_n_s_PoECraft_performance__prng, __pyx_k_PoECraft_performance__prng, sizeof(__pyx_k_PoECraft_performance__prng), 0, 0, 1, 1},
+  {&__pyx_kp_s_PoECraft_performance__prng_pyx, __pyx_k_PoECraft_performance__prng_pyx, sizeof(__pyx_k_PoECraft_performance__prng_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_bounded_rand, __pyx_k_bounded_rand, sizeof(__pyx_k_bounded_rand), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
+  {&__pyx_n_s_rand_range, __pyx_k_rand_range, sizeof(__pyx_k_rand_range), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
@@ -1432,12 +1522,27 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
 static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
+
+  /* "PoECraft/performance/_prng.pyx":43
+ *     return m >> 32
+ * 
+ * def bounded_rand(int rand_range):             # <<<<<<<<<<<<<<
+ *     return _bounded_rand(rand_range)
+ * 
+ */
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_rand_range, __pyx_n_s_rand_range); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PoECraft_performance__prng_pyx, __pyx_n_s_bounded_rand, 43, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
-  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
+  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 3, __pyx_L1_error);
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1621,30 +1726,30 @@ if (!__Pyx_RefNanny) {
 }
 #endif
   __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit__prng(void)", 0);
-  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
   #endif
-  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 3, __pyx_L1_error)
   #ifdef __Pyx_CyFunction_USED
-  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_FusedFunction_USED
-  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Coroutine_USED
-  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Generator_USED
-  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_AsyncGen_USED
-  if (__pyx_AsyncGen_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_AsyncGen_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   #ifdef __Pyx_StopAsyncIteration_USED
-  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
   /*--- Threads initialization code ---*/
@@ -1663,28 +1768,28 @@ if (!__Pyx_RefNanny) {
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
-  if (unlikely(!__pyx_m)) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (unlikely(!__pyx_m)) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
-  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 3, __pyx_L1_error)
   Py_INCREF(__pyx_d);
-  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 3, __pyx_L1_error)
   Py_INCREF(__pyx_b);
-  __pyx_cython_runtime = PyImport_AddModule((char *) "cython_runtime"); if (unlikely(!__pyx_cython_runtime)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_cython_runtime = PyImport_AddModule((char *) "cython_runtime"); if (unlikely(!__pyx_cython_runtime)) __PYX_ERR(0, 3, __pyx_L1_error)
   Py_INCREF(__pyx_cython_runtime);
-  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
+  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 3, __pyx_L1_error);
   /*--- Initialize various global constants etc. ---*/
-  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
-  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main__prng) {
-    if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_module_is_main_PoECraft__performance___prng) {
+    if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
-    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 2, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "_prng")) {
-      if (unlikely(PyDict_SetItemString(modules, "_prng", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
+    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 3, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "PoECraft.performance._prng")) {
+      if (unlikely(PyDict_SetItemString(modules, "PoECraft.performance._prng", __pyx_m) < 0)) __PYX_ERR(0, 3, __pyx_L1_error)
     }
   }
   #endif
@@ -1702,10 +1807,10 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
-  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   #endif
 
-  /* "_prng.pyx":7
+  /* "PoECraft/performance/_prng.pyx":8
  * 
  * cdef unsigned int s[4]
  * s[:] = [7,92929898,10100292,9999932]             # <<<<<<<<<<<<<<
@@ -1716,17 +1821,30 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1[1] = 0x589FF6A;
   __pyx_t_1[2] = 0x9A1E44;
   __pyx_t_1[3] = 0x98963C;
-  memcpy(&(__pyx_v_5_prng_s[0]), __pyx_t_1, sizeof(__pyx_v_5_prng_s[0]) * (4));
+  memcpy(&(__pyx_v_8PoECraft_11performance_5_prng_s[0]), __pyx_t_1, sizeof(__pyx_v_8PoECraft_11performance_5_prng_s[0]) * (4));
 
-  /* "_prng.pyx":2
+  /* "PoECraft/performance/_prng.pyx":43
+ *     return m >> 32
+ * 
+ * def bounded_rand(int rand_range):             # <<<<<<<<<<<<<<
+ *     return _bounded_rand(rand_range)
+ * 
+ */
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8PoECraft_11performance_5_prng_1bounded_rand, NULL, __pyx_n_s_PoECraft_performance__prng); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bounded_rand, __pyx_t_2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "PoECraft/performance/_prng.pyx":3
+ * 
  * 
  * # http://prng.di.unimi.it/xoshiro128starstar.c             # <<<<<<<<<<<<<<
- * cdef unsigned int rotl(unsigned int x, int k):
+ * cdef inline unsigned int rotl(unsigned int x, int k):
  *     return (x << k) | (x >> (32 - k))
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
@@ -1736,11 +1854,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init _prng", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init PoECraft.performance._prng", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init _prng");
+    PyErr_SetString(PyExc_ImportError, "init PoECraft.performance._prng");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2084,37 +2202,6 @@ bad:
     Py_XDECREF(py_frame);
 }
 
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
-    const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(long) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(long) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(long),
-                                     little, !is_unsigned);
-    }
-}
-
 /* CIntFromPyVerify */
 #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
     __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
@@ -2137,193 +2224,35 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
         return (target_type) value;\
     }
 
-/* CIntFromPy */
-static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-    const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_unsigned_int(unsigned int value) {
+    const unsigned int neg_one = (unsigned int) ((unsigned int) 0 - (unsigned int) 1), const_zero = (unsigned int) 0;
     const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(long) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (long) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
-                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
-                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
-                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (long) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(long) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
+    if (is_unsigned) {
+        if (sizeof(unsigned int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(unsigned int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
 #ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+        } else if (sizeof(unsigned int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
 #endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(long) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            long val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (long) -1;
         }
     } else {
-        long val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (long) -1;
-        val = __Pyx_PyInt_As_long(tmp);
-        Py_DECREF(tmp);
-        return val;
+        if (sizeof(unsigned int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(unsigned int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
     }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to long");
-    return (long) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to long");
-    return (long) -1;
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(unsigned int),
+                                     little, !is_unsigned);
+    }
 }
 
 /* CIntFromPy */
@@ -2513,6 +2442,226 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
+}
+
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
+    const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(long) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(long) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(long),
+                                     little, !is_unsigned);
+    }
+}
+
+/* CIntFromPy */
+static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+    const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(long) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (long) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
+                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
+                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
+                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (long) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(long) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(long) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            long val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (long) -1;
+        }
+    } else {
+        long val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (long) -1;
+        val = __Pyx_PyInt_As_long(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to long");
+    return (long) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to long");
+    return (long) -1;
 }
 
 /* FastTypeChecks */
