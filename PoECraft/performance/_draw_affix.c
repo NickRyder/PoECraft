@@ -2110,7 +2110,7 @@ static PyObject *__pyx_pf_8PoECraft_11performance_11_draw_affix_affix_draw(CYTHO
  *     if not maxed_out_suffixes:
  *         diff_arrays_N += array_N             # <<<<<<<<<<<<<<
  * 
- *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t))
+ *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t *))
  */
     __pyx_v_diff_arrays_N = (__pyx_v_diff_arrays_N + __pyx_v_array_N);
 
@@ -2126,15 +2126,15 @@ static PyObject *__pyx_pf_8PoECraft_11performance_11_draw_affix_affix_draw(CYTHO
   /* "PoECraft/performance/_draw_affix.pyx":56
  *         diff_arrays_N += array_N
  * 
- *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t))             # <<<<<<<<<<<<<<
+ *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t *))             # <<<<<<<<<<<<<<
  *     cdef unsigned int diff_array_idx = 0
  *     #For each affix already on the item, remove it's group
  */
-  __pyx_v_diff_arrays = ((__pyx_t_8PoECraft_11performance_11_draw_affix_DTYPE_t **)malloc((__pyx_v_diff_arrays_N * (sizeof(__pyx_t_8PoECraft_11performance_11_draw_affix_DTYPE_t)))));
+  __pyx_v_diff_arrays = ((__pyx_t_8PoECraft_11performance_11_draw_affix_DTYPE_t **)malloc((__pyx_v_diff_arrays_N * (sizeof(__pyx_t_8PoECraft_11performance_11_draw_affix_DTYPE_t *)))));
 
   /* "PoECraft/performance/_draw_affix.pyx":57
  * 
- *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t))
+ *     cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t *))
  *     cdef unsigned int diff_array_idx = 0             # <<<<<<<<<<<<<<
  *     #For each affix already on the item, remove it's group
  *     cdef np.ndarray diff_array
@@ -2334,26 +2334,26 @@ static PyObject *__pyx_pf_8PoECraft_11performance_11_draw_affix_affix_draw(CYTHO
  *     cdef unsigned int draw_array_length = len(explicit_mod_roller.affix_key_pool)
  * 
  *     cdef unsigned int random_affix = _bisect._weighted_draw(base_array_pointer, diff_arrays, diff_arrays_N, draw_array_length)             # <<<<<<<<<<<<<<
- *     free(diff_arrays)
- *     return random_affix
+ * 
+ *     ######### DEBUG
  */
   __pyx_v_random_affix = __pyx_f_8PoECraft_11performance_7_bisect__weighted_draw(__pyx_v_base_array_pointer, __pyx_v_diff_arrays, __pyx_v_diff_arrays_N, __pyx_v_draw_array_length);
 
-  /* "PoECraft/performance/_draw_affix.pyx":74
+  /* "PoECraft/performance/_draw_affix.pyx":86
+ *     #     print(to_print)
  * 
- *     cdef unsigned int random_affix = _bisect._weighted_draw(base_array_pointer, diff_arrays, diff_arrays_N, draw_array_length)
  *     free(diff_arrays)             # <<<<<<<<<<<<<<
  *     return random_affix
  */
   free(__pyx_v_diff_arrays);
 
-  /* "PoECraft/performance/_draw_affix.pyx":75
- *     cdef unsigned int random_affix = _bisect._weighted_draw(base_array_pointer, diff_arrays, diff_arrays_N, draw_array_length)
+  /* "PoECraft/performance/_draw_affix.pyx":87
+ * 
  *     free(diff_arrays)
  *     return random_affix             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_random_affix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_random_affix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;

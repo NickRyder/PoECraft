@@ -195,8 +195,8 @@ class ExplicitModRoller():
             self.roll_one_affix()
     
     def roll_one_affix(self):
-            new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags_current, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
-            # new_affix_idx = affix_draw(self)
+            # new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags_current, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
+            new_affix_idx = affix_draw(self)
             self.add_affix(new_affix_idx)
 
     

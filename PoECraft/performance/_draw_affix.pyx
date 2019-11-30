@@ -53,7 +53,7 @@ def affix_draw(explicit_mod_roller):
     if not maxed_out_suffixes:
         diff_arrays_N += array_N
 
-    cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t))
+    cdef DTYPE_t **diff_arrays = <DTYPE_t **> malloc(diff_arrays_N * sizeof(DTYPE_t *))
     cdef unsigned int diff_array_idx = 0
     #For each affix already on the item, remove it's group
     cdef np.ndarray diff_array
@@ -71,5 +71,17 @@ def affix_draw(explicit_mod_roller):
     cdef unsigned int draw_array_length = len(explicit_mod_roller.affix_key_pool)
 
     cdef unsigned int random_affix = _bisect._weighted_draw(base_array_pointer, diff_arrays, diff_arrays_N, draw_array_length)
+
+    ######### DEBUG
+    # print(f"{random_affix} out of {draw_array_length}")
+    # print(f"diff_arrays_N {diff_arrays_N}")
+    # cdef int to_print
+    
+    # for i in range(draw_array_length):
+    #     to_print = base_array[i]
+    #     for j in range(diff_arrays_N):
+    #         to_print -=diff_arrays[j][i]
+    #     print(to_print)
+    
     free(diff_arrays)
     return random_affix

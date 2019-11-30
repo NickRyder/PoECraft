@@ -1,7 +1,8 @@
 
 from PoECraft.item_rollers import ExplictlessItem, ExplicitModRoller
 from PoECraft.utils.visualizations import statistics, discrete_cdf, plot_show
-from PoECraft.utils.performance import timer
+# from PoECraft.utils.performance import timer
+from tqdm import tqdm
 import numpy 
 
 
@@ -15,6 +16,6 @@ vaal_regalia_roller = ExplicitModRoller(vaal_regalia_item)
 #This is the equivalent of using our fossil:
 
 trial_N = 10 ** 6
-with timer(f" {trial_N} rolls"):
-    for _ in range(trial_N):
-        vaal_regalia_roller.roll_item()
+# with t(f" {trial_N} rolls"):
+for _ in tqdm(range(trial_N)):
+    vaal_regalia_roller.roll_item()

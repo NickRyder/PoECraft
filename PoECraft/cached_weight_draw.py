@@ -191,7 +191,6 @@ class CachedWeightDraw():
     last_inputs = (False,False,False,False)
     cached_weights = None
 
-    #TODO: clean up
     def affix_draw(self, current_tags, current_affixes, prefix_N, suffix_N, max_pre = 3, max_suff = 3):
         '''
         Takes in current tags, affixes, prefix number, suffix number, and rolls a new affix.
@@ -202,6 +201,7 @@ class CachedWeightDraw():
         '''
         #Get the cummulative weights for each affix based on the current tags
 
+        raise DeprecationWarning("Cython verison implemented and roughly 8-9x faster")
         maxed_out_prefixes = prefix_N == max_pre
         maxed_out_suffixes = suffix_N == max_suff
 
@@ -241,6 +241,7 @@ class CachedWeightDraw():
 
 from bisect import bisect_left
 def weighted_draw_sums(sums):
+    raise DeprecationWarning("new cython version implemented and faster")
     total_sum = sums[-1]
     # return np.searchsorted(sums, int(total_sum*random.random()))
     return bisect_left(sums, total_sum*random.random())

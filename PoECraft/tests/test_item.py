@@ -3,7 +3,6 @@ from PoECraft.item_rollers import ExplicitModRoller, ExplictlessItem
 from PoECraft.mod_collector import generate_all_possible_affixes_and_tags
 from tqdm import tqdm
 from collections import Counter
-from math import abs
 
 '''
 smoke test
@@ -20,6 +19,7 @@ def simulator_grab_label_counts(item_roller: ExplicitModRoller, trial_N = 10 ** 
     affix_combo_counter = {}
     for trial_idx in tqdm(range(trial_N)):
         item_roller.roll_item()
+        print(item_roller.affix_keys_current)
         labels = []
         for affix_key in item_roller.affix_keys_current:
             labels.append(affix_key_to_label[affix_key])
@@ -84,7 +84,7 @@ def exact_type_numbers():
 
 
 
-def test_smoke_test():
+def test_smoke(trial_N = 10 ** 6):
     test_item_mod_dictionary = {}
     for mod_name in test_item_mod_name:
         test_item_mod_dictionary[mod_name] = mods[mod_name]
@@ -95,7 +95,6 @@ def test_smoke_test():
 
     print(roller.cached_weight_draw.spawn_tags_to_spawn_weight)
     print(roller.affix_key_pool)
-    trial_N = 10 ** 6
     mod_counter = simulator_grab_label_counts(roller, trial_N = trial_N)
     type_counter = divide_counter(mod_counter, trial_N)
     exact_counter = exact_type_numbers()
@@ -107,4 +106,4 @@ def test_smoke_test():
 
 
 if __name__ == "__main__":
-    test_smoke_test()
+    test_smoke()

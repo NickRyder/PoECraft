@@ -1196,7 +1196,7 @@ static unsigned int __pyx_f_8PoECraft_11performance_7_bisect__bisect_right_diff_
  * 
  * 
  * cdef unsigned int _weighted_draw(unsigned int *base_array, unsigned int **diff_arrays, unsigned int diff_array_N,  unsigned int array_length):             # <<<<<<<<<<<<<<
- *     cdef unsigned int max_roll = base_array[diff_array_N]
+ *     cdef unsigned int max_roll = base_array[array_length - 1]
  *     cdef unsigned int diff_array_idx
  */
 
@@ -1215,17 +1215,17 @@ static unsigned int __pyx_f_8PoECraft_11performance_7_bisect__weighted_draw(unsi
   /* "PoECraft/performance/_bisect.pyx":29
  * 
  * cdef unsigned int _weighted_draw(unsigned int *base_array, unsigned int **diff_arrays, unsigned int diff_array_N,  unsigned int array_length):
- *     cdef unsigned int max_roll = base_array[diff_array_N]             # <<<<<<<<<<<<<<
+ *     cdef unsigned int max_roll = base_array[array_length - 1]             # <<<<<<<<<<<<<<
  *     cdef unsigned int diff_array_idx
  * 
  */
-  __pyx_v_max_roll = (__pyx_v_base_array[__pyx_v_diff_array_N]);
+  __pyx_v_max_roll = (__pyx_v_base_array[(__pyx_v_array_length - 1)]);
 
   /* "PoECraft/performance/_bisect.pyx":32
  *     cdef unsigned int diff_array_idx
  * 
  *     for diff_array_idx in range(diff_array_N):             # <<<<<<<<<<<<<<
- *         max_roll -= diff_arrays[diff_array_idx][diff_array_N]
+ *         max_roll -= diff_arrays[diff_array_idx][array_length - 1]
  * 
  */
   __pyx_t_1 = __pyx_v_diff_array_N;
@@ -1236,32 +1236,32 @@ static unsigned int __pyx_f_8PoECraft_11performance_7_bisect__weighted_draw(unsi
     /* "PoECraft/performance/_bisect.pyx":33
  * 
  *     for diff_array_idx in range(diff_array_N):
- *         max_roll -= diff_arrays[diff_array_idx][diff_array_N]             # <<<<<<<<<<<<<<
+ *         max_roll -= diff_arrays[diff_array_idx][array_length - 1]             # <<<<<<<<<<<<<<
  * 
  *     cdef unsigned int random_int = _prng._bounded_rand(max_roll)
  */
-    __pyx_v_max_roll = (__pyx_v_max_roll - ((__pyx_v_diff_arrays[__pyx_v_diff_array_idx])[__pyx_v_diff_array_N]));
+    __pyx_v_max_roll = (__pyx_v_max_roll - ((__pyx_v_diff_arrays[__pyx_v_diff_array_idx])[(__pyx_v_array_length - 1)]));
   }
 
   /* "PoECraft/performance/_bisect.pyx":35
- *         max_roll -= diff_arrays[diff_array_idx][diff_array_N]
+ *         max_roll -= diff_arrays[diff_array_idx][array_length - 1]
  * 
  *     cdef unsigned int random_int = _prng._bounded_rand(max_roll)             # <<<<<<<<<<<<<<
- * 
  *     cdef unsigned int random_affix = _bisect_right_diff_arrays(base_array, diff_arrays, diff_array_N, random_int, array_length)
+ *     return random_affix
  */
   __pyx_v_random_int = __pyx_f_8PoECraft_11performance_5_prng__bounded_rand(__pyx_v_max_roll);
 
-  /* "PoECraft/performance/_bisect.pyx":37
- *     cdef unsigned int random_int = _prng._bounded_rand(max_roll)
+  /* "PoECraft/performance/_bisect.pyx":36
  * 
+ *     cdef unsigned int random_int = _prng._bounded_rand(max_roll)
  *     cdef unsigned int random_affix = _bisect_right_diff_arrays(base_array, diff_arrays, diff_array_N, random_int, array_length)             # <<<<<<<<<<<<<<
  *     return random_affix
  */
   __pyx_v_random_affix = __pyx_f_8PoECraft_11performance_7_bisect__bisect_right_diff_arrays(__pyx_v_base_array, __pyx_v_diff_arrays, __pyx_v_diff_array_N, __pyx_v_random_int, __pyx_v_array_length);
 
-  /* "PoECraft/performance/_bisect.pyx":38
- * 
+  /* "PoECraft/performance/_bisect.pyx":37
+ *     cdef unsigned int random_int = _prng._bounded_rand(max_roll)
  *     cdef unsigned int random_affix = _bisect_right_diff_arrays(base_array, diff_arrays, diff_array_N, random_int, array_length)
  *     return random_affix             # <<<<<<<<<<<<<<
  */
@@ -1272,7 +1272,7 @@ static unsigned int __pyx_f_8PoECraft_11performance_7_bisect__weighted_draw(unsi
  * 
  * 
  * cdef unsigned int _weighted_draw(unsigned int *base_array, unsigned int **diff_arrays, unsigned int diff_array_N,  unsigned int array_length):             # <<<<<<<<<<<<<<
- *     cdef unsigned int max_roll = base_array[diff_array_N]
+ *     cdef unsigned int max_roll = base_array[array_length - 1]
  *     cdef unsigned int diff_array_idx
  */
 

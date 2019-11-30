@@ -26,13 +26,12 @@ cdef unsigned int _bisect_right_diff_arrays(unsigned int *base_array, unsigned i
 
 
 cdef unsigned int _weighted_draw(unsigned int *base_array, unsigned int **diff_arrays, unsigned int diff_array_N,  unsigned int array_length):
-    cdef unsigned int max_roll = base_array[diff_array_N]
+    cdef unsigned int max_roll = base_array[array_length - 1]
     cdef unsigned int diff_array_idx
 
     for diff_array_idx in range(diff_array_N):
-        max_roll -= diff_arrays[diff_array_idx][diff_array_N]
+        max_roll -= diff_arrays[diff_array_idx][array_length - 1]
     
     cdef unsigned int random_int = _prng._bounded_rand(max_roll)
-
     cdef unsigned int random_affix = _bisect_right_diff_arrays(base_array, diff_arrays, diff_array_N, random_int, array_length)
     return random_affix
