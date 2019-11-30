@@ -82,6 +82,13 @@ def exact_type_numbers():
         total_affixes[key] = value * 8/12
     return total_affixes
 
+def test_single_tag():
+    roller = ExplicitModRoller(ExplictlessItem("Searching Eye Jewel"))
+    bow_idx = roller.affix_key_pool.index("AbyssAddedLightningDamageWithBowsJewel4")
+    print(bin(roller.tags_current))
+    roller.add_affix(bow_idx)
+    print(bin(roller.tags_current))
+
 
 
 def test_smoke(trial_N = 10 ** 6):
