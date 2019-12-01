@@ -10,6 +10,9 @@ from PoECraft.performance._draw_affix import affix_draw
 
 influence_to_tags = dict(shaper="shaper_tag", elder="elder_tag")
 
+
+
+
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data_list):
     '''
     takes in all possible added tags and all affixes.
@@ -20,7 +23,7 @@ def spawn_tags_to_add_tags_array(spawn_tags, affix_data_list):
         bit_adds_tags = 0
         for tag in affix_data_list[index]["adds_tags"]:
             if tag in spawn_tags:
-                bit_adds_tags += 2**spawn_tags.index(tag)
+                bit_adds_tags += 2**(len(spawn_tags) - 1 - spawn_tags.index(tag))
         affix_to_added_tags_bitstring[index] = bit_adds_tags
     return affix_to_added_tags_bitstring
 
@@ -156,7 +159,7 @@ class ExplicitModRoller():
         self.mod_dict = mod_dict
         self.affix_key_pool = list(self.mod_dict.keys())
         affix_data_pool = [self.mod_dict[key] for key in self.affix_key_pool]
-        added_spawn_tags = list(added_spawn_tags)
+        added_spawn_tags = tuple(added_spawn_tags)
 
         print(added_spawn_tags)
         self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)

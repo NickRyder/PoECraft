@@ -88,7 +88,27 @@ def test_single_tag():
     print(bin(roller.tags_current))
     roller.add_affix(bow_idx)
     print(bin(roller.tags_current))
+    print(roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current])
+    base = roller.cached_weight_draw.weights_cummulative[roller.tags_current]
+    last = 0
+    for idx, weight in enumerate(base):
+        if last == weight:
+            print(roller.affix_key_pool[idx])
+        last = weight
 
+    diff = roller.cached_weight_draw.group_diff_prefix_cummulative[roller.tags_current][bow_idx]
+    last = 0
+    for idx, weight in enumerate(diff):
+        if last != weight:
+            print(roller.affix_key_pool[idx])
+        last = weight
+
+    diff = roller.cached_weight_draw.group_diff_suffix_cummulative[roller.tags_current][bow_idx]
+    last = 0
+    for idx, weight in enumerate(diff):
+        if last != weight:
+            print(roller.affix_key_pool[idx])
+        last = weight
 
 
 def test_smoke(trial_N = 10 ** 6):
@@ -113,4 +133,6 @@ def test_smoke(trial_N = 10 ** 6):
 
 
 if __name__ == "__main__":
-    test_smoke()
+    for _ in range(20):
+        test_single_tag()
+    # test_smoke()
