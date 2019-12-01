@@ -89,6 +89,10 @@ def test_single_tag():
     roller.add_affix(bow_idx)
     print(bin(roller.tags_current))
     print(roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current])
+    wand_idx = roller.affix_key_pool.index("AbyssAddedFireDamageWithWandsJewel4")
+    assert roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][wand_idx] == 0, "wands and bows should block"
+
+    print("REMOVED MODS:")
     base = roller.cached_weight_draw.weights_cummulative[roller.tags_current]
     last = 0
     for idx, weight in enumerate(base):
@@ -109,6 +113,17 @@ def test_single_tag():
         if last != weight:
             print(roller.affix_key_pool[idx])
         last = weight
+
+def test_smoke_tags(trial_N = 10**6):
+    roller = ExplicitModRoller(ExplictlessItem("Searching Eye Jewel"))
+    for trial_idx in tqdm(range(trial_N)):
+        roller.roll_item()
+        keys = roller.affix_keys_current
+        bow_in = True in [ "Bow" in key for key in keys]
+        wand_in = True in [ "Wand" in key for key in keys]
+        assert not bow_in or not wand_in, "cant have both bow and wand"
+
+
 
 
 def test_smoke(trial_N = 10 ** 6):
@@ -133,6 +148,6 @@ def test_smoke(trial_N = 10 ** 6):
 
 
 if __name__ == "__main__":
-    for _ in range(20):
-        test_single_tag()
-    # test_smoke()
+    test_smoke_tags()
+    test_single_tag()
+    test_smoke()

@@ -4,7 +4,6 @@ from RePoE import mod_types
 import random
 
 ## Weight calculation helpers
-
 def get_mod_type_generation_weight_for_affix(affix, mod_type_tags):
     '''
     Given an affix and a list of mod_type tags, generates the generation weight based on those mod_type tags for the affix entry.
