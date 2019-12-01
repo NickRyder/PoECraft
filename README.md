@@ -18,7 +18,13 @@ There are example scripts which are carefully annotated found in `/example_scrip
 
 ### Smoke Tests
 
-Currently this package has no unit tests, but does have smoke tests to confirm the probability distribution on certain test items is as expected.
+Currently this package has no unit tests, but does have smoke tests to confirm the probability distribution on certain test items is as expected. The smoke tests check:
+- Tag occlusion
+- Generation Weight reweighting
+- Mod group occlusion
+- Prefix/Suffix occlusion
+  
+**Note: there are currently no examples of mod groups which spawn both prefixes and suffixes on the same item, but this project does support that functionality**
 
 # Crafting Model
 
@@ -61,6 +67,4 @@ The crafting process at it's core is a markov chain - one can imagine starting w
 
 ## Our Strategy
 In order to get fast rollouts, we need to cache as much information as possible to do our random draws. There are three main factors that change our distribution: tags, groups, and generation type (prefix/suffix).   
-
-
 
