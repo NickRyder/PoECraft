@@ -161,7 +161,6 @@ class ExplicitModRoller():
         affix_data_pool = [self.mod_dict[key] for key in self.affix_key_pool]
         added_spawn_tags = tuple(added_spawn_tags)
 
-        print(added_spawn_tags)
         self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(added_spawn_tags, affix_data_pool)
 
         self.cached_weight_draw = CachedWeightDraw(starting_tags=relevant_starting_tags, added_spawn_tags=added_spawn_tags, affix_values_list=affix_data_pool, global_generation_weights=global_generation_weights)

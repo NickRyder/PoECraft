@@ -19,7 +19,6 @@ def simulator_grab_label_counts(item_roller: ExplicitModRoller, trial_N = 10 ** 
     affix_combo_counter = {}
     for trial_idx in tqdm(range(trial_N)):
         item_roller.roll_item()
-        print(item_roller.affix_keys_current)
         labels = []
         for affix_key in item_roller.affix_keys_current:
             labels.append(affix_key_to_label[affix_key])
@@ -114,6 +113,32 @@ def test_single_tag():
             print(roller.affix_key_pool[idx])
         last = weight
 
+
+def test_single_generation_tag():
+
+    roller = ExplicitModRoller(ExplictlessItem("Driftwood Sceptre"))
+
+    cast_mod = roller.affix_key_pool.index("ColdDamageOverTimeMultiplier1h5")
+    attack_mod = roller.affix_key_pool.index("LocalAddedColdDamage10__")
+    cast_before = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][cast_mod]
+    attack_before = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][attack_mod]
+    roller.add_affix(cast_mod)
+    cast_after = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][cast_mod]
+    attack_after = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][attack_mod]
+    roller.clear_item()
+    assert cast_before == cast_after, "caster shouldnt change"
+    assert attack_before > attack_after, "attack should change"
+
+    cast_before = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][cast_mod]
+    attack_before = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][attack_mod]
+    roller.add_affix(attack_mod)
+    cast_after = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][cast_mod]
+    attack_after = roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current][attack_mod]
+    roller.clear_item()
+    assert attack_before == attack_after, "attack shouldnt change"
+    assert cast_before > cast_after, "cast should change"
+
+
 def test_smoke_tags(trial_N = 10**6):
     roller = ExplicitModRoller(ExplictlessItem("Searching Eye Jewel"))
     for trial_idx in tqdm(range(trial_N)):
@@ -123,7 +148,8 @@ def test_smoke_tags(trial_N = 10**6):
         wand_in = True in [ "Wand" in key for key in keys]
         assert not bow_in or not wand_in, "cant have both bow and wand"
 
-
+def test_smoke_prefix_suffix_group():
+    pass
 
 
 def test_smoke(trial_N = 10 ** 6):
@@ -148,6 +174,7 @@ def test_smoke(trial_N = 10 ** 6):
 
 
 if __name__ == "__main__":
+    test_single_generation_tag()
     test_smoke_tags()
     test_single_tag()
     test_smoke()
