@@ -13,6 +13,9 @@ Only measures binary outcomes
 """
 
 
+raise NotImplementedError("Work in process")
+
+
 def get_ninja_prices(name, league_name="Metamorph"):
     prices = {}
     import requests
@@ -27,12 +30,30 @@ def get_ninja_prices(name, league_name="Metamorph"):
 
 resonator_prices = get_ninja_prices("Resonator")
 fossil_prices = get_ninja_prices("Fossil")
+currency_prices = get_ninja_prices("Currency")
 
 resonator_socket_to_price = {
     1: resonator_prices["Primitive Chaotic Resonator"],
     2: resonator_prices["Potent Chaotic Resonator"],
     3: resonator_prices["Powerful Chaotic Resonator"],
 }
+
+
+
+def get_expected_cost(roller_fn, item, trial_N=10**6):
+    # Now we set up the roller with the dense fossil:
+    roller = ExplicitModRoller(
+        item, fossil_names=fossils  # essence_names=["Deafening Essence of Loathing"]
+    )
+
+    count = 0
+    for _ in range(trial_N):
+        # roll the item
+        roller.roll_item()
+        if criteria(roller):  # top_redeemer and top_delve:
+            count += 1
+
+    return count / trial_N
 
 
 def get_odds_from_fossils(fossils, item, criteria, trial_N=10 ** 6):
@@ -97,44 +118,14 @@ def get_best_fossil_combos(with_these_fossils, item, criteria):
 
 
 if __name__ == "__main__":
-    # Here we generate a base item which is a ilvl 100 vaal regalia with a single synthesis implicit, and 30 quality
-    # hubris_circlet_item = ExplictlessItem(
-    #     "Hubris Circlet", quality=30, ilvl=86, influences=[Influence.REDEEMER]
-    # )
-
-    # def double_mana_criteria(item_roller):
-    #     top_influence = (
-    #         "ReducedManaReservationInfluence2" in item_roller.affix_keys_current
-    #     )
-    #     top_delve = "DelveHelmetReducedManaReserved1" in item_roller.affix_keys_current
-    #     return top_influence and top_delve
-
-    # print(
-    #     get_best_fossil_combos(["Lucent Fossil", "Bound Fossil"], hubris_circlet_item, double_mana_criteria)
-    # )
-
-    astral_item = ExplictlessItem(
-        "Astral Plate", quality=30, ilvl=86, influences=[Influence.CRUSADER]
-    )
-
-    vaal_regalia = ExplictlessItem(
-        "Vaal Regalia", quality=30, ilvl=86, influences=[Influence.HUNTER]
-    )
     bow = ExplictlessItem("Recurve Bow", quality=30, ilvl=84, influences=[])
 
-    def explode_criteria(item_roller):
-        explode = "HolyPhysicalExplosionInfluence1" in item_roller.affix_keys_current
-        top_delve = "DelveHelmetReducedManaReserved1" in item_roller.affix_keys_current
-        return explode
 
-    def double_crit_criteria(item_roller):
-        top_attack = (
-            "AdditionalCritWithAttacksInfluence2_" in item_roller.affix_keys_current
-        )
-        top_spell = (
-            "AdditionalCritWithSpellsInfluence2" in item_roller.affix_keys_current
-        )
-        return top_attack and top_spell
+    def annul_item(item_roller):
+        # Given an item with n mods of which we want to annul until we have k specific we have:
+        # 1 / (n choose k) chance of getting it in n-k orbs
+        # 1 - 1 / (n choose k) chance of not getting it with expected orbs 
+        # 1 + 2 * (n-k)_1 / n_1  + 3 * (n-k)_2 / (n)_2 + ... + (k-1) (n-k)_{k-1} / (n)_{k-1}
 
     def kyle_criteria(item_roller):
         c1 = "DelveWeaponSocketedSpellsDamageFinal2h1" in item_roller.affix_keys_current

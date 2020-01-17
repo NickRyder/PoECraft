@@ -30,7 +30,7 @@ Currently this package has no unit tests, but does have smoke tests to confirm t
 
 This project presumes the following model in which the game crafts items.
 - **Crafts one affix at a time** - Even when a currency orb puts multiple affixes on an item, it accomplishes this by randomly selecting a mod from the available mod pool one at time
-- **1:3:8 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 4/12 chance for 5 mods, and 7/12 chance for 6 mods
+- **1:3:8 split for total number of affixes** - For items with a max of 6 mods, extensive data farming has shown that there is a 1/12 chance for 6 mods, 3/12 chance for 5 mods, and 8/12 chance for 4 mods
 
 ## Features to Implement
 
