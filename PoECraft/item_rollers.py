@@ -11,14 +11,16 @@ from PoECraft.utils.performance import timer
 
 from PoECraft.performance._draw_affix import affix_draw
 
-influence_to_tags = dict(
-    shaper="shaper_tag",
-    elder="elder_tag",
-    redeemer="redeemer_tag",
-    crusader="crusader_tag",
-    warlord="warlord_tag",
-    hunter="hunter_tag",
-)
+from enum import Enum
+
+
+class Influence(Enum):
+    SHAPER = "shaper_tag"
+    ELDER = "elder_tag"
+    REDEEMER = "redeemer_tag"
+    CRUSADER = "crusader_tag"
+    WARLORD = "warlord_tag"
+    HUNTER = "hunter_tag"
 
 
 def spawn_tags_to_add_tags_array(spawn_tags, affix_data_list):
@@ -91,7 +93,7 @@ class ExplictlessItem:
 
         item_class = self.base_item_entry["item_class"]
         for influence in influences:
-            influence_tag = item_classes[item_class][influence_to_tags[influence]]
+            influence_tag = item_classes[item_class][influence.value]
             self.tags.append(influence_tag)
 
         self.quality = quality
@@ -145,9 +147,6 @@ def unpack_essences(essence_names, item_class):
 class ExplicitModRoller:
     """A class to quickly simulate using currency on an item in PoE"""
 
-    max_pre = 3
-    max_suff = 3
-
     def clear_item(self):
         self.prefix_N = 0
         self.suffix_N = 0
@@ -156,8 +155,16 @@ class ExplicitModRoller:
         self.affix_keys_current = []
 
     def __init__(
-        self, explicitless_item: ExplictlessItem, fossil_names=[], essence_names=[]
+        self,
+        explicitless_item: ExplictlessItem,
+        fossil_names=[],
+        essence_names=[],
+        max_pre=3,
+        max_suff=3,
     ):
+        self.max_pre = max_pre
+        self.max_suff = max_suff
+
         self.clear_item()
         # raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
         self.base_explicitless_item = explicitless_item
@@ -179,11 +186,6 @@ class ExplicitModRoller:
         ):
             appended_mod_dictionary[name] = mods[name]
 
-        self.forced_affix_indices = []
-        for forced_mod in essences_forced_mod_names + fossils_forced_mod_names:
-            print(f"forced_mod: {forced_mod}")
-            self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
-
         starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
         mod_dict, relevant_starting_tags, added_spawn_tags = collect_mods_and_tags(
@@ -199,6 +201,21 @@ class ExplicitModRoller:
             added_spawn_tags=added_spawn_tags,
             global_generation_weights=fossils_global_generation_weights,
         )
+
+        self.forced_affix_indices = []
+        for forced_mod in essences_forced_mod_names:
+            self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
+
+        for forced_mod in fossils_forced_mod_names:
+            positive_spawn_weight_tags = set(
+                [
+                    spawn_weight["tag"]
+                    for spawn_weight in mods[forced_mod]["spawn_weights"]
+                    if spawn_weight["weight"] > 0
+                ]
+            )
+            if positive_spawn_weight_tags & starting_tags:
+                self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
 
     def setup_cached_weight_draw(
         self,
@@ -237,6 +254,23 @@ class ExplicitModRoller:
             self.prefix_N += 1
         else:
             self.suffix_N += 1
+
+    def roll_item_magic(self):
+        forced_affix_indices = self.forced_affix_indices
+
+        rand_seed = random.random()
+        if rand_seed < 0.5:
+            affix_N = 1
+        else:
+            affix_N = 2
+
+        self.clear_item()
+
+        for forced_affix_index in forced_affix_indices:
+            self.add_affix(forced_affix_index)
+
+        for roll_index in range(len(forced_affix_indices), affix_N):
+            self.roll_one_affix()
 
     def roll_item(self):
         forced_affix_indices = self.forced_affix_indices
