@@ -114,3 +114,4 @@ dmypy.json
 PoECraft/item_rollers.py
 
 .vscode
+.vscode/
