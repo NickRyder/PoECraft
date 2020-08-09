@@ -1,13 +1,10 @@
 import random
 import numpy as np
-from RePoE import base_items, item_classes, essences, fossils, mods, mod_types
-from collections import Counter
+from RePoE import base_items, item_classes, essences, fossils, mods
 from PoECraft.mod_collector import (
     collect_mods_and_tags,
-    generate_all_possible_affixes_and_tags,
 )
 from PoECraft.cached_weight_draw import CachedWeightDraw
-from PoECraft.utils.performance import timer
 
 from PoECraft.performance._draw_affix import affix_draw
 
@@ -80,9 +77,10 @@ class ExplictlessItem:
         quality=20,
         fractured_mods=[],
         extra_tags=None,
+        max_affix=3,
     ):
         self.base_item_entry = get_base_item_by_name(base_item_name)
-
+        self.max_affix = max_affix
         self.extra_tags = extra_tags if extra_tags is not None else []
         # make all of the properties of base_item_entry properties of this class
         for key, value in self.base_item_entry.items():
@@ -103,6 +101,7 @@ class ExplictlessItem:
         if len(implicits) > 0:
             self.implicits = implicits
         self.set_implicit_stats()
+
 
 def unpack_fossils(fossil_names):
     """
@@ -155,16 +154,12 @@ class ExplicitModRoller:
         self.affix_keys_current = []
 
     def __init__(
-        self,
-        explicitless_item: ExplictlessItem,
-        fossil_names=[],
-        essence_names=[],
-        max_pre=3,
-        max_suff=3,
+        self, explicitless_item: ExplictlessItem, fossil_names=[], essence_names=[]
     ):
-        self.max_pre = max_pre
-        self.max_suff = max_suff
 
+        self.max_affix = explicitless_item.max_affix
+        self.max_pre = explicitless_item.max_affix
+        self.max_suff = explicitless_item.max_affix
         self.clear_item()
         # raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
         self.base_explicitless_item = explicitless_item
@@ -256,39 +251,43 @@ class ExplicitModRoller:
             self.suffix_N += 1
 
     def roll_item_magic(self):
-        forced_affix_indices = self.forced_affix_indices
-
-        rand_seed = random.random()
-        if rand_seed < 0.5:
-            affix_N = 1
-        else:
-            affix_N = 2
-
-        self.clear_item()
-
-        for forced_affix_index in forced_affix_indices:
-            self.add_affix(forced_affix_index)
-
-        for roll_index in range(len(forced_affix_indices), affix_N):
-            self.roll_one_affix()
+        self.roll_item_with_max(max_affixes=1)
 
     def roll_item(self):
+        self.roll_item_with_max(max_affixes=self.max_affix)
+
+    def roll_item_with_max(self, max_affixes):
         forced_affix_indices = self.forced_affix_indices
 
-        rand_seed = 12 * random.random()
-        if rand_seed < 1:
-            affix_N = 6
-        elif rand_seed < 4:
-            affix_N = 5
+        if max_affixes == 3:
+            rand_seed = 12 * random.random()
+            if rand_seed < 1:
+                affix_N = 6
+            elif rand_seed < 4:
+                affix_N = 5
+            else:
+                affix_N = 4
+        elif max_affixes == 2:
+            rand_seed = 3 * random.random()
+            if rand_seed < 2:
+                affix_N = 3
+            else:
+                affix_N = 4
+        elif max_affixes == 1:
+            rand_seed = random.random()
+            if rand_seed < 0.5:
+                affix_N = 1
+            else:
+                affix_N = 2
         else:
-            affix_N = 4
+            raise ValueError(f"Unknown max_affixes {max_affixes}")
 
         self.clear_item()
 
         for forced_affix_index in forced_affix_indices:
             self.add_affix(forced_affix_index)
 
-        for roll_index in range(len(forced_affix_indices), affix_N):
+        for _ in range(len(forced_affix_indices), affix_N):
             self.roll_one_affix()
 
     def roll_one_affix(self):
