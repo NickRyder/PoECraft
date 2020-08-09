@@ -77,14 +77,16 @@ class ExplictlessItem:
         implicits=[],
         quality=20,
         fractured_mods=[],
+        extra_tags=None,
     ):
         self.base_item_entry = get_base_item_by_name(base_item_name)
 
-        self.tags = []
+        self.extra_tags = extra_tags if extra_tags is not None else []
         # make all of the properties of base_item_entry properties of this class
         for key, value in self.base_item_entry.items():
             setattr(self, key, value)
 
+        self.tags += self.extra_tags
         self.ilvl = ilvl
 
         item_class = self.base_item_entry["item_class"]
@@ -99,7 +101,6 @@ class ExplictlessItem:
         if len(implicits) > 0:
             self.implicits = implicits
         self.set_implicit_stats()
-
 
 def unpack_fossils(fossil_names):
     """
