@@ -1,9 +1,7 @@
 import random
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods
-from PoECraft.mod_collector import (
-    collect_mods_and_tags,
-)
+from PoECraft.mod_collector import collect_mods_and_tags
 from PoECraft.cached_weight_draw import CachedWeightDraw
 
 from PoECraft.performance._draw_affix import affix_draw

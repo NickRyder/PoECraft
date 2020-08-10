@@ -1,5 +1,3 @@
-
-
 # http://prng.di.unimi.it/xoshiro128starstar.c
 cdef inline unsigned int rotl(unsigned int x, int k):
     return (x << k) | (x >> (32 - k))
@@ -26,8 +24,8 @@ cdef unsigned int rng():
 #http://www.pcg-random.org/posts/bounded-rands.html
 cdef unsigned int _bounded_rand(unsigned int rand_range):
     cdef unsigned int x = rng()
-    cdef unsigned long m = <unsigned long>x * <unsigned long>rand_range
-    cdef unsigned int l = <unsigned long>m
+    cdef unsigned long long m = <unsigned long long>x * <unsigned long long>rand_range
+    cdef unsigned int l = <unsigned int>m
     cdef unsigned int t = -rand_range
     if (l < rand_range):
         if (t >= rand_range):
@@ -36,10 +34,10 @@ cdef unsigned int _bounded_rand(unsigned int rand_range):
                 t %= rand_range
         while (l < t):
             x = rng()
-            m = <unsigned long>x * <unsigned long>rand_range
+            m = <unsigned long long>x * <unsigned long long>rand_range
             l = <unsigned int>m
+            
     return m >> 32
 
 def bounded_rand(int rand_range):
     return _bounded_rand(rand_range)
-
