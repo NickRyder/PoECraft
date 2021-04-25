@@ -1,5 +1,11 @@
 This project is intended to be a Python Package focused on performant crafting simulations for Path of Exile. All of the data is gathered from [RePoE](https://github.com/brather1ng/RePoE), which parses the `content.ggpk` file into json.
 
+## Roadmap
+ - Add in multithreading to rust scripts
+ - Add in a more currency-centric API through rust
+ - Clean up whole code base with typing and pre-commit
+ - Push towards v1.0...
+
 # Distribution Details
 
 This project now uses [Rust](https://www.rust-lang.org/) through the [pyo3 bindings](https://github.com/PyO3/pyo3). There are rust classes which hold the critical information and run the simulations, and are extended by python objects. This resulted in a 14x speed up over Cython, which itself was a 9x speed up over Python.
