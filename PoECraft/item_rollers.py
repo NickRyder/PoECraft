@@ -1,12 +1,16 @@
-import random
+from typing import List, Set
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods
 from PoECraft.mod_collector import collect_mods_and_tags
-from PoECraft.cached_weight_draw import CachedWeightDraw
+from PoECraft.cached_weight_draw import CachedAffixDrawer
 
-from PoECraft.performance._draw_affix import affix_draw
+from poe_craft.poe_craft import ExplicitModRoller as ExplicitModRollerRust
 
 from enum import Enum
+
+
+def test():
+    print(mods)
 
 
 class Influence(Enum):
@@ -48,23 +52,16 @@ def get_fossil_by_name(name):
 class ExplictlessItem:
     """A class to represent an item without explicit mods in PoE"""
 
-    def set_implicit_stats(self, max_implicit_rolls=True):
-        self.implicit_stats = {}
-
-        for mod_key in self.implicits:
-            mod = mods[mod_key]
-            for stat in mod["stats"]:
-                id = stat["id"]
-                if id not in self.implicit_stats:
-                    self.implicit_stats[id] = np.empty((0, 2))
-                if max_implicit_rolls:
-                    self.implicit_stats[id] = np.vstack(
-                        [self.implicit_stats[id], np.array([stat["max"], stat["max"]])]
-                    )
-                else:
-                    self.implicit_stats[id] = np.vstack(
-                        [self.implicit_stats[id], np.array([stat["min"], stat["max"]])]
-                    )
+    base_item_entry = None
+    max_pre: int
+    max_suf: int
+    ilvl: int
+    tags = None
+    extra_tags = None
+    quality: int
+    fractured_mods = None
+    implicits = None
+    set_implicit_stats = None
 
     def __init__(
         self,
@@ -76,9 +73,17 @@ class ExplictlessItem:
         fractured_mods=[],
         extra_tags=None,
         max_affix=3,
+        max_pre=None,
+        max_suf=None,
     ):
         self.base_item_entry = get_base_item_by_name(base_item_name)
-        self.max_affix = max_affix
+
+        self.max_pre = max_affix
+        self.max_suf = max_affix
+        if max_pre is not None:
+            self.max_pre = max_pre
+        if max_suf is not None:
+            self.max_suf = max_suf
         self.extra_tags = extra_tags if extra_tags is not None else []
         # make all of the properties of base_item_entry properties of this class
         for key, value in self.base_item_entry.items():
@@ -100,13 +105,31 @@ class ExplictlessItem:
             self.implicits = implicits
         self.set_implicit_stats()
 
+    def set_implicit_stats(self, max_implicit_rolls=True):
+        self.implicit_stats = {}
+
+        for mod_key in self.implicits:
+            mod = mods[mod_key]
+            for stat in mod["stats"]:
+                id = stat["id"]
+                if id not in self.implicit_stats:
+                    self.implicit_stats[id] = np.empty((0, 2))
+                if max_implicit_rolls:
+                    self.implicit_stats[id] = np.vstack(
+                        [self.implicit_stats[id], np.array([stat["max"], stat["max"]])]
+                    )
+                else:
+                    self.implicit_stats[id] = np.vstack(
+                        [self.implicit_stats[id], np.array([stat["min"], stat["max"]])]
+                    )
+
 
 def unpack_fossils(fossil_names):
     """
     Takes in a list of fossil_names (which are keys in RePoE.fossil) and generates:
-    added_mods: mods to add to the mod pool 
+    added_mods: mods to add to the mod pool
     forced_mods: mods which must spawn on the item
-    global_generation_weights: 
+    global_generation_weights:
     """
     forced_mod_names = []
     added_mod_names = []
@@ -128,7 +151,7 @@ def unpack_fossils(fossil_names):
 def unpack_essences(essence_names, item_class):
     """
     Takes in a list of essence_names (which are values for the key 'name' in RePoE.essence) and generates:
-    forced_mod_names: all the mods which must spawn by using tehse essences
+    forced_mod_names: all the mods which must spawn by using these essences
     """
     forced_mod_names = []
     for essence_name in essence_names:
@@ -141,26 +164,40 @@ def unpack_essences(essence_names, item_class):
     return forced_mod_names
 
 
-class ExplicitModRoller:
+def forced_affix_indices_from_essences_and_fossils(
+    affix_key_list: List[int],
+    essences_forced_mod_names: List[str],
+    fossils_forced_mod_names: List[str],
+    starting_tags: Set[str],
+):
+    forced_affix_indices = [
+        affix_key_list.index(forced_mod) for forced_mod in essences_forced_mod_names
+    ]
+
+    for forced_mod in fossils_forced_mod_names:
+        positive_spawn_weight_tags = set(
+            [
+                spawn_weight["tag"]
+                for spawn_weight in mods[forced_mod]["spawn_weights"]
+                if spawn_weight["weight"] > 0
+            ]
+        )
+        if positive_spawn_weight_tags & starting_tags:
+            forced_affix_indices.append(affix_key_list.index(forced_mod))
+
+    return forced_affix_indices
+
+
+class ExplicitModRoller(ExplicitModRollerRust):
     """A class to quickly simulate using currency on an item in PoE"""
 
-    def clear_item(self):
-        self.prefix_N = 0
-        self.suffix_N = 0
-        self.tags_current = 0
-        self.affix_indices_current = []
-        self.affix_keys_current = []
-
-    def __init__(
-        self, explicitless_item: ExplictlessItem, fossil_names=[], essence_names=[]
+    def __new__(
+        cls,
+        explicitless_item: ExplictlessItem,
+        fossil_names=[],
+        essence_names=[],
+        mods=mods,
     ):
-
-        self.max_affix = explicitless_item.max_affix
-        self.max_pre = explicitless_item.max_affix
-        self.max_suff = explicitless_item.max_affix
-        self.clear_item()
-        # raise NotImplementedError("Currently a bug found by a smoke test. Unstable")
-        self.base_explicitless_item = explicitless_item
 
         (
             fossils_forced_mod_names,
@@ -171,13 +208,13 @@ class ExplicitModRoller:
         essences_forced_mod_names = unpack_essences(
             essence_names, explicitless_item.item_class
         )
-        appended_mod_dictionary = {}
-        for name in (
-            fossils_forced_mod_names
+
+        appended_mod_dictionary = {
+            name: mods[name]
+            for name in fossils_forced_mod_names
             + fossils_added_mod_names
             + essences_forced_mod_names
-        ):
-            appended_mod_dictionary[name] = mods[name]
+        }
 
         starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
@@ -185,113 +222,51 @@ class ExplicitModRoller:
             domains=[explicitless_item.domain],
             starting_tags=starting_tags,
             appended_mod_dictionary=appended_mod_dictionary,
-            ilvl=self.base_explicitless_item.ilvl,
+            ilvl=explicitless_item.ilvl,
         )
 
-        self.setup_cached_weight_draw(
-            mod_dict=mod_dict,
-            relevant_starting_tags=relevant_starting_tags,
+        affix_key_list, affix_value_list = zip(*mod_dict.items())
+        added_spawn_tags = tuple(added_spawn_tags)
+
+        affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(
+            added_spawn_tags, affix_value_list
+        )
+
+        cls.cached_weight_draw = CachedAffixDrawer(
+            starting_tags=relevant_starting_tags,
             added_spawn_tags=added_spawn_tags,
+            affix_values_list=affix_value_list,
             global_generation_weights=fossils_global_generation_weights,
         )
 
-        self.forced_affix_indices = []
-        for forced_mod in essences_forced_mod_names:
-            self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
-
-        for forced_mod in fossils_forced_mod_names:
-            positive_spawn_weight_tags = set(
-                [
-                    spawn_weight["tag"]
-                    for spawn_weight in mods[forced_mod]["spawn_weights"]
-                    if spawn_weight["weight"] > 0
-                ]
-            )
-            if positive_spawn_weight_tags & starting_tags:
-                self.forced_affix_indices.append(self.affix_key_pool.index(forced_mod))
-
-    def setup_cached_weight_draw(
-        self,
-        mod_dict,
-        relevant_starting_tags,
-        added_spawn_tags,
-        global_generation_weights=[],
-    ):
-        ##Order the keys, data, and added tags
-        self.mod_dict = mod_dict
-        self.affix_key_pool = list(self.mod_dict.keys())
-        affix_data_pool = [self.mod_dict[key] for key in self.affix_key_pool]
-        added_spawn_tags = tuple(added_spawn_tags)
-
-        self.affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(
-            added_spawn_tags, affix_data_pool
+        forced_affix_indices = forced_affix_indices_from_essences_and_fossils(
+            affix_key_list=affix_key_list,
+            essences_forced_mod_names=essences_forced_mod_names,
+            fossils_forced_mod_names=fossils_forced_mod_names,
+            starting_tags=starting_tags,
         )
 
-        self.cached_weight_draw = CachedWeightDraw(
-            starting_tags=relevant_starting_tags,
-            added_spawn_tags=added_spawn_tags,
-            affix_values_list=affix_data_pool,
-            global_generation_weights=global_generation_weights,
+        return super().__new__(
+            cls,
+            affix_key_list,
+            affix_to_added_tags_bitstring,
+            explicitless_item.max_pre,
+            explicitless_item.max_suf,
+            forced_affix_indices,
+            cls.cached_weight_draw,
         )
-
-    def add_affix(self, affix_index):
-        self.affix_indices_current.append(affix_index)
-        affix_key = self.affix_key_pool[affix_index]
-        self.affix_keys_current.append(affix_key)
-
-        self.tags_current = (
-            self.tags_current | self.affix_to_added_tags_bitstring[affix_index]
-        )
-
-        if self.cached_weight_draw.prefix_Q[affix_index]:
-            self.prefix_N += 1
-        else:
-            self.suffix_N += 1
 
     def roll_item_magic(self):
-        self.roll_item_with_max(max_affixes=1)
+        return super().roll_item_magic()
 
     def roll_item(self):
-        self.roll_item_with_max(max_affixes=self.max_affix)
+        return super().roll_item()
 
     def roll_item_with_max(self, max_affixes):
-        forced_affix_indices = self.forced_affix_indices
-
-        if max_affixes == 3:
-            rand_seed = 12 * random.random()
-            if rand_seed < 1:
-                affix_N = 6
-            elif rand_seed < 4:
-                affix_N = 5
-            else:
-                affix_N = 4
-        elif max_affixes == 2:
-            rand_seed = 3 * random.random()
-            if rand_seed < 2:
-                affix_N = 3
-            else:
-                affix_N = 4
-        elif max_affixes == 1:
-            rand_seed = random.random()
-            if rand_seed < 0.5:
-                affix_N = 1
-            else:
-                affix_N = 2
-        else:
-            raise ValueError(f"Unknown max_affixes {max_affixes}")
-
-        self.clear_item()
-
-        for forced_affix_index in forced_affix_indices:
-            self.add_affix(forced_affix_index)
-
-        for _ in range(len(forced_affix_indices), affix_N):
-            self.roll_one_affix()
+        return super().roll_item_with_max(max_affixes)
 
     def roll_one_affix(self):
-        # new_affix_idx = self.cached_weight_draw.affix_draw(current_tags=self.tags_current, current_affixes=self.affix_indices_current, prefix_N=self.prefix_N, suffix_N=self.suffix_N)
-        new_affix_idx = affix_draw(self)
-        self.add_affix(new_affix_idx)
+        return super().roll_one_affix()
 
     def get_affix_groups(self):
         affix_groups = []
@@ -322,4 +297,3 @@ class ExplicitModRoller:
 
     def __str__(self):
         return str(self.affix_keys_current)
-

@@ -1,4 +1,2 @@
-include *.md
-include *.py
-recursive-include PoECraft *.py *.pyx *.pxd
-recursive-include tools *.py
+include pyproject.toml Cargo.toml
+recursive-include src *

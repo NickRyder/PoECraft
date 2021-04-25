@@ -1,5 +1,5 @@
-
 from repoe_import import repoe_data
+
 affix_strings = {}
 
 for stat_translation in repoe_data["stat_translations"]:
@@ -13,22 +13,41 @@ for stat_translation in repoe_data["stat_translations"]:
         affix_strings[affix_string].append(stat_translation)
 
 
-index_handlers_multipliers = {'negate' : -1, 'canonical_stat' : 1, 'divide_by_fifteen_0dp' : 15, 'per_minute_to_per_second_1dp' : 60,
-                     'divide_by_twenty_then_double_0dp' : 10, '60%_of_value' : 5.0/3, 'divide_by_one_hundred_2dp' : 100,
-                     'milliseconds_to_seconds_0dp' : 1000, 'per_minute_to_per_second_2dp_if_required' : 60,
-                     'deciseconds_to_seconds' : 10, 'divide_by_ten_0dp' : 10, 'multiplicative_damage_modifier' : 1,
-                     'milliseconds_to_seconds' : 1000, 'mod_value_to_item_class' : 1, 'old_leech_percent' : 1, 'old_leech_permyriad' : 10000,
-                     '30%_of_value' : 10.0/3, 'per_minute_to_per_second_0dp' : 60, 'per_minute_to_per_second' : 60, 'divide_by_two_0dp' : 2,
-                     'milliseconds_to_seconds_2dp' : 1000, 'divide_by_one_hundred' : 100}
+index_handlers_multipliers = {
+    "negate": -1,
+    "canonical_stat": 1,
+    "divide_by_fifteen_0dp": 15,
+    "per_minute_to_per_second_1dp": 60,
+    "divide_by_twenty_then_double_0dp": 10,
+    "60%_of_value": 5.0 / 3,
+    "divide_by_one_hundred_2dp": 100,
+    "milliseconds_to_seconds_0dp": 1000,
+    "per_minute_to_per_second_2dp_if_required": 60,
+    "deciseconds_to_seconds": 10,
+    "divide_by_ten_0dp": 10,
+    "multiplicative_damage_modifier": 1,
+    "milliseconds_to_seconds": 1000,
+    "mod_value_to_item_class": 1,
+    "old_leech_percent": 1,
+    "old_leech_permyriad": 10000,
+    "30%_of_value": 10.0 / 3,
+    "per_minute_to_per_second_0dp": 60,
+    "per_minute_to_per_second": 60,
+    "divide_by_two_0dp": 2,
+    "milliseconds_to_seconds_2dp": 1000,
+    "divide_by_one_hundred": 100,
+}
 
 
 import difflib
 import re
 
-#First chunk: rarity, name, type
-#Second chunk:
-def get_stat_possibilities(text, verbose = False):
-    text_chunk_lines = [text_chunk.splitlines() for text_chunk in text.split("--------\n")]
+# First chunk: rarity, name, type
+# Second chunk:
+def get_stat_possibilities(text, verbose=False):
+    text_chunk_lines = [
+        text_chunk.splitlines() for text_chunk in text.split("--------\n")
+    ]
 
     rarity = text_chunk_lines[0][0][8:]
     base_type = text_chunk_lines[0][-1]
@@ -38,9 +57,9 @@ def get_stat_possibilities(text, verbose = False):
         print(base_type)
         print(text_chunk_lines)
 
-
-
-    assert text_chunk_lines[-1][0] != "Corrupted", "Corrupted items not supported currently"
+    assert (
+        text_chunk_lines[-1][0] != "Corrupted"
+    ), "Corrupted items not supported currently"
     elder = False
     shaper = False
     if text_chunk_lines[-1][0] == "Elder Item":
@@ -65,9 +84,13 @@ def get_stat_possibilities(text, verbose = False):
     stat_possibilities_per_line = []
 
     for affix_line in affix_lines:
-        if verbose: print(affix_line)
-        affix_string_guess = difflib.get_close_matches(affix_line, affix_strings.keys())[0]
-        if verbose: print(affix_string_guess)
+        if verbose:
+            print(affix_line)
+        affix_string_guess = difflib.get_close_matches(
+            affix_line, affix_strings.keys()
+        )[0]
+        if verbose:
+            print(affix_string_guess)
 
         affix_line_stat_possibilites = []
 
@@ -75,20 +98,45 @@ def get_stat_possibilities(text, verbose = False):
             affix_line_stat_possibility = {}
             for string_entry in stat_translation_entry["English"]:
                 if string_entry["string"] == affix_string_guess:
-                    insert_indices = [i for i in range(len(affix_string_guess)) if affix_string_guess[i] == "{"]
-                    insert_condition_indices = [int(affix_string_guess[i+1]) for i in insert_indices]
+                    insert_indices = [
+                        i
+                        for i in range(len(affix_string_guess))
+                        if affix_string_guess[i] == "{"
+                    ]
+                    insert_condition_indices = [
+                        int(affix_string_guess[i + 1]) for i in insert_indices
+                    ]
                     defluffed_affix_line = [affix_line]
                     if len(insert_indices) > 0:
-                        fluff_strings = [affix_string_guess[0:insert_indices[0]]] + [affix_string_guess[insert_indices[i]+3:insert_indices[i+1]] for i in range(len(insert_indices)-1)] + [affix_string_guess[insert_indices[-1]+3:]]
+                        fluff_strings = (
+                            [affix_string_guess[0 : insert_indices[0]]]
+                            + [
+                                affix_string_guess[
+                                    insert_indices[i] + 3 : insert_indices[i + 1]
+                                ]
+                                for i in range(len(insert_indices) - 1)
+                            ]
+                            + [affix_string_guess[insert_indices[-1] + 3 :]]
+                        )
 
                         for fluff in fluff_strings:
-                            if fluff != '':
+                            if fluff != "":
                                 new_segments = []
                                 for segment in defluffed_affix_line:
-                                    new_segments += [not_empty for not_empty in segment.split(fluff) if not_empty != '']
+                                    new_segments += [
+                                        not_empty
+                                        for not_empty in segment.split(fluff)
+                                        if not_empty != ""
+                                    ]
                                 defluffed_affix_line = new_segments
 
-                    for index, (condition, format, index_handlers) in enumerate(zip(string_entry["condition"],string_entry["format"], string_entry["index_handlers"])):
+                    for index, (condition, format, index_handlers) in enumerate(
+                        zip(
+                            string_entry["condition"],
+                            string_entry["format"],
+                            string_entry["index_handlers"],
+                        )
+                    ):
                         if format != "ignore":
                             string_index = insert_condition_indices.index(index)
                             value = defluffed_affix_line[string_index]
@@ -99,20 +147,29 @@ def get_stat_possibilities(text, verbose = False):
                             elif format == "+#":
                                 value = value[1:]
                             elif format != "#":
-                                raise ValueError("unrecognized format string: " + format)
+                                raise ValueError(
+                                    "unrecognized format string: " + format
+                                )
                             value = float(value)
 
                             for index_handler in index_handlers:
                                 value *= index_handlers_multipliers[index_handler]
                             value = int(value)
-                            if ("min" in condition and condition["min"] > value) or ("max" in condition and condition["max"] < value):
+                            if ("min" in condition and condition["min"] > value) or (
+                                "max" in condition and condition["max"] < value
+                            ):
                                 raise ValueError("string doesnt meet conditionals")
-                            affix_line_stat_possibility[stat_translation_entry["ids"][index]] = value
+                            affix_line_stat_possibility[
+                                stat_translation_entry["ids"][index]
+                            ] = value
             affix_line_stat_possibilites.append(affix_line_stat_possibility)
         stat_possibilities_per_line.append(affix_line_stat_possibilites)
     return stat_possibilities_per_line, base_type, ilvl, elder, shaper
 
+
 from itertools import *
+
+
 def find_all_mod_combos(stat_possibilities_per_line, base_dict):
     affix_possibilities = []
     for stat_choices in product(*stat_possibilities_per_line):
@@ -122,7 +179,8 @@ def find_all_mod_combos(stat_possibilities_per_line, base_dict):
 
 import numpy as np
 
-def associate_mods(stat_choices, base_dict, prefix_max = 3, suffix_max = 3):
+
+def associate_mods(stat_choices, base_dict, prefix_max=3, suffix_max=3):
     affix_possibilities = []
 
     stats_combined = {}
@@ -134,11 +192,7 @@ def associate_mods(stat_choices, base_dict, prefix_max = 3, suffix_max = 3):
             stats_combined[key] = dict[key]
             stats_to_mod_groups[key] = set()
 
-
     mod_groups = {}
-
-
-
 
     stats_seen = set()
     for key, value in base_dict.items():
@@ -152,7 +206,7 @@ def associate_mods(stat_choices, base_dict, prefix_max = 3, suffix_max = 3):
             group = value["group"]
             affix = key
             if group not in mod_groups:
-                mod_groups[group] = {'' : {}}
+                mod_groups[group] = {"": {}}
             mod_groups[group][affix] = {}
             for stat in value["stats"]:
                 if stat["id"] != "dummy_stat_display_nothing":
@@ -162,13 +216,11 @@ def associate_mods(stat_choices, base_dict, prefix_max = 3, suffix_max = 3):
                 # mod_groups[group][affix]["min"][id] += stat["min"]
                 # mod_groups[group][affix]["max"][id] += stat["max"]
 
-
-    #cant get all of stats
+    # cant get all of stats
     if len(set(stats_combined).difference(stats_seen)) > 0:
         return []
 
-
-    #TRIM GROUPS WHICH ARE THE SOLE GROUP THAT CONTRIBUTE TO A STAT
+    # TRIM GROUPS WHICH ARE THE SOLE GROUP THAT CONTRIBUTE TO A STAT
     for stat in stats_combined:
         if len(stats_to_mod_groups[stat]) == 1:
             single_mod_group = stats_to_mod_groups[stat].pop()
@@ -176,55 +228,62 @@ def associate_mods(stat_choices, base_dict, prefix_max = 3, suffix_max = 3):
             good_affixes = {}
             for key, value in mod_groups[single_mod_group].items():
                 try:
-                    if stats_combined[stat] >= value[stat][0] and stats_combined[stat] <= value[stat][1]:
+                    if (
+                        stats_combined[stat] >= value[stat][0]
+                        and stats_combined[stat] <= value[stat][1]
+                    ):
                         good_affixes[key] = value
                 except KeyError:
-                    #This happens for empty dict
+                    # This happens for empty dict
                     continue
             mod_groups[single_mod_group] = good_affixes
-
 
     for affix_choice in product(*[dict.items() for dict in mod_groups.values()]):
         total_range = {}
 
         for stat in stats_combined:
-            total_range[stat] = np.array([0,0])
+            total_range[stat] = np.array([0, 0])
 
         for key, min_max_dict in affix_choice:
             for id in min_max_dict:
                 total_range[id] += min_max_dict[id]
 
-
         satisfies_conditions = True
         for stat in stats_combined:
-            if stats_combined[stat] < total_range[stat][0] or stats_combined[stat] > total_range[stat][1]:
+            if (
+                stats_combined[stat] < total_range[stat][0]
+                or stats_combined[stat] > total_range[stat][1]
+            ):
                 satisfies_conditions = False
 
         if satisfies_conditions:
             new_affix_entry = []
-            prefix_N = 0
-            suffix_N = 0
+            prefix_n = 0
+            suffix_n = 0
             for affix, stats in affix_choice:
-                if affix != '':
+                if affix != "":
                     if base_dict[affix]["generation_type"] == "prefix":
-                        prefix_N += 1
+                        prefix_n += 1
                     elif base_dict[affix]["generation_type"] == "suffix":
-                        suffix_N += 1
+                        suffix_n += 1
                     else:
                         raise ValueError("not prefix or suffix")
                     new_affix_entry.append(affix)
 
-            if prefix_N <= prefix_max and suffix_N <= suffix_max:
+            if prefix_n <= prefix_max and suffix_n <= suffix_max:
                 affix_possibilities.append(new_affix_entry)
     return affix_possibilities
 
+
 from item_rollers import base_item
 from item_rollers import get_base_item
+
+
 def parse_clipboard(text):
     stat_possibilities, base_type, ilvl, elder, shaper = get_stat_possibilities(text)
     base_item_obj = get_base_item(base_type)
 
-    item = base_item(base_item_obj, elder = elder, shaper = shaper, ilvl = ilvl)
+    item = base_item(base_item_obj, elder=elder, shaper=shaper, ilvl=ilvl)
     # print(item.hash_weight_dict.base_dict.keys())
     return find_all_mod_combos(stat_possibilities, item.hash_weight_dict.base_dict)
 
