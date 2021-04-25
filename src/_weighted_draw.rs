@@ -1,7 +1,8 @@
 use crate::_explicit_mod_roller::*;
 use rand::Rng;
 
-fn linear_search<'a>(cumsums: &Vec<u32>, cumsum_diffs: &Vec<&Vec<u32>>, item: u32) -> usize {
+#[allow(dead_code)]
+fn linear_search(cumsums: &[u32], cumsum_diffs: &[&[u32]], item: u32) -> usize {
     // A simple linear search, in practice only 5% slower than binary search
     for idx in 0..cumsums.len() {
         let mut curitem: u32 = cumsums[idx];
@@ -17,10 +18,10 @@ fn linear_search<'a>(cumsums: &Vec<u32>, cumsum_diffs: &Vec<&Vec<u32>>, item: u3
     panic!("No returned value")
 }
 
-fn _bisect_right_diff_arrays<'a>(
+fn _bisect_right_diff_arrays(
     // function: fn(usize) -> u32,
     // hi: usize,
-    cumsums: &Vec<u32>,
+    cumsums: &[u32],
     explicit_mod_roller: &ExplicitModRoller,
     item: u32,
 ) -> usize {
@@ -60,7 +61,7 @@ fn _bisect_right_diff_arrays<'a>(
     lo
 }
 
-pub fn weighted_draw<'a>(base_array: &Vec<u32>, explicit_mod_roller: &ExplicitModRoller) -> usize {
+pub fn weighted_draw(base_array: &[u32], explicit_mod_roller: &ExplicitModRoller) -> usize {
     let max_roll = explicit_mod_roller._value_from_base_array(&base_array, base_array.len() - 1);
 
     let mut rng = rand::thread_rng();

@@ -20,15 +20,15 @@ pub struct CachedAffixDrawer {
 }
 
 fn array_1_to_vec(x: ArrayView1<u32>) -> Vec<u32> {
-    x.to_owned().into_iter().map(|&x| x).collect()
+    x.to_owned().into_iter().copied().collect()
 }
 
 fn array_2_to_vec_vec(x: ArrayView2<u32>) -> Vec<Vec<u32>> {
-    x.outer_iter().map(|x| array_1_to_vec(x)).collect()
+    x.outer_iter().map(array_1_to_vec).collect()
 }
 
 fn array_3_to_vec_vec_vec(x: ArrayView3<u32>) -> Vec<Vec<Vec<u32>>> {
-    x.outer_iter().map(|x| array_2_to_vec_vec(x)).collect()
+    x.outer_iter().map(array_2_to_vec_vec).collect()
 }
 
 #[pymethods]

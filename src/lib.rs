@@ -1,5 +1,5 @@
+#![allow(clippy::unnecessary_wraps)]
 use pyo3::prelude::*;
-
 mod _affix_draw;
 mod _explicit_mod_roller;
 mod _weighted_draw;
@@ -17,6 +17,6 @@ fn poe_craft(_py: Python, m: &PyModule) -> PyResult<()> {
 }
 
 #[pymodule]
-fn rust_scripts(_py: Python, m: &PyModule) -> PyResult<()> {
+fn rust_scripts(_py: Python, _m: &PyModule) -> PyResult<()> {
     Ok(())
 }

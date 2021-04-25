@@ -61,15 +61,15 @@ impl ExplicitModRoller {
     ) -> Self {
         ExplicitModRoller {
             affix_indices_current: [None; 6],
-            affix_key_pool: affix_key_pool,
+            affix_key_pool,
             tags_current: 0,
-            affix_to_added_tags_bitstring: affix_to_added_tags_bitstring,
+            affix_to_added_tags_bitstring,
             prefix_n: 0,
             suffix_n: 0,
-            max_pre: max_pre,
-            max_suf: max_suf,
-            forced_affix_indices: forced_affix_indices, //.into_boxed_slice(),
-            cached_weight_draw: cached_weight_draw,
+            max_pre,
+            max_suf,
+            forced_affix_indices, //.into_boxed_slice(),
+            cached_weight_draw,
         }
     }
 
@@ -96,7 +96,7 @@ impl ExplicitModRoller {
     fn add_affix(&mut self, affix_index: usize) -> PyResult<()> {
         self.affix_indices_current[(self.prefix_n + self.suffix_n)] = Some(affix_index);
 
-        self.tags_current = self.tags_current | self.affix_to_added_tags_bitstring[affix_index];
+        self.tags_current |= self.affix_to_added_tags_bitstring[affix_index];
 
         if self.cached_weight_draw.prefix_q[affix_index] {
             self.prefix_n += 1;
@@ -161,8 +161,7 @@ impl ExplicitModRoller {
             // inline add_affix because of &mut self problems
 
             self.affix_indices_current[(self.prefix_n + self.suffix_n)] = Some(forced_affix_index);
-            self.tags_current =
-                self.tags_current | self.affix_to_added_tags_bitstring[forced_affix_index];
+            self.tags_current |= self.affix_to_added_tags_bitstring[forced_affix_index];
 
             if self.cached_weight_draw.prefix_q[forced_affix_index] {
                 self.prefix_n += 1;
@@ -181,7 +180,7 @@ impl ExplicitModRoller {
         let maxed_out_prefixes: bool = self.prefix_n == self.max_pre;
         let maxed_out_suffixes: bool = self.suffix_n == self.max_suf;
 
-        let base_array: &Vec<u32>;
+        let base_array: &[u32];
 
         // if prefixes/suffixes/tags have changed, recalculate weights from all affix changes
         if !maxed_out_prefixes && !maxed_out_suffixes {
@@ -200,7 +199,7 @@ impl ExplicitModRoller {
 
 impl ExplicitModRoller {
     #[inline(always)]
-    pub fn _value_from_base_array(&self, base_array: &Vec<u32>, idx: usize) -> u32 {
+    pub fn _value_from_base_array(&self, base_array: &[u32], idx: usize) -> u32 {
         let mut item = base_array[idx];
 
         for &affix in &self.affix_indices_current[..self.prefix_n + self.suffix_n] {
@@ -208,12 +207,12 @@ impl ExplicitModRoller {
             // for idx in 0..(prefix_n + suffix_n) {
             // let affix = current_affixes[idx];//.expect("affix out of bounds");
             if self.prefix_n < self.max_pre {
-                let diff_array: &Vec<u32> =
+                let diff_array: &[u32] =
                     &self.cached_weight_draw.group_diff_prefix_cumulative[self.tags_current][affix];
                 item -= diff_array[idx];
             }
             if self.suffix_n < self.max_suf {
-                let diff_array: &Vec<u32> =
+                let diff_array: &[u32] =
                     &self.cached_weight_draw.group_diff_suffix_cumulative[self.tags_current][affix];
                 item -= diff_array[idx];
             }

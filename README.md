@@ -4,14 +4,12 @@ This project is intended to be a Python Package focused on performant crafting s
 
 This project now uses [Rust](https://www.rust-lang.org/) through the [pyo3 bindings](https://github.com/PyO3/pyo3). There are rust classes which hold the critical information and run the simulations, and are extended by python objects. This resulted in a 14x speed up over Cython, which itself was a 9x speed up over Python.
 
-## Develop
-To develop on this project, you can use `python setup.py develop` to compile the rust - if needed, and `pip install -e .`
-
-## How to Use
-
-To use this repository, one needs to install [RePoE](https://github.com/brather1ng/RePoE) (which in turn requires [PyPoE](https://github.com/OmegaK2/PyPoE)).
-With these installed one can run `pip install -e .` in the `PoECraft` directory to install `PoECraft` as a package.
-
+## Run
+### Requirements
+- One needs to install [RePoE](https://github.com/brather1ng/RePoE) (which in turn requires [PyPoE](https://github.com/OmegaK2/PyPoE)).
+- One needs to install `setuptools_rust` using `pip install setuptools_rust`.
+### Develop
+- Then run `python setup.py develop` to install `PoECraft` locally in development mode
 ### Example Scripts
 
 There are example scripts which are carefully annotated found in `/example_scripts`. These demonstrate the current basic features of this package.
