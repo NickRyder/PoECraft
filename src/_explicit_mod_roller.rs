@@ -195,6 +195,10 @@ impl ExplicitModRoller {
 
         weighted_draw(&base_array, &self)
     }
+
+    fn roll_item_magic(&mut self) -> PyResult<()> {
+        self.roll_item_with_max(2)
+    }
 }
 
 impl ExplicitModRoller {

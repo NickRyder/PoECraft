@@ -4,12 +4,12 @@ from PoECraft.item_rollers import ExplictlessItem, ExplicitModRoller, Influence
 from tqdm import tqdm
 
 
-def get_ninja_prices(name, league_name="Metamorph"):
+def get_ninja_prices(name, league_name="Ultimatum"):
     prices = {}
     import requests
 
     ninja_result = requests.get(
-        f"https://poe.ninja/api/data/itemoverview?league={league_name}&type={name}"
+        f"https://poe.ninja/api/data/CurrencyOverview?league={league_name}&type={name}"
     ).json()
     for entry in ninja_result["lines"]:
         try:
@@ -22,9 +22,9 @@ def get_ninja_prices(name, league_name="Metamorph"):
 currency_prices = get_ninja_prices("Currency")
 
 
-def get_alt_prices(mod_name, item, trial_N=10 ** 8):
+def get_alt_prices(mod_name, item, trial_N=10 ** 7):
     generation_type = mods[mod_name]["generation_type"]
-    roller = ExplicitModRoller(item, max_affix=1, max_affix=1)
+    roller = ExplicitModRoller(item)
     count = 0
     alt = 0
     aug = 0
@@ -52,7 +52,12 @@ def get_alt_prices(mod_name, item, trial_N=10 ** 8):
 if __name__ == "__main__":
     mod_name = "HolyPhysicalExplosionInfluence1"
     astral_item = ExplictlessItem(
-        "Astral Plate", quality=30, ilvl=86, influences=[Influence.CRUSADER]
+        "Astral Plate",
+        quality=30,
+        ilvl=86,
+        influences=[Influence.CRUSADER],
+        max_pre=1,
+        max_suf=1,
     )
     print(get_alt_prices(mod_name, astral_item))
     # alt 100000000 aug 28373602

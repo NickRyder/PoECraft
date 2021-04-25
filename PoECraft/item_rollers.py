@@ -257,7 +257,7 @@ class ExplicitModRoller(ExplicitModRollerRust):
         )
 
     def roll_item_magic(self):
-        self.roll_item_with_max(max_affixes=1)
+        return super().roll_item_magic()
 
     def roll_item(self):
         return super().roll_item()
@@ -266,7 +266,7 @@ class ExplicitModRoller(ExplicitModRollerRust):
         return super().roll_item_with_max(max_affixes)
 
     def roll_one_affix(self):
-        return super().roll_one_affix(self)
+        return super().roll_one_affix()
 
     def get_affix_groups(self):
         affix_groups = []
