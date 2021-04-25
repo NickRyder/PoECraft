@@ -1,5 +1,4 @@
-import random
-from typing import List
+from typing import List, Set
 import numpy as np
 from RePoE import base_items, item_classes, essences, fossils, mods
 from PoECraft.mod_collector import collect_mods_and_tags
@@ -8,6 +7,10 @@ from PoECraft.cached_weight_draw import CachedAffixDrawer
 from poe_craft.poe_craft import ExplicitModRoller as ExplicitModRollerRust
 
 from enum import Enum
+
+
+def test():
+    print(mods)
 
 
 class Influence(Enum):
@@ -148,7 +151,7 @@ def unpack_fossils(fossil_names):
 def unpack_essences(essence_names, item_class):
     """
     Takes in a list of essence_names (which are values for the key 'name' in RePoE.essence) and generates:
-    forced_mod_names: all the mods which must spawn by using tehse essences
+    forced_mod_names: all the mods which must spawn by using these essences
     """
     forced_mod_names = []
     for essence_name in essence_names:
@@ -161,17 +164,40 @@ def unpack_essences(essence_names, item_class):
     return forced_mod_names
 
 
+def forced_affix_indices_from_essences_and_fossils(
+    affix_key_list: List[int],
+    essences_forced_mod_names: List[str],
+    fossils_forced_mod_names: List[str],
+    starting_tags: Set[str],
+):
+    forced_affix_indices = [
+        affix_key_list.index(forced_mod) for forced_mod in essences_forced_mod_names
+    ]
+
+    for forced_mod in fossils_forced_mod_names:
+        positive_spawn_weight_tags = set(
+            [
+                spawn_weight["tag"]
+                for spawn_weight in mods[forced_mod]["spawn_weights"]
+                if spawn_weight["weight"] > 0
+            ]
+        )
+        if positive_spawn_weight_tags & starting_tags:
+            forced_affix_indices.append(affix_key_list.index(forced_mod))
+
+    return forced_affix_indices
+
+
 class ExplicitModRoller(ExplicitModRollerRust):
     """A class to quickly simulate using currency on an item in PoE"""
 
     def __new__(
-        cls, explicitless_item: ExplictlessItem, fossil_names=[], essence_names=[]
+        cls,
+        explicitless_item: ExplictlessItem,
+        fossil_names=[],
+        essence_names=[],
+        mods=mods,
     ):
-        # clear item
-
-        max_pre = explicitless_item.max_pre
-        max_suf = explicitless_item.max_suf
-        base_explicitless_item = explicitless_item
 
         (
             fossils_forced_mod_names,
@@ -182,13 +208,13 @@ class ExplicitModRoller(ExplicitModRollerRust):
         essences_forced_mod_names = unpack_essences(
             essence_names, explicitless_item.item_class
         )
-        appended_mod_dictionary = {}
-        for name in (
-            fossils_forced_mod_names
+
+        appended_mod_dictionary = {
+            name: mods[name]
+            for name in fossils_forced_mod_names
             + fossils_added_mod_names
             + essences_forced_mod_names
-        ):
-            appended_mod_dictionary[name] = mods[name]
+        }
 
         starting_tags = set(explicitless_item.tags)
         starting_tags.add("default")
@@ -196,46 +222,36 @@ class ExplicitModRoller(ExplicitModRollerRust):
             domains=[explicitless_item.domain],
             starting_tags=starting_tags,
             appended_mod_dictionary=appended_mod_dictionary,
-            ilvl=base_explicitless_item.ilvl,
+            ilvl=explicitless_item.ilvl,
         )
 
-        mod_dict = mod_dict
-        affix_key_pool = list(mod_dict.keys())
-        affix_data_pool = [mod_dict[key] for key in affix_key_pool]
+        affix_key_list, affix_value_list = zip(*mod_dict.items())
         added_spawn_tags = tuple(added_spawn_tags)
 
-        forced_affix_indices = []
-        for forced_mod in essences_forced_mod_names:
-            forced_affix_indices.append(affix_key_pool.index(forced_mod))
-
-        for forced_mod in fossils_forced_mod_names:
-            positive_spawn_weight_tags = set(
-                [
-                    spawn_weight["tag"]
-                    for spawn_weight in mods[forced_mod]["spawn_weights"]
-                    if spawn_weight["weight"] > 0
-                ]
-            )
-            if positive_spawn_weight_tags & starting_tags:
-                forced_affix_indices.append(affix_key_pool.index(forced_mod))
-
         affix_to_added_tags_bitstring = spawn_tags_to_add_tags_array(
-            added_spawn_tags, affix_data_pool
+            added_spawn_tags, affix_value_list
         )
 
         cls.cached_weight_draw = CachedAffixDrawer(
             starting_tags=relevant_starting_tags,
             added_spawn_tags=added_spawn_tags,
-            affix_values_list=affix_data_pool,
+            affix_values_list=affix_value_list,
             global_generation_weights=fossils_global_generation_weights,
+        )
+
+        forced_affix_indices = forced_affix_indices_from_essences_and_fossils(
+            affix_key_list=affix_key_list,
+            essences_forced_mod_names=essences_forced_mod_names,
+            fossils_forced_mod_names=fossils_forced_mod_names,
+            starting_tags=starting_tags,
         )
 
         return super().__new__(
             cls,
-            affix_key_pool,
+            affix_key_list,
             affix_to_added_tags_bitstring,
-            max_pre,
-            max_suf,
+            explicitless_item.max_pre,
+            explicitless_item.max_suf,
             forced_affix_indices,
             cls.cached_weight_draw,
         )

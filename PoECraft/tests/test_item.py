@@ -1,6 +1,6 @@
+from os import remove
 from RePoE import mods
 from PoECraft.item_rollers import ExplicitModRoller, ExplictlessItem
-from PoECraft.mod_collector import generate_all_possible_affixes_and_tags
 from tqdm import tqdm
 from collections import Counter
 
@@ -110,12 +110,34 @@ def exact_type_numbers():
     return total_affixes
 
 
+def removed_mods(diff, roller):
+    removed_mods = []
+    last = 0
+    for idx, weight in enumerate(diff):
+        if last != weight:
+            removed_mods.append(roller.affix_key_pool[idx])
+        last = weight
+    return removed_mods
+
+
+def removed_mods(diff, roller, equal=False):
+    removed_mods = []
+    last = 0
+    for idx, weight in enumerate(diff):
+        if equal and last == weight:
+            removed_mods.append(roller.affix_key_pool[idx])
+        elif not equal and last != weight:
+            removed_mods.append(roller.affix_key_pool[idx])
+        last = weight
+    return removed_mods
+
+
 def test_single_tag():
     roller = ExplicitModRoller(ExplictlessItem("Searching Eye Jewel"))
     bow_idx = roller.affix_key_pool.index("AbyssAddedLightningDamageWithBowsJewel4")
-    print(bin(roller.tags_current))
+    default_tags = roller.tags_current
     roller.add_affix(bow_idx)
-    print(bin(roller.tags_current))
+    assert roller.tags_current != default_tags, "should get different tags"
     print(roller.cached_weight_draw.spawn_tags_to_spawn_weight[roller.tags_current])
     wand_idx = roller.affix_key_pool.index("AbyssAddedFireDamageWithWandsJewel4")
     assert (
@@ -125,31 +147,27 @@ def test_single_tag():
         == 0
     ), "wands and bows should block"
 
-    print("REMOVED MODS:")
     base = roller.cached_weight_draw.weights_cumulative[roller.tags_current]
-    last = 0
-    for idx, weight in enumerate(base):
-        if last == weight:
-            print(roller.affix_key_pool[idx])
-        last = weight
+    for removed_mod in removed_mods(base, roller, True):
+        assert (
+            "DamageWithWands" in removed_mod
+            or "WhileDualWielding" in removed_mod
+            or "HoldingAShield" in removed_mod
+        ), f"bad removed_mod {removed_mod}"
 
     diff = roller.cached_weight_draw.group_diff_prefix_cumulative[roller.tags_current][
         bow_idx
     ]
-    last = 0
-    for idx, weight in enumerate(diff):
-        if last != weight:
-            print(roller.affix_key_pool[idx])
-        last = weight
+    for removed_mod in removed_mods(diff, roller):
+        assert (
+            "AbyssAddedLightningDamageWithBows" in removed_mod
+        ), f"bad removed_mod {removed_mod}"
 
     diff = roller.cached_weight_draw.group_diff_suffix_cumulative[roller.tags_current][
         bow_idx
     ]
-    last = 0
-    for idx, weight in enumerate(diff):
-        if last != weight:
-            print(roller.affix_key_pool[idx])
-        last = weight
+
+    assert len(removed_mods(diff, roller)) == 0
 
 
 def test_single_generation_tag():
@@ -207,29 +225,49 @@ def test_smoke_prefix_suffix_group():
     pass
 
 
+from contextlib import contextmanager
+
+
+@contextmanager
+def monkey_patch_mods_to_test(test_item_mod_dictionary):
+    """
+    currently we just hardcode in RePoE.mods as our dict
+    we need to monkey patch this out for simple tests
+    """
+    from PoECraft import item_rollers, mod_collector
+
+    item_rollers.mods = test_item_mod_dictionary
+    mod_collector.mods = test_item_mod_dictionary
+    yield
+    from RePoE import mods
+
+    mod_collector.mods = mods
+    item_rollers.mods = mods
+
+
 def test_smoke(trial_N=10 ** 6):
-    test_item_mod_dictionary = {}
-    for mod_name in test_item_mod_name:
-        test_item_mod_dictionary[mod_name] = mods[mod_name]
+    test_item_mod_dictionary = {
+        mod_name: mods[mod_name]
+        for mod_name in test_item_mod_name + ["IncreasedLifeImplicitBelt1"]
+    }
 
-    relevant_start_tags, added_tags, affixes = generate_all_possible_affixes_and_tags(
-        starting_tags=["default", "belt"], mod_pool=test_item_mod_dictionary
-    )
-    roller = ExplicitModRoller(ExplictlessItem("Leather Belt"))
-    roller.setup_cached_weight_draw(affixes, relevant_start_tags, added_tags)
+    with monkey_patch_mods_to_test(test_item_mod_dictionary):
+        starting_tags = ["default", "belt"]
+        roller = ExplicitModRoller(
+            ExplictlessItem("Leather Belt", extra_tags=starting_tags)
+        )
+        print(roller.cached_weight_draw.spawn_tags_to_spawn_weight)
+        print(roller.affix_key_pool)
+        mod_counter = simulator_grab_label_counts(roller, trial_N=trial_N)
+        type_counter = divide_counter(mod_counter, trial_N)
+        exact_counter = exact_type_numbers()
 
-    print(roller.cached_weight_draw.spawn_tags_to_spawn_weight)
-    print(roller.affix_key_pool)
-    mod_counter = simulator_grab_label_counts(roller, trial_N=trial_N)
-    type_counter = divide_counter(mod_counter, trial_N)
-    exact_counter = exact_type_numbers()
-
-    for key, value in type_counter.items():
-        exact_value = exact_counter[key]
-        relative = (exact_value - value) / exact_value
-        assert (
-            abs(relative) < 0.1
-        ), f"exact and simulated dont match, {exact_value, value}"
+        for key, value in type_counter.items():
+            exact_value = exact_counter[key]
+            relative = (exact_value - value) / exact_value
+            assert (
+                abs(relative) < 0.1
+            ), f"exact and simulated dont match, {exact_value, value}"
 
 
 if __name__ == "__main__":

@@ -5,10 +5,15 @@ use pyo3::prelude::*;
 #[pyclass(subclass)]
 #[derive(Clone)]
 pub struct CachedAffixDrawer {
+    #[pyo3(get)]
     pub weights_cumulative: Vec<Vec<u32>>,
+    #[pyo3(get)]
     pub prefixes_cumulative: Vec<Vec<u32>>,
+    #[pyo3(get)]
     pub suffixes_cumulative: Vec<Vec<u32>>,
+    #[pyo3(get)]
     pub group_diff_prefix_cumulative: Vec<Vec<Vec<u32>>>,
+    #[pyo3(get)]
     pub group_diff_suffix_cumulative: Vec<Vec<Vec<u32>>>,
     pub prefix_q: Array1<bool>,
     pub suffix_q: Array1<bool>,
