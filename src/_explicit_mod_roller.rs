@@ -22,6 +22,7 @@ use crate::_weighted_draw::*;
 // }
 
 #[pyclass(subclass)]
+#[derive(Clone)]
 pub struct ExplicitModRoller {
     #[pyo3(get)]
     pub affix_indices_current: [Option<usize>; 6], //Vec<usize>,
@@ -49,7 +50,7 @@ pub struct ExplicitModRoller {
 #[pymethods]
 impl ExplicitModRoller {
     #[new]
-    fn new(
+    pub fn new(
         affix_key_pool: Vec<String>,
         affix_to_added_tags_bitstring: Vec<usize>,
         // prefix_q: PyReadonlyArray1<bool>,
@@ -73,7 +74,7 @@ impl ExplicitModRoller {
         }
     }
 
-    fn rust_print(&mut self) -> PyResult<()> {
+    pub fn rust_print(&mut self) -> PyResult<()> {
         println!("{:?}", self.affix_indices_current);
         println!("{:?}", self.affix_key_pool);
         println!("{:?}", self.tags_current);
@@ -84,7 +85,7 @@ impl ExplicitModRoller {
     }
 
     #[getter]
-    fn affix_keys_current(&self) -> PyResult<Vec<String>> {
+    pub fn affix_keys_current(&self) -> PyResult<Vec<String>> {
         Ok(self
             .affix_indices_current //[..self.prefix_n + self.suffix_n]
             .iter()
@@ -93,7 +94,7 @@ impl ExplicitModRoller {
             .collect())
     }
 
-    fn add_affix(&mut self, affix_index: usize) -> PyResult<()> {
+    pub fn add_affix(&mut self, affix_index: usize) -> PyResult<()> {
         self.affix_indices_current[(self.prefix_n + self.suffix_n)] = Some(affix_index);
 
         self.tags_current |= self.affix_to_added_tags_bitstring[affix_index];
@@ -106,12 +107,12 @@ impl ExplicitModRoller {
         Ok(())
     }
 
-    fn roll_one_affix(&mut self) -> PyResult<()> {
+    pub fn roll_one_affix(&mut self) -> PyResult<()> {
         let new_affix_idx = self._affix_draw();
         self.add_affix(new_affix_idx)
     }
 
-    fn clear_item(&mut self) -> PyResult<()> {
+    pub fn clear_item(&mut self) -> PyResult<()> {
         self.prefix_n = 0;
         self.suffix_n = 0;
         self.tags_current = 0;
@@ -120,11 +121,11 @@ impl ExplicitModRoller {
         Ok(())
     }
 
-    fn roll_item(&mut self) -> PyResult<()> {
+    pub fn roll_item(&mut self) -> PyResult<()> {
         self.roll_item_with_max(self.max_pre + self.max_suf)
     }
 
-    fn roll_item_with_max(&mut self, max_affixes: usize) -> PyResult<()> {
+    pub fn roll_item_with_max(&mut self, max_affixes: usize) -> PyResult<()> {
         let affix_n: usize;
 
         let mut rng = rand::thread_rng();
@@ -196,7 +197,7 @@ impl ExplicitModRoller {
         weighted_draw(&base_array, &self)
     }
 
-    fn roll_item_magic(&mut self) -> PyResult<()> {
+    pub fn roll_item_magic(&mut self) -> PyResult<()> {
         self.roll_item_with_max(2)
     }
 }

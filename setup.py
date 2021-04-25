@@ -22,7 +22,9 @@ setup(
         "Programming Language :: Python :: 3.5",
     ],
     packages=["PoECraft"],
-    rust_extensions=[RustExtension("poe_craft.poe_craft", "Cargo.toml", debug=False)],
+    rust_extensions=[
+        RustExtension("poe_craft.poe_craft", "Cargo.toml", debug=False),
+    ],
     include_package_data=True,
     zip_safe=False,
 )
