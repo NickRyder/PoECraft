@@ -10,10 +10,12 @@ This project now uses [Rust](https://www.rust-lang.org/) through the [pyo3 bindi
 - One needs to install `setuptools_rust` using `pip install setuptools_rust`.
 ### Develop
 - Then run `python setup.py develop` to install `PoECraft` locally in development mode
-### Example Scripts
+# Example Scripts
 
 There are example scripts which are carefully annotated found in `/example_scripts`. These demonstrate the current basic features of this package.
 
+## Rust Scripts
+If you want your script to be more performant, you can probably get 4x+ speed improvements by writing it in rust. An example of such a conversion can be found [here](rust_scripts.md).
 ### Smoke Tests
 
 Currently this package has no unit tests, but does have smoke tests to confirm the probability distribution on certain test items is as expected. The smoke tests check:
