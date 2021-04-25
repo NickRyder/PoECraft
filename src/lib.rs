@@ -15,3 +15,8 @@ fn poe_craft(_py: Python, m: &PyModule) -> PyResult<()> {
 
     Ok(())
 }
+
+#[pymodule]
+fn rust_scripts(_py: Python, m: &PyModule) -> PyResult<()> {
+    Ok(())
+}
