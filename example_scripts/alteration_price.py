@@ -24,7 +24,7 @@ currency_prices = get_ninja_prices("Currency")
 
 def get_alt_prices(mod_name, item, trial_N=10 ** 8):
     generation_type = mods[mod_name]["generation_type"]
-    roller = ExplicitModRoller(item, max_pre=1, max_suff=1)
+    roller = ExplicitModRoller(item, max_affix=1, max_affix=1)
     count = 0
     alt = 0
     aug = 0
@@ -35,8 +35,8 @@ def get_alt_prices(mod_name, item, trial_N=10 ** 8):
         if mod_name in roller.affix_keys_current:
             count += 1
         else:
-            aug_prefix = generation_type == "prefix" and roller.prefix_N == 0
-            aug_suffix = generation_type == "suffix" and roller.suffix_N == 0
+            aug_prefix = generation_type == "prefix" and roller.prefix_n == 0
+            aug_suffix = generation_type == "suffix" and roller.suffix_n == 0
             if aug_prefix or aug_suffix:
                 roller.roll_one_affix()
                 aug += 1

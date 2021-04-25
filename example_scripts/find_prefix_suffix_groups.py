@@ -1,4 +1,4 @@
-'''script to try and find a group which spawns prefix/suffix on the same item'''
+"""script to try and find a group which spawns prefix/suffix on the same item"""
 
 from RePoE import mods
 
@@ -17,10 +17,14 @@ for group in groups:
     group_to_mod[group] = []
 
 for mod_name, mod_value in mods.items():
-    if mod_value["domain"] == "item" and mod_value["generation_type"] in ["prefix", "suffix"]:
+    if mod_value["domain"] == "item" and mod_value["generation_type"] in [
+        "prefix",
+        "suffix",
+    ]:
         if mod_value["group"] in groups:
             group_to_mod[mod_value["group"]].append(mod_name)
 import itertools
+
 
 def _get_pos_weights(mod_value):
     to_return = set()
@@ -29,8 +33,9 @@ def _get_pos_weights(mod_value):
             to_return.add(spawn_Weight["tag"])
     return to_return
 
+
 for group, group_mods in group_to_mod.items():
-    for mod_name_1, mod_name_2 in itertools.combinations(group_mods,2):
+    for mod_name_1, mod_name_2 in itertools.combinations(group_mods, 2):
         mod_value_1 = mods[mod_name_1]
         mod_value_2 = mods[mod_name_2]
 
@@ -40,5 +45,7 @@ for group, group_mods in group_to_mod.items():
         is_essence = mod_value_1["is_essence_only"] or mod_value_2["is_essence_only"]
         is_delve = mod_value_1["domain"] is "delve" or mod_value_2["domain"] is "delve"
 
-        if (overlapping_tags or is_essence or is_delve) and mod_value_1["generation_type"] != mod_value_2["generation_type"]:
+        if (overlapping_tags or is_essence or is_delve) and mod_value_1[
+            "generation_type"
+        ] != mod_value_2["generation_type"]:
             print(mod_name_1, mod_name_2)
